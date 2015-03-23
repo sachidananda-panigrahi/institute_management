@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Page</title>
+<link href="css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="js/lib/require-jquery.js"></script>
+<script type="text/javascript">
+	require(['js/helper/require-reference'], function(reference){
+		require(['js/controller/LoginController'], function(LoginController){
+			var loginControllerObject = new LoginController();
+		});
+	});
+</script>
+
+
+</head>
+<body>
+<h1>Welcome</h1>
+
+</body>
+</html>
