@@ -12,7 +12,7 @@ define(['js/utilities/Constant','js/utilities/ServiceManager','js/utilities/Navi
 
     LoginController.prototype.validateLoginController = function(data){
         console.log(data);
-        this.loginModel
+
     };
 	
 	return LoginController;
