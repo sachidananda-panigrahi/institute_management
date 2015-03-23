@@ -6,7 +6,7 @@ define([], function(){
     }
 
     LoginModel.prototype.validateLoginModel = function(){
-        
+
     };
 
     return LoginModel;
