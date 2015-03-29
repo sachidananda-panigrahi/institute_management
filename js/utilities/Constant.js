@@ -1,5 +1,5 @@
 console.log('Constant Loaded...');
-define(['js/server/LoginData.json'], function(LOGIN){
+define([], function(){
 
     var CONSTANTS = {
         DOM_ACCESS:{
@@ -23,6 +23,6 @@ define(['js/server/LoginData.json'], function(LOGIN){
 
     }
 
-	return CONSTANT;
+	return CONSTANTS;
 });
 
