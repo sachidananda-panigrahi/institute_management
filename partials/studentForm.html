@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Student Form</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script type="text/javascript" src="../js/lib/require-jquery.js"></script>
+    <script type="text/javascript">
+        require(['../js/helper/require-reference'], function(reference){
+            require(['../js/controller/StudentController'], function(StudentController){
+                var studentControllerObject = new StudentController();
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Student Form</h1>
+<form id="studentForm" name="studentRegistration" onsubmit="return false;">
+    <ul class="container stdContainer">
+        <li>
+            <input type="text" name="fname" id="fname" placeholder="First Name">
+        </li>
+        <li>
+            <input type="text" name="sname" id="sname" placeholder="Last Name">
+        </li>
+        <li>
+            <input type="email" name="email" id="emailid" placeholder="E-Mail">
+        </li>
+        <li>
+            <input type="tel" name="mobile" id="mobNo" placeholder="Mobile Number">
+        </li>
+        <li>
+            <input type="text" name="education" id="education" placeholder="Qualification">
+        </li>
+        <li>
+            <input type="date" name="dob" id="dob" placeholder="Date of birth">
+        </li>
+        <li>
+            <textarea name="cAddress" id="tempAddress" placeholder="Communication Address"></textarea>
+        </li>
+        <li>
+            <textarea name="pAddress" id="permanentAddress" placeholder="Permanent Address"></textarea>
+        </li>
+        <li>
+            <h3>Select Intersted Courses</h3>
+
+            <input type="checkbox" id="java"><label>Java</label>
+            <input type="checkbox" id="dotNet"><label>Dot Net</label>
+            <input type="checkbox" id="mobileApps"><label>Mobile Application</label>
+            <input type="checkbox" id="Oracle"><label>Oracle</label>
+            <input type="checkbox" id="java"><label>iOS development</label>
+
+        </li>
+        <li class="btn-layout">
+            <button type="submit" id="submitStudentForm" class="btn-primary">Submit</button>
+            <button type="reset" class="btn-secondary">Cancel</button>
+        </li>
+
+
+    </ul>
+</form>
+
+</body>
+</html>
