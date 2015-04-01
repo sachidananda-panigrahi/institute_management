@@ -29,20 +29,26 @@ function populateDB() {
             first_time_login: 0
         },
         {
-            username: 'Officer',
-            password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
-            role: 'user',
-            status: 'active',
-            first_time_login: 0
-        },
-        {
             username: 'Admin',
             password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
             role: 'admin',
             status: 'active',
             first_time_login: 0
         },
-       
+        {
+            username: 'Employee',
+            password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
+            role: 'user',
+            status: 'active',
+            first_time_login: 0
+        },
+        {
+            username: 'Student',
+            password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
+            role: 'user',
+            status: 'active',
+            first_time_login: 0
+        }
     ];
 
     async.series([
