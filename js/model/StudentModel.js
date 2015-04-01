@@ -8,6 +8,8 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
 
     StudentModel.prototype.submitLoginForm = function(eventData){
         console.log("Submit Login Form...");
+        console.log(eventData);
+
 
     }
 

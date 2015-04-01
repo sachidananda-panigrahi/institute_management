@@ -51,9 +51,9 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }
         if(userfound){
 //            location.href = 'index.html';
-            var loginPage = $('#login_page');
-            loginPage.remove();
-            var studentForm = $('#student_form');
+            var loginPage = $('body');
+            loginPage.children().remove();
+            loginPage.load();
             var content = 'partials/studentForm.html';
             studentForm.load(content);
         }else{
