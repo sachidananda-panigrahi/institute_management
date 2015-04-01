@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var router = require('./js/routes');
 var mongoose = require('mongoose');
 var seeder = require('./js/helper/Seeder');
 
@@ -11,10 +12,12 @@ mongoose.connection.on('open', function () {
     seeder.populateDB;
 });
 
-/* serves main page */
-app.get("/", function(req, res) {
-   res.sendfile('login.html');
-});
+
+/* Login page */
+app.get( '/', router.login);
+
+// get users
+app.get('/api/userlist',router.user);
 
 app.post("/user/add", function(req, res) { 
 /* some server side logic */
