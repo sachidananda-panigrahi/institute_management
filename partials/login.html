@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login||Admin</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <!--<link rel="stylesheet" href="css/bootstrap-theme.css">-->
-    <link rel="stylesheet" href="css/style.css">
 
-    <script type="text/javascript" src="js/lib/require-jquery.js"></script>
-    <script type="text/javascript">
-        require(['js/helper/require-reference'], function(reference){
-            require(['js/controller/LoginController'], function(LoginController){
-                var loginControllerObject = new LoginController();
+<script type="text/javascript">
+    require(['js/helper/require-reference'], function(reference){
+        require(['js/controller/LoginController'], function(LoginController){
+            var loginControllerObject = new LoginController();
 
-            });
         });
-    </script>
+    });
+</script>
 
-
-</head>
-<body>
 
 <section class="login_section">
-    <!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
-    -->
     <div class="container">
         <div class="card card-container">
 
-            <img id="profile-img" class="profile-img-card" src="images/avatar_2x.png" />
+            <img id="profile-img" class="profile-img-card" src="../images/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" id="loginForm" onsubmit="return false;" novalidate >
                 <span id="reauth-email" class="reauth-email"></span>
@@ -51,6 +33,3 @@
         </div><!-- /card-container -->
     </div><!-- /container -->
 </section>
-
-</body>
-</html>
