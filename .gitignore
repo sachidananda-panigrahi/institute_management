@@ -12,5 +12,3 @@ config/database.yml
 MyProject.komodoproject
 .sass-cache/
 node_modules/*
-data/
-data/*

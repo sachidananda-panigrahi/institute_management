@@ -1,0 +1,35 @@
+
+
+<script type="text/javascript">
+    require(['js/helper/require-reference'], function(reference){
+        require(['js/controller/LoginController'], function(LoginController){
+            var loginControllerObject = new LoginController();
+
+        });
+    });
+</script>
+
+
+<section class="login_section">
+    <div class="container">
+        <div class="card card-container">
+
+            <img id="profile-img" class="profile-img-card" src="../images/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" id="loginForm" onsubmit="return false;" novalidate >
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" >
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input name="remember" type="checkbox" value="true"> Remember me
+                    </label>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Sign In" />
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+</section>
