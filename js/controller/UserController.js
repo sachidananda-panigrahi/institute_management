@@ -1,6 +1,6 @@
 // Dependencies
 var mongoose = require('mongoose');
-var userModel = require('../models/UsersModel');
+var userModel = require('../model/UsersModel');
 var Promise = require('promise');
 
 function UserController() {
