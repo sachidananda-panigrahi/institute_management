@@ -13,7 +13,7 @@ mongoose.connection.on('open', function () {
 
 /* serves main page */
 app.get("/", function(req, res) {
-   res.sendfile('login.html');
+   res.sendfile('index.html');
 });
 
 app.post("/user/add", function(req, res) { 

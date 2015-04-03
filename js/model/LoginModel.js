@@ -55,7 +55,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             loginPage.children().remove();
             loginPage.load();
             var content = 'partials/studentForm.html';
-            studentForm.load(content);
+            loginPage.load(content);
         }else{
             alert('incorect credentials');
         }
