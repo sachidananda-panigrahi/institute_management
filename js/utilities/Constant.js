@@ -9,7 +9,7 @@ define([], function(){
             }
         },
         API:{
-            LOGIN: 'js/server/LoginData.json'
+            LOGIN: '/api/userlist'
         },
 
         HEADER:{

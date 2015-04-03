@@ -40,11 +40,14 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
     LoginModel.prototype.checkLogedinCredentials = function(serverData){
         //debugger;
         //alert('doservice call');
+        // console.log(serverData);
         var userfound = false;
-        for ( var index in serverData.students )
+        for ( var index in serverData )
         {
-            var empobj = serverData.students[index];
-            if(empobj.user== this.username && empobj.password== this.password){
+            var empobj = serverData[index];
+            // console.log(empobj.username);
+            // console.log(empobj.password);
+            if(empobj.username == this.username && empobj.password == this.password){
                 userfound = true;
                 break;
             }
