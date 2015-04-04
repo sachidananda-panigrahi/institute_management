@@ -1,7 +1,7 @@
 var userController = require('../controller/userController').UserController;
 
 module.exports.login = function (req, res) {
-	res.sendfile('views/login.html');
+	res.render('login');
 }
 
 module.exports.user = function (req, res) {
