@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
-var userModel = require('../model/UsersModel');
+var userModel = require('../models/UsersModel');
 var async = require("async");
 var locals = {};
 
