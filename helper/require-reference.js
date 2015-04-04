@@ -5,6 +5,6 @@
  */
 
 require.config({
-    baseUrl: "",
+    baseUrl: "public",
     waitSeconds: 1000
 });

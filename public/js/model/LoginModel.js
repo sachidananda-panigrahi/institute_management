@@ -54,11 +54,11 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }
         if(userfound){
 //            location.href = 'index.html';
-            var loginPage = $('body');
+            /*var loginPage = $('body');
             loginPage.children().remove();
             loginPage.load();
             var content = 'partials/studentForm.html';
-            studentForm.load(content);
+            studentForm.load(content);*/
         }else{
             alert('incorect credentials');
         }

@@ -5,7 +5,7 @@ var path = require('path');
 var router = require('./routes');
 var mongoose = require('mongoose');
 var seeder = require('./helper/Seeder');
-
+var jadeView = require('jade');
 
 // MongoDB 
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');

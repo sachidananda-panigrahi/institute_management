@@ -1,7 +1,15 @@
 var userController = require('../controller/userController').UserController;
-
+var requirejs = require('requirejs');
+requirejs.config({
+    nodeRequire: require
+});
 module.exports.login = function (req, res) {
-	res.render('login');
+    requirejs(['../public/js/controller/LoginController'],
+        function   (LoginController) {
+            var loginControllerObject = new LoginController();
+            res.render('login',loginControllerObject);
+        });
+
 }
 
 module.exports.user = function (req, res) {
