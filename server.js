@@ -5,7 +5,7 @@ var path = require('path');
 var router = require('./routes');
 var mongoose = require('mongoose');
 var seeder = require('./helper/Seeder');
-var jadeView = require('jade');
+
 
 // MongoDB 
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');
@@ -23,13 +23,14 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Login page */
-app.get( '/', router.login);
-
+app.get( '/', router.studentSignup);
+// Student page
+app.get('/student_Sign_up',router.studentSignup);
 // get users
 app.get('/api/userlist',router.user);
 
 
-var port = process.env.PORT || 1234;
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
  console.log("Listening on " + port);
 });

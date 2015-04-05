@@ -1,0 +1,44 @@
+include header
+form#studentForm.form(name='studentRegistration', onsubmit='return false;')
+    #wrap.container
+        .row
+            .col-md-6.col-md-offset-3
+                form.form(action='r', method='post', accept-charset='utf-8', role='form')
+                    legend Sign Up
+                    h4 It's free and always will be.
+                    .row
+                        .col-xs-6.col-md-6
+                            input.form-control.input-lg(type='text', name='firstname', value='', placeholder='First Name')
+                        .col-xs-6.col-md-6
+                            input.form-control.input-lg(type='text', name='lastname', value='', placeholder='Last Name')
+                    input.form-control.input-lg(type='text', name='email', value='', placeholder='Your Email')
+                    input.form-control.input-lg(type='password', name='password', value='', placeholder='Password')
+                    input.form-control.input-lg(type='password', name='confirm_password', value='', placeholder='Confirm Password')
+                    label Birth Date
+                    .row
+                        .col-xs-4.col-md-4
+                            select.form-control.input-lg(name='month')
+                                each val, index in {1:'one',2:'two',3:'three'}
+                                    li= index + ': ' + val
+                        .col-xs-4.col-md-4
+                            select.form-control.input-lg(name='day')
+                                - var index = 1
+                                while index <= 31
+                                    option(value= index)= index
+                        .col-xs-4.col-md-4
+                            select.form-control.input-lg(name='year')
+                                - index = 1935
+                                while index <= 2015
+                                    option(value= index)= index
+                    label Gender :
+                    label.radio-inline
+                        input#male(type='radio', name='gender', value='M')
+                        |                         Male
+                    label.radio-inline
+                        input#female(type='radio', name='gender', value='F')
+                        |                         Female
+                    br
+                    span.help-block
+                        | By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.
+                    button.btn.btn-lg.btn-primary.btn-block.signup-btn(type='submit')
+                        | Create my account

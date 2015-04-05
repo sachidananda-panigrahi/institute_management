@@ -59,6 +59,17 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             loginPage.load();
             var content = 'partials/studentForm.html';
             studentForm.load(content);*/
+            var serviceObj = {};
+            serviceObj.url = CONSTANTS.API.STUDENTFORM;
+            serviceObj.headers = CONSTANTS.HEADER;
+            serviceObj.type = CONSTANTS.METHOD_GET;
+            serviceObj.data = {};
+
+            this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
+            
+            }).fail(function (error) {
+                console.log(error)
+            });
         }else{
             alert('incorect credentials');
         }
