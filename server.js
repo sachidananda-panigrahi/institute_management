@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Login page */
-app.get( '/', router.studentSignup);
+app.get( '/', router.login);
 // Student page
 app.get('/student_Sign_up',router.studentSignup);
 // get users

@@ -10,7 +10,7 @@ define([], function(){
         },
         API:{
             LOGIN: '/api/userlist',
-            STUDENTFORM: '/studentSignup'
+            STUDENTFORM: '/student_Sign_up'
         },
 
         HEADER:{

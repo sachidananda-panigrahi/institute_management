@@ -53,23 +53,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             }
         }
         if(userfound){
-//            location.href = 'index.html';
-            /*var loginPage = $('body');
-            loginPage.children().remove();
-            loginPage.load();
-            var content = 'partials/studentForm.html';
-            studentForm.load(content);*/
-            var serviceObj = {};
-            serviceObj.url = CONSTANTS.API.STUDENTFORM;
-            serviceObj.headers = CONSTANTS.HEADER;
-            serviceObj.type = CONSTANTS.METHOD_GET;
-            serviceObj.data = {};
-
-            this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
-            
-            }).fail(function (error) {
-                console.log(error)
-            });
+            location.href = '/student_Sign_up';
         }else{
             alert('incorect credentials');
         }

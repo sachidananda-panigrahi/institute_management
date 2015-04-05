@@ -18,18 +18,16 @@ form#studentForm.form(name='studentRegistration', onsubmit='return false;')
                     .row
                         .col-xs-4.col-md-4
                             select.form-control.input-lg(name='month')
-                                each val, index in {1:'one',2:'two',3:'three'}
-                                    li= index + ': ' + val
+                                each val, index in locals.months
+                                    option(value= index)= val
                         .col-xs-4.col-md-4
                             select.form-control.input-lg(name='day')
-                                - var index = 1
-                                while index <= 31
-                                    option(value= index)= index
+                                - for( var day = 1; day <= 31; day++)
+                                    option(value= day)= day
                         .col-xs-4.col-md-4
                             select.form-control.input-lg(name='year')
-                                - index = 1935
-                                while index <= 2015
-                                    option(value= index)= index
+                                - for( var year = 2015; year >= 1935; year--)
+                                    option(value= year)= year
                     label Gender :
                     label.radio-inline
                         input#male(type='radio', name='gender', value='M')
