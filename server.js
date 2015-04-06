@@ -7,32 +7,34 @@ var path = require('path');
 var router = require('./routes');
 var mongoose = require('mongoose');
 var seeder = require('./helper/Seeder');
-var sass    = require('node-sass');
+var sassMiddleware = require('node-sass-middleware');
+var srcPath = __dirname + '/sass';
+var destPath = __dirname + '/public/css';
 
+//server.configure(function(){
 
-app.configure(function(){
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+// app.use(app.router);
 
-  server.set('views', __dirname + '/views');
-  server.set('view engine', 'jade');
-  server.use(express.bodyParser());
-  server.use(express.methodOverride());
-  // app.use(app.router);
+// notice that the following line has been removed
+// app.use(express.static(__dirname + '/public'));
 
-  // notice that the following line has been removed
-  // app.use(express.static(__dirname + '/public'));
+// adding the sass middleware
+app.use('/css', sassMiddleware({
+    src: srcPath,
+    dest: destPath,
+    debug: true,
+    outputStyle: 'expanded'
+}));
 
-  // adding the sass middleware
-  server.use(
-     sass.middleware({
-         src: __dirname + '/sass', 
-         dest: __dirname + '/public/css',
-         debug: true,       
-     })
-  );   
-
-  // The static middleware must come after the sass middleware
-  server.use(express.static( path.join( __dirname, 'public' ) ) );
-});
+// The static middleware must come after the sass middleware
+app.use(express.static( path.join( __dirname, 'public' ) ) );
+//});
 
 
 // MongoDB 
@@ -44,14 +46,14 @@ mongoose.connection.on('open', function () {
 
 
 /* Login page */
-server.get( '/', router.login);
+app.get( '/', router.login);
 // Student page
-server.get('/student_Sign_up',router.studentSignup);
+app.get('/student_Sign_up',router.studentSignup);
 // get users
-server.get('/api/userlist',router.user);
+app.get('/api/userlist',router.user);
 
 
 var port = process.env.PORT || 3000;
-server.listen(port, function() {
- console.log("Listening on " + port);
+app.listen(port, function() {
+    console.log("Listening on " + port);
 });
