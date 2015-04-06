@@ -3,9 +3,12 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
 
     function LoginModel(){
         console.log('LoginModel Loaded...');
+        this.$deferred = new $.Deferred();
         this.username = null;
         this.password = null;
+        this.userfound = false;
         this.serviceManagerObject = new ServiceManager();
+
     }
 
     LoginModel.prototype.validateLoginForm = function(eventData){
@@ -20,6 +23,8 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             }
         }
         this.fetchLoginData(this.username, this.password);
+        return this.$deferred.promise();
+
     }
     LoginModel.prototype.fetchLoginData = function(username, password){
         console.log("fetchLoginData");
@@ -41,22 +46,23 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         //debugger;
         //alert('doservice call');
         // console.log(serverData);
-        var userfound = false;
+        this.userfound = false;
         for ( var index in serverData )
         {
             var empobj = serverData[index];
             // console.log(empobj.username);
             // console.log(empobj.password);
             if(empobj.username == this.username && empobj.password == this.password){
-                userfound = true;
+                this.userfound = true;
                 break;
             }
         }
-        if(userfound){
-            location.href = '/student_Sign_up';
-        }else{
-            alert('incorect credentials');
-        }
+        this.$deferred.resolve();
+        
+        
+    }
+    LoginModel.prototype.loginSuccess = function(){
+        return this.userfound;
     }
 
     return LoginModel;

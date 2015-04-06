@@ -53,8 +53,8 @@
 }
 
 .reauth-email {
-    display: block;
-    color: #404040;
+    display: none;
+    color: rgba(200, 5, 5, 0.88);
     line-height: 2;
     margin-bottom: 10px;
     font-size: 14px;

@@ -1,0 +1,205 @@
+//colors
+$color_astronaut_blue_approx: #0e385f
+$color_black_haze_approx: #f7f7f7
+$black_30: rgba(0, 0, 0, 0.3)
+$color_guardsman_red_88_approx: rgba(200, 5, 5, 0.88)
+$color_gothic_approx: rgb(104, 145, 162)
+$black_7.5: rgba(0,0,0,.075)
+$color_camarone_approx: rgb(12, 97, 33)
+$white: #ffffff
+$color_geyser_approx: #d3d8e8
+$color_mirage_approx: #141823
+$color_mantis_approx: #79bc64
+$color_hippie_green_approx: #578843
+$color_stack_approx: #898a88
+$color_feijoa_approx: #a4e388
+$color_dell_approx: #3b6e22
+$color_cactus_approx: #5e7056
+
+//fonts
+$font_0: Arial
+
+//@extend-elements
+//original selectors
+//.form-signin #inputEmail, .form-signin #inputPassword
+.extend_1 
+	direction: ltr
+	height: 44px
+	font-size: 16px
+
+
+//original selectors
+//.form-signin input[type=email], .form-signin input[type=password], .form-signin input[type=text], .form-signin button
+.extend_2 
+	width: 100%
+	display: block
+	margin-bottom: 10px
+	z-index: 1
+	position: relative
+	//If you use compass, instead of the line below you could use +box-sizing($bs)
+	box-sizing: border-box
+
+
+
+.btn 
+	font-weight: 700
+	height: 36px
+	//If you use compass, instead of the line below you could use +user-select($select)
+	user-select: none
+	cursor: default
+
+.card 
+	background-color: $color_black_haze_approx
+	padding: 20px 25px 30px
+	margin: 0 auto 25px
+	margin-top: 50px
+	//If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+	border-radius: 2px
+	//If you use compass, instead of the line below you could use +box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 2px 2px $black_30
+
+.profile-img-card 
+	width: 96px
+	height: 96px
+	margin: 0 auto 10px
+	display: block
+	//If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+	border-radius: 50%
+
+.profile-name-card 
+	font-size: 16px
+	font-weight: bold
+	text-align: center
+	margin: 10px 0 0
+	min-height: 1em
+
+.reauth-email 
+	display: none
+	color: $color_guardsman_red_88_approx
+	line-height: 2
+	margin-bottom: 10px
+	font-size: 14px
+	text-align: center
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+	//If you use compass, instead of the line below you could use +box-sizing($bs)
+	box-sizing: border-box
+
+.form-signin 
+	#inputEmail 
+		@extend %extend_1
+
+	#inputPassword 
+		@extend %extend_1
+
+	input[type=email] 
+		@extend %extend_2
+
+	input[type=password] 
+		@extend %extend_2
+
+	input[type=text] 
+		@extend %extend_2
+
+	button 
+		@extend %extend_2
+
+	.form-control:focus 
+		border-color: $color_gothic_approx
+		outline: 0
+		//If you use compass, instead of the line below you could use +box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: inset 0 1px 1px $black_7.5,0 0 8px $color_gothic_approx
+
+
+.btn-signin 
+	padding: 0
+	font-weight: 700
+	font-size: 14px
+	height: 36px
+	//If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+	border-radius: 3px
+	border: none
+	//If you use compass, instead of the line below you could use +transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.218s
+	&:hover 
+		cursor: pointer
+
+	&:active 
+		cursor: pointer
+
+	&:focus 
+		cursor: pointer
+
+
+.forgot-password 
+	color: $color_gothic_approx
+	&:hover 
+		color: $color_camarone_approx
+
+	&:active 
+		color: $color_camarone_approx
+
+	&:focus 
+		color: $color_camarone_approx
+
+
+#wrap 
+	background-image: linear-gradient(to bottom, $white 0, $color_geyser_approx 100%)
+	background-repeat: no-repeat
+	background-attachment: fixed
+
+legend 
+	color: $color_mirage_approx
+	font-size: 25px
+	font-weight: bold
+
+.signup-btn 
+	background: $color_mantis_approx
+	background-image: linear-gradient(to bottom, $color_mantis_approx, $color_hippie_green_approx)
+	//If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+	border-radius: 4px
+	//If you use compass, instead of the line below you could use +text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	text-shadow: 0 1px 0 $color_stack_approx
+	//If you use compass, instead of the line below you could use +box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 0 $color_feijoa_approx
+	font-family: $font_0
+	color: $white
+	font-size: 20px
+	padding: 10px 20px
+	border: solid $color_dell_approx 1px
+	text-decoration: none
+	height: 100%
+	&:hover 
+		background: $color_mantis_approx
+		background-image: linear-gradient(to bottom, $color_mantis_approx, $color_cactus_approx)
+		text-decoration: none
+
+
+.form 
+	.form-control 
+		margin-bottom: 10px
+
+	.container 
+		padding: 20px
+
+
+@media(min-width:768px) 
+	#home 
+		margin-top: 50px
+		.slogan 
+			color: $color_astronaut_blue_approx
+			line-height: 29px
+			font-weight: bold
+
+
+
+.card-container.card 
+	width: 350px
+	padding: 40px
+	margin-top: calc((50% - 330px)/2)
+
+.navbar-default .navbar-brand 
+	color: $white
+	font-size: 30px
+	font-weight: bold

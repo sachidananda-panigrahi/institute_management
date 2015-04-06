@@ -7,6 +7,8 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
 		console.log('loginController instantiated...');
         this.loginModel = new LOGINMODEL();
         this.addEventListeners();
+        this.reauthEmail = document.getElementById('reauth-email');
+        this.reauthEmail.style.display = 'none';
 	}
 
     LoginController.prototype.addEventListeners = function(){
@@ -20,7 +22,22 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
         that.eventData = $(event.currentTarget).serializeArray();
         //location.href = 'students.html';
         console.log(that.eventData);
-        that.loginModel.validateLoginForm(that.eventData);
+        that.loginModel.validateLoginForm(that.eventData).done(function(){
+            that.loginSuccess();
+        }).fail(function (error) {
+            console.log(error)
+        });
+        
+    }
+    LoginController.prototype.loginSuccess = function(){
+        // console.log(this.loginModel.loginSuccess());
+        if(this.loginModel.loginSuccess()){
+            location.href = '/student_Sign_up';
+            this.reauthEmail.style.display = 'none';
+        }else{
+            this.reauthEmail.style.display = 'block';
+        }
+        
     }
 	
 	return LoginController;

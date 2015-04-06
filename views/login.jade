@@ -11,7 +11,7 @@ section.login_section
             img#profile-img.profile-img-card(src='../images/avatar_2x.png')
             p#profile-name.profile-name-card
             form#loginForm.form-signin(onsubmit='return false;', novalidate='')
-                span#reauth-email.reauth-email
+                span#reauth-email.reauth-email Please enter a valid Username and password.
                 input#inputEmail.form-control(type='email', name='email', placeholder='Email address', autofocus='')
                 input#inputPassword.form-control(type='password', name='password', placeholder='Password')
                 #remember.checkbox
@@ -19,6 +19,5 @@ section.login_section
                         input(name='remember', type='checkbox', value='true')
                         |  Remember me
                 input.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit', value='Sign In')
-            // /form
             a.forgot-password(href='#')
                 | Forgot the password?
