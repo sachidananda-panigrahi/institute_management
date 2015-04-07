@@ -1,4 +1,10 @@
 include header
+script(type='text/javascript').
+  require(['js/helper/require-reference'], function(reference){
+  require(['js/controller/StudentController'], function(StudentController){
+  var studentControllerObject = new StudentController();
+  });
+  });
 #wrap
     form#studentForm.form(name='studentRegistration', onsubmit='return false;')
         .container
@@ -6,15 +12,32 @@ include header
                 .col-md-6.col-md-offset-3
                     form.form(action='r', method='post', accept-charset='utf-8', role='form')
                         legend Sign Up
-                        h4 It's free and always will be.
+                        h4 Student Registration Form
                         .row
                             .col-xs-6.col-md-6
                                 input.form-control.input-lg(type='text', name='firstname', value='', placeholder='First Name')
                             .col-xs-6.col-md-6
                                 input.form-control.input-lg(type='text', name='lastname', value='', placeholder='Last Name')
-                        input.form-control.input-lg(type='text', name='email', value='', placeholder='Your Email')
-                        input.form-control.input-lg(type='password', name='password', value='', placeholder='Password')
-                        input.form-control.input-lg(type='password', name='confirm_password', value='', placeholder='Confirm Password')
+                        .row
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='email', value='', placeholder='Your Email')
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='mobile', value='', placeholder='Mobile')                                                                    
+                        .row    
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='city', value='', placeholder='City Of birth')
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='state', value='', placeholder='State of Birth')                                    
+                        .row
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='motherTongue', value='', placeholder='Mother Tongue')
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='text', name='nationality', value='', placeholder='Nationality')             
+                        .row
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg(type='password', name='password', value='', placeholder='Password')
+                            .col-xs-6.col-md-6        
+                                input.form-control.input-lg(type='password', name='confirm_password', value='', placeholder='Confirm Password')
                         label Birth Date
                         .row
                             .col-xs-4.col-md-4
@@ -41,3 +64,4 @@ include header
                             | By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.
                         button.btn.btn-lg.btn-primary.btn-block.signup-btn(type='submit')
                             | Create my account
+

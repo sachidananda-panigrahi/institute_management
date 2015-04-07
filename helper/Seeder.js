@@ -22,36 +22,19 @@ function populateDB() {
     
     var allUsers = [
         {
-            username: 'SuperAdmin',
-            // password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
-            password: 'test123',
-            role: 'superadmin',
-            status: 'active',
-            first_time_login: 0
-        },
-        {
-            username: 'Admin',
-            // password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
-            password: 'test123',
-            role: 'admin',
-            status: 'active',
-            first_time_login: 0
-        },
-        {
-            username: 'Employee',
-            // password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
-            password: 'test123',
-            role: 'user',
-            status: 'active',
-            first_time_login: 0
-        },
-        {
-            username: 'Student',
-            // password: bcrypt.hashSync('test123', bcrypt.genSaltSync(8), null),
-            password: 'test123',
-            role: 'user',
-            status: 'active',
-            first_time_login: 0
+            firstname: 'Sachidananda',
+            lastname: 'Panigrahi',
+            email: 'snpanigrahi88@gmail.com',
+            mobile: 8857928163,
+            city: 'Bhadrak',
+            state: 'Odisha',
+            motherTongue: 'Odiya',
+            nationality: 'Indian',
+            password: 'sachin',
+            birthdate: new Date(1988, 03, 24, 12, 00, 00),
+            gender: 'M',
+            status: 'active'
+
         }
     ];
 

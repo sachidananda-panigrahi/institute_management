@@ -52,7 +52,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             var empobj = serverData[index];
             // console.log(empobj.username);
             // console.log(empobj.password);
-            if(empobj.username == this.username && empobj.password == this.password){
+            if(empobj.email == this.username && empobj.password == this.password){
                 this.userfound = true;
                 break;
             }

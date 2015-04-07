@@ -9,6 +9,8 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
         this.addEventListeners();
         this.reauthEmail = document.getElementById('reauth-email');
         this.reauthEmail.style.display = 'none';
+        this.emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        this.validateLog = null;
 	}
 
     LoginController.prototype.addEventListeners = function(){
@@ -18,15 +20,45 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
     }
     LoginController.prototype.formSubmitHandler = function(event){
         console.log("formSubmitHandler");
+        console.log("event");
+        console.log(event);
+
         var that = event.data.context;
         that.eventData = $(event.currentTarget).serializeArray();
-        //location.href = 'students.html';
-        console.log(that.eventData);
-        that.loginModel.validateLoginForm(that.eventData).done(function(){
-            that.loginSuccess();
-        }).fail(function (error) {
-            console.log(error)
-        });
+        this.validateLog = 0;
+        // console.log(that.eventData);
+        for ( var index in that.eventData )
+        {
+            var empobj = that.eventData[index];
+
+            if(empobj.value !== null && empobj.value !== ''){
+                $(document.getElementsByName(empobj.name)[0]).removeClass("error");
+                if(empobj.name == 'email'){
+                    if (!(that.emailRegex.test(empobj.value))) {
+                        $(document.getElementsByName('email')[0]).addClass("error");
+                    }else{
+                        this.validateLog ++;
+                    }
+                }else if(empobj.name == 'password'){
+                    this.validateLog ++;
+                }
+            }else{
+                if(empobj.name == 'email'){
+                    $(document.getElementsByName('email')[0]).addClass("error");
+                }else if(empobj.name == 'password'){
+                    $(document.getElementsByName('password')[0]).addClass("error");
+                }
+            }
+        }
+
+        if(this.validateLog == that.eventData.length ){
+            that.loginModel.validateLoginForm(that.eventData).done(function(){
+                that.loginSuccess();
+            }).fail(function (error) {
+                console.log(error)
+            });
+        }
+        
         
     }
     LoginController.prototype.loginSuccess = function(){

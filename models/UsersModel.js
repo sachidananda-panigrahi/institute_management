@@ -4,11 +4,18 @@ var mongoose = require('mongoose');
 
 // Model Definition
 var userSchema = new mongoose.Schema({
-    username: String,
+    firstname: String,
+    lastname: String,
+    email: String,
+    mobile: Number,
+    city: String,
+    state: String,
+    motherTongue: String,
+    nationality: String,
     password: String,
-    role: String,
-    status: String,
-    first_time_login: Number
+    birthdate: Date,
+    gender: String,
+    status: String
 });
 
 // Export module.
