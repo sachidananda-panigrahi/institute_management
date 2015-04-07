@@ -35,6 +35,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSq
 
         this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
             that.checkLogedinCredentials(serviceData);
+            that.webSqlObj.retrieveLoginData();
         }).fail(function (error) {
             console.log(error)
         });
@@ -69,6 +70,8 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSq
         this.webSqlObj = new WEBSQL();
         this.webSqlObj.open();
         this.webSqlObj.createTables();
+        //this.webSqlObj.insertTables();
+
     }
 
     return LoginModel;

@@ -1,5 +1,5 @@
 console.log('ServiceManager Loaded...');
-define(['js/utilities/Constant'], function(CONSTANTS){
+define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL){
     function ServiceManager(){
         console.log('ServiceManager Loaded...');
         this.url = null;
@@ -72,6 +72,12 @@ define(['js/utilities/Constant'], function(CONSTANTS){
         });
         return $deferred.promise();
     }
+
+//    ServiceManager.prototype.doDataBaseCall = function(){
+//        this.webSqlObj = new WEBSQL();
+//        this.webSqlObj.retrieveLoginData();
+//        console.log('doDataBaseCall...');
+//    }
 
     return ServiceManager;
 });

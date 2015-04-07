@@ -15,16 +15,9 @@ define([], function(){
 
         DB: {
             DB_NAME: "InstituteDB",
-
             DB_VERSION: "1.0",
-
             DB_DISPLAY_NAME: "InstituteDB 1.0",
-
-            DB_SIZE: 10 * 1024 * 1024,
-
-            DB_TABLE_CREATION_CHECK: "areDBTablesCreated",
-
-            DB_CURRENT_USER: "currentUserID"
+            DB_SIZE: 10 * 1024 * 1024
         },
 
         DB_TABLES: {
