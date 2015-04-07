@@ -1,11 +1,14 @@
 console.log('LoginModel Loaded...');
-define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTANTS, ServiceManager){
+define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSql'], function(CONSTANTS, ServiceManager, WEBSQL){
 
     function LoginModel(){
         console.log('LoginModel Loaded...');
         this.username = null;
         this.password = null;
         this.serviceManagerObject = new ServiceManager();
+
+        var webSqlObj;
+        this.sqlDbCall();
     }
 
     LoginModel.prototype.validateLoginForm = function(eventData){
@@ -59,6 +62,13 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }else{
             alert('incorect credentials');
         }
+    }
+
+    //DB
+    LoginModel.prototype.sqlDbCall = function(){
+        this.webSqlObj = new WEBSQL();
+        this.webSqlObj.open();
+        this.webSqlObj.createTables();
     }
 
     return LoginModel;

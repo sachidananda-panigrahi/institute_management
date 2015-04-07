@@ -1,12 +1,11 @@
 console.log('loginController loaded...');
-define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGINMODEL){
+define(['js/utilities/Constant','js/model/LoginModel', 'js/server/WebSql'], function(CONSTANT, LOGINMODEL, WEBSQL){
 	'use strict';
 
 
 	function LoginController(){
 		console.log('loginController instantiated...');
         this.loginModel = new LOGINMODEL();
-        this.addEventListeners();
 	}
 
     LoginController.prototype.addEventListeners = function(){
