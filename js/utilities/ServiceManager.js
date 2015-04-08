@@ -86,6 +86,7 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
         this.webSqlObj.open();
         this.webSqlObj.createTables();
         //this.webSqlObj.insertTables();
+
         this.webSqlObj.retrieveLoginData().done(function(serverData){
             console.log('serverData in service mgr')
             console.log(serverData)

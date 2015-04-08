@@ -47,6 +47,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
 
         this.serviceManagerObject.doServerDataCall(serverObj).done(function(serverData){
             that.checkLogedinCredentials(serverData);
+
 //            console.log('serverData in login model');
 //            console.log(serverData[0]);
         }).fail(function (error) {
