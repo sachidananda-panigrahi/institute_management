@@ -1,7 +1,7 @@
 .card-container.card {
     width: 350px;
     padding: 40px 40px;
-    margin-top: calc((50% - 330px)/2);
+    margin: 15% auto;
 }
 
 .btn {

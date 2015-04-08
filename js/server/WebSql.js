@@ -5,9 +5,6 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
     }
 
-    var db = this.WebSqldb;
-    this.WebSqldb = null;
-
     // Creates new database or opens an existing one.
     // <String> dbSize - Size of the DB.
     WebSql.prototype.open = function () {
@@ -30,8 +27,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
     // Creates new tables in the DB.
     WebSql.prototype.createTables = function () {
         console.log(this.WebSqldb);
-        var db = this.WebSqldb;
-        db.transaction(function (tx) {
+        this.WebSqldb.transaction(function (tx) {
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS users (username, password)');
             console.log('DB created..');
@@ -42,8 +38,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
     // Insert data into tables in the DB.
     WebSql.prototype.insertDataIntoTables = function () {
-        var db = this.WebSqldb;
-        db.transaction(function (tx) {
+        this.WebSqldb.transaction(function (tx) {
             tx.executeSql('INSERT INTO users (username, password) VALUES ("pramod", "pramod123")');
             tx.executeSql('INSERT INTO users (username, password) VALUES ("admin", "admin123")');
 
@@ -51,21 +46,9 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
     }
 
-    // Insert data into tables in the DB.
-    WebSql.prototype.retriveDataFromTables = function () {
-        var db = this.WebSqldb;
-        var response;
-        db.transaction(function (tx) {
-            response = tx.executeSql('SELECT * FROM users');
-            console.log('retrieve table');
-        });
-        return response;
-    }
-
     // delete tables in the DB.
     WebSql.prototype.deleteTables = function (tableName) {
-        var db = this.WebSqldb;
-        db.transaction(function (tx) {
+        this.WebSqldb.transaction(function (tx) {
             tx.executeSql('DROP TABLE tableName');
         });
 
@@ -74,11 +57,10 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
     // retrieve data from the DB.
     WebSql.prototype.retrieveLoginData = function () {
         console.log('retrieveLoginData');
-        var db = this.WebSqldb;
         var tempData = [];
         var $deferred = new $.Deferred();
 
-        db.transaction(function (tx) {
+        this.WebSqldb.transaction(function (tx) {
             var retrieveData = 0;
             var retrieveData = tx.executeSql('SELECT * FROM users', [],
                 function (tx, result) {

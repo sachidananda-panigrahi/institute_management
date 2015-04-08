@@ -77,11 +77,6 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
     ServiceManager.prototype.doServerDataCall = function(serverObj){
         var $deferred = new $.Deferred();
 
-        this.setHeader(serverObj.header);
-        this.setURL(serverObj.url);
-        this.setType(serverObj.type);
-        this.setData(serverObj.data);
-
         this.webSqlObj = new WEBSQL();
         this.webSqlObj.open();
         this.webSqlObj.createTables();
