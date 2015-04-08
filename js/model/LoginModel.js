@@ -74,17 +74,5 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }
     }
 
-<<<<<<< HEAD
-=======
-    //DB
-    LoginModel.prototype.sqlDbCall = function(){
-        this.webSqlObj = new WEBSQL();
-        this.webSqlObj.open();
-        this.webSqlObj.createTables();
-        //this.webSqlObj.insertTables();
-
-    }
-
->>>>>>> 9b976531ea9680deb988e4e73508b4943bcfcc25
     return LoginModel;
 });

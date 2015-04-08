@@ -73,7 +73,6 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
         return $deferred.promise();
     }
 
-<<<<<<< HEAD
     //DB Service
     ServiceManager.prototype.doServerDataCall = function(serverObj){
         var $deferred = new $.Deferred();
@@ -96,13 +95,6 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
 
         return $deferred.promise();
     }
-=======
-//    ServiceManager.prototype.doDataBaseCall = function(){
-//        this.webSqlObj = new WEBSQL();
-//        this.webSqlObj.retrieveLoginData();
-//        console.log('doDataBaseCall...');
-//    }
->>>>>>> 9b976531ea9680deb988e4e73508b4943bcfcc25
 
     return ServiceManager;
 });
