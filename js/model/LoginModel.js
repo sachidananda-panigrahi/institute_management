@@ -1,18 +1,18 @@
 console.log('LoginModel Loaded...');
-define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSql'], function(CONSTANTS, ServiceManager, WEBSQL){
+define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTANTS, ServiceManager){
 
     function LoginModel(){
         console.log('LoginModel Loaded...');
         this.username = null;
         this.password = null;
         this.serviceManagerObject = new ServiceManager();
-
-        var webSqlObj;
-        this.sqlDbCall();
     }
 
     LoginModel.prototype.validateLoginForm = function(eventData){
         console.log("validateLoginForm");
+       // var response =  this.retriveDataFromTables();
+        //console.log(response);
+
         for(var i = 0; i < eventData.length; i++){
             var obj = eventData[i];
             if(obj.name == CONSTANTS.DOM_ACCESS.LOGIN.USERNAME){
@@ -33,8 +33,21 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSq
         serviceObj.type = CONSTANTS.METHOD_GET;
         serviceObj.data = {};
 
-        this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
+        var serverObj = {};
+        serverObj.headers = CONSTANTS.HEADER;
+        serverObj.type = CONSTANTS.METHOD_GET;
+        serverObj.data = {};
+
+        /*this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
             that.checkLogedinCredentials(serviceData);
+        }).fail(function (error) {
+            console.log(error)
+        });*/
+
+        this.serviceManagerObject.doServerDataCall(serverObj).done(function(serverData){
+            that.checkLogedinCredentials(serverData);
+//            console.log('serverData in login model');
+//            console.log(serverData[0]);
         }).fail(function (error) {
             console.log(error)
         });
@@ -44,31 +57,20 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager', 'js/server/WebSq
         //debugger;
         //alert('doservice call');
         var userfound = false;
-        for ( var index in serverData.students )
+        for ( var index in serverData )
         {
-            var empobj = serverData.students[index];
-            if(empobj.user== this.username && empobj.password== this.password){
+            var empobj = serverData[index];
+            if(empobj.username == this.username && empobj.password== this.password){
                 userfound = true;
                 break;
             }
         }
         if(userfound){
-//            location.href = 'index.html';
-            var loginPage = $('body');
-            loginPage.children().remove();
-            loginPage.load();
-            var content = 'partials/studentForm.html';
-            studentForm.load(content);
+            location.href = 'student_form.html';
+
         }else{
             alert('incorect credentials');
         }
-    }
-
-    //DB
-    LoginModel.prototype.sqlDbCall = function(){
-        this.webSqlObj = new WEBSQL();
-        this.webSqlObj.open();
-        this.webSqlObj.createTables();
     }
 
     return LoginModel;

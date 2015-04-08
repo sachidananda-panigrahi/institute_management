@@ -1,5 +1,5 @@
 console.log('ServiceManager Loaded...');
-define(['js/utilities/Constant'], function(CONSTANTS){
+define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL){
     function ServiceManager(){
         console.log('ServiceManager Loaded...');
         this.url = null;
@@ -70,6 +70,29 @@ define(['js/utilities/Constant'], function(CONSTANTS){
             }
 
         });
+        return $deferred.promise();
+    }
+
+    //DB Service
+    ServiceManager.prototype.doServerDataCall = function(serverObj){
+        var $deferred = new $.Deferred();
+
+        this.setHeader(serverObj.header);
+        this.setURL(serverObj.url);
+        this.setType(serverObj.type);
+        this.setData(serverObj.data);
+
+        this.webSqlObj = new WEBSQL();
+        this.webSqlObj.open();
+        this.webSqlObj.createTables();
+        //this.webSqlObj.insertTables();
+        this.webSqlObj.retrieveLoginData().done(function(serverData){
+            console.log('serverData in service mgr')
+            console.log(serverData)
+            $deferred.resolve(serverData);
+        })
+
+
         return $deferred.promise();
     }
 

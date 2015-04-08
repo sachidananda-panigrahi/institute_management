@@ -1,14 +1,17 @@
 ﻿console.log('DB Loaded...');
-define(["js/utilities/Constant"], function(CONSTANTS){
+define(["js/utilities/Constant"], function (CONSTANTS) {
     function WebSql() {
         var WebSqldb = {};
+
     }
 
+    var db = this.WebSqldb;
+    this.WebSqldb = null;
 
     // Creates new database or opens an existing one.
-    //            <String> dbSize - Size of the DB.
+    // <String> dbSize - Size of the DB.
     WebSql.prototype.open = function () {
-        this.WebSqldb = null;
+
         this.WebSqldb = openDatabase(CONSTANTS.DB.DB_NAME, CONSTANTS.DB.DB_VERSION, CONSTANTS.DB.DB_DISPLAY_NAME, CONSTANTS.DB.DB_SIZE);
 
         var $deferred = new $.Deferred();
@@ -22,7 +25,7 @@ define(["js/utilities/Constant"], function(CONSTANTS){
 
         }
         return $deferred.promise();
-    };
+    }
 
     // Creates new tables in the DB.
     WebSql.prototype.createTables = function () {
@@ -35,10 +38,10 @@ define(["js/utilities/Constant"], function(CONSTANTS){
 
         });
 
-    };
+    }
 
     // Insert data into tables in the DB.
-    WebSql.prototype.insertTables = function () {
+    WebSql.prototype.insertDataIntoTables = function () {
         var db = this.WebSqldb;
         db.transaction(function (tx) {
             tx.executeSql('INSERT INTO users (username, password) VALUES ("pramod", "pramod123")');
@@ -46,17 +49,57 @@ define(["js/utilities/Constant"], function(CONSTANTS){
 
         });
 
-    };
+    }
+
+    // Insert data into tables in the DB.
+    WebSql.prototype.retriveDataFromTables = function () {
+        var db = this.WebSqldb;
+        var response;
+        db.transaction(function (tx) {
+            response = tx.executeSql('SELECT * FROM users');
+            console.log('retrieve table');
+        });
+        return response;
+    }
 
     // delete tables in the DB.
-    WebSql.prototype.deleteTables = function () {
+    WebSql.prototype.deleteTables = function (tableName) {
         var db = this.WebSqldb;
         db.transaction(function (tx) {
-            tx.executeSql('DROP TABLE users');
+            tx.executeSql('DROP TABLE tableName');
         });
 
-    };
+    }
+
+    // retrieve data from the DB.
+    WebSql.prototype.retrieveLoginData = function () {
+        console.log('retrieveLoginData');
+        var db = this.WebSqldb;
+        var tempData = [];
+        var $deferred = new $.Deferred();
+
+        db.transaction(function (tx) {
+            var retrieveData = 0;
+            var retrieveData = tx.executeSql('SELECT * FROM users', [],
+                function (tx, result) {
+                    if (result != null && result.rows != null) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            tempData.push(result.rows.item(i));
+                        }
+//                        console.log('tempData');
+//                        console.log(tempData);
+                        $deferred.resolve(tempData);
+                    }
+                });
+
+
+        });
+        //console.log('tempData');
+       // console.log(tempData);
+        return $deferred.promise();
+    }
 
     return WebSql;
 
-});
+})
+;

@@ -29,14 +29,15 @@ define([], function(){
 
         DB_TABLES: {
             USER_TABLE: "users",
-            STUDENT_TABLE: "STUDENTS",
-            EMPLOYEES_TABLE: "EMPLOYEES",
-            MESSAGES_TABLE: "MESSAGES",
-            ATTENDANCE_TABLE: "ATTENDANCE",
-            LOCATIONS_TABLE: "LOCATIONS",
-            JOBS_TABLE: "JOBS"
+            STUDENT_TABLE: "students",
+            SUBJECT_TABLE: "subjects",
+            SCORE_TABLE: "scores",
+            NOTICE_TABLE: "notice",
+            ATTENDANCE_TABLE: "attendance",
+            EMPLOYEES_TABLE: "employees",
+            EMPLOYEES_SALARY_TABLE: "salary",
+            LOCATIONS_TABLE: "location"
         },
-
 
         HEADER:{
             'Content-Type': 'application/json'
