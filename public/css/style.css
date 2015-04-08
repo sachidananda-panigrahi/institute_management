@@ -1,11 +1,11 @@
-/* line 1, ../sass/style.sass */
+/* line 2, ../sass/style.sass */
 .card-container.card {
   width: 350px;
   padding: 40px 40px;
   margin-top: calc((50% - 330px)/2);
 }
 
-/* line 6, ../sass/style.sass */
+/* line 7, ../sass/style.sass */
 .btn {
   font-weight: 700;
   height: 36px;
@@ -15,7 +15,7 @@
   cursor: default;
 }
 
-/* line 14, ../sass/style.sass */
+/* line 15, ../sass/style.sass */
 .card {
   background-color: #F7F7F7;
   /* just in case there no content */
@@ -31,7 +31,7 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* line 28, ../sass/style.sass */
+/* line 29, ../sass/style.sass */
 .profile-img-card {
   width: 96px;
   height: 96px;
@@ -43,7 +43,7 @@
 }
 
 /* Form styles */
-/* line 40, ../sass/style.sass */
+/* line 41, ../sass/style.sass */
 .profile-name-card {
   font-size: 16px;
   font-weight: bold;
@@ -52,29 +52,25 @@
   min-height: 1em;
 }
 
-/* line 47, ../sass/style.sass */
+/* line 48, ../sass/style.sass */
 .reauth-email {
   display: none;
-  color: #404040;
-  line-height: 2;
+  color: #dd4b39;
+  line-height: 18px;
   margin-bottom: 10px;
   font-size: 14px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 62, ../sass/style.sass */
+/* line 59, ../sass/style.sass */
 .form-signin #inputEmail, .form-signin #inputPassword {
   direction: ltr;
   height: 44px;
   font-size: 16px;
 }
-/* line 67, ../sass/style.sass */
+/* line 64, ../sass/style.sass */
 .form-signin input[type=email], .form-signin input[type=password], .form-signin input[type=text] {
   width: 100%;
   display: block;
@@ -85,7 +81,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 76, ../sass/style.sass */
+/* line 73, ../sass/style.sass */
 .form-signin button {
   width: 100%;
   display: block;
@@ -96,7 +92,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 85, ../sass/style.sass */
+/* line 82, ../sass/style.sass */
 .form-signin .form-control:focus {
   border-color: #6891a2;
   outline: 0;
@@ -104,7 +100,7 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #6891a2;
 }
 
-/* line 91, ../sass/style.sass */
+/* line 88, ../sass/style.sass */
 .btn-signin {
   background-color: #4d90fe;
   background-color: #6891a2;
@@ -123,33 +119,33 @@
   -webkit-transition: all 0.218s;
   transition: all 0.218s;
 }
-/* line 108, ../sass/style.sass */
+/* line 105, ../sass/style.sass */
 .btn-signin:hover, .btn-signin:active, .btn-signin:focus {
   background-color: #0c6121;
   cursor: pointer;
 }
 
-/* line 112, ../sass/style.sass */
+/* line 109, ../sass/style.sass */
 .forgot-password, .create-account {
   color: #6891a2;
 }
-/* line 114, ../sass/style.sass */
+/* line 111, ../sass/style.sass */
 .forgot-password:hover, .forgot-password:active, .forgot-password:focus, .create-account:hover, .create-account:active, .create-account:focus {
   color: #0c6121;
 }
 
-/* line 116, ../sass/style.sass */
+/* line 113, ../sass/style.sass */
 .create-account {
   margin-left: 10px;
 }
 
-/* line 118, ../sass/style.sass */
+/* line 115, ../sass/style.sass */
 .error {
   border: 1px solid rgba(255, 0, 0, 0.57);
 }
 
 /*Signup form */
-/* line 122, ../sass/style.sass */
+/* line 119, ../sass/style.sass */
 #wrap {
   background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* Mozilla Firefox */
@@ -166,14 +162,14 @@
   background-attachment: fixed;
 }
 
-/* line 137, ../sass/style.sass */
+/* line 134, ../sass/style.sass */
 legend {
   color: #141823;
   font-size: 25px;
   font-weight: bold;
 }
 
-/* line 142, ../sass/style.sass */
+/* line 139, ../sass/style.sass */
 .signup-btn {
   background: #79bc64;
   background-image: -webkit-linear-gradient(top, #79bc64, #578843);
@@ -196,7 +192,7 @@ legend {
   text-decoration: none;
   height: 100%;
 }
-/* line 163, ../sass/style.sass */
+/* line 160, ../sass/style.sass */
 .signup-btn:hover {
   background: #79bc64;
   background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
@@ -207,28 +203,28 @@ legend {
   text-decoration: none;
 }
 
-/* line 172, ../sass/style.sass */
+/* line 169, ../sass/style.sass */
 .navbar-default .navbar-brand {
   color: #fff;
   font-size: 30px;
   font-weight: bold;
 }
 
-/* line 178, ../sass/style.sass */
+/* line 175, ../sass/style.sass */
 .form .form-control {
   margin-bottom: 10px;
 }
-/* line 180, ../sass/style.sass */
+/* line 177, ../sass/style.sass */
 .form .container {
   padding: 20px;
 }
 
 @media (min-width: 768px) {
-  /* line 184, ../sass/style.sass */
+  /* line 181, ../sass/style.sass */
   #home {
     margin-top: 50px;
   }
-  /* line 186, ../sass/style.sass */
+  /* line 183, ../sass/style.sass */
   #home .slogan {
     color: #0e385f;
     line-height: 29px;

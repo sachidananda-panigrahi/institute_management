@@ -1,4 +1,5 @@
 var userController = require('../controller/userController').UserController;
+var addNewUser = require('../controller/addNewUserController').addNewUser;
 var CONSTANT = require('../utilities/Constant').CONSTANTS;
 module.exports.login = function (req, res) {
 	 res.render('login');
@@ -13,4 +14,7 @@ module.exports.user = function (req, res) {
         // console.log(users[0]);
         res.send(users);
     });
+};
+module.export.addNewUser = function(req, res){
+    console.log(req.body)
 };

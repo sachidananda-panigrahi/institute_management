@@ -31,8 +31,8 @@ app.get( '/', router.login);
 app.get('/student_Sign_up',router.studentSignup);
 // get users
 app.get('/api/userlist',router.user);
-
-
+//Add Users
+app.post('/api/addUser',router.addNewUser);
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("Listening on " + port);

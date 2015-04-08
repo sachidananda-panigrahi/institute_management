@@ -25,7 +25,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         this.fetchLoginData(this.username, this.password);
         return this.$deferred.promise();
 
-    }
+    };
     LoginModel.prototype.fetchLoginData = function(username, password){
         console.log("fetchLoginData");
         var that = this;
@@ -40,7 +40,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }).fail(function (error) {
             console.log(error)
         });
-    }
+    };
 
     LoginModel.prototype.checkLogedinCredentials = function(serverData){
         //debugger;

@@ -85,5 +85,5 @@ module.exports = function(grunt) {
     // grunt.registerTask('set', ['concat','uglify','compass','cssmin', 'haml','watch']);
 
     grunt.registerTask('default', ['compass','cssmin']);
-    grunt.registerTask('set', ['compass','cssmin','watch']);
+    grunt.registerTask('start', ['compass','cssmin','watch']);
 };
