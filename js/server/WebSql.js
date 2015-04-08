@@ -99,6 +99,25 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
         return $deferred.promise();
     }
 
+    // retrieve data from the DB.
+    WebSql.prototype.retrieveLoginData = function () {
+        console.log('retrieveLoginData');
+        var db = this.WebSqldb;
+        var tempData = [];
+        db.transaction(function (tx) {
+            var retrieveData = 0;
+            var retrieveData = tx.executeSql('select * from users',[],
+                function(tx, result){
+                    console.log(result);
+                    console.log(result.rows.item(0).username);
+                    tempData = result;
+                });
+
+
+        });
+
+    };
+
     return WebSql;
 
 })
