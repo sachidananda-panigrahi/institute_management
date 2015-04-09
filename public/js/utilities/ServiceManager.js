@@ -71,7 +71,7 @@ define(['js/utilities/Constant'], function(CONSTANTS){
 
         });
         return $deferred.promise();
-    }
+    };
 
     return ServiceManager;
 });

@@ -4,29 +4,18 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
     function StudentModel(){
         console.log('StudentModel initiated...');
         this.username = null;
+        this.userfound = null;
+        this.eventData = null;
         this.serviceManagerObj = new ServiceManager();
     }
 
     StudentModel.prototype.submitLoginForm = function(eventData){
         console.log("Submit Login Form...");
         console.log(eventData);
-        this.validateEmail(eventData);
+        this.eventData = eventData;
+//        this.validateEmail(eventData);
     };
-    StudentModel.prototype.fetchLoginData = function(username, password){
-        console.log("fetchLoginData");
-        var that = this;
-        var serviceObj = {};
-        serviceObj.url = CONSTANTS.API.LOGIN;
-        serviceObj.headers = CONSTANTS.HEADER;
-        serviceObj.type = CONSTANTS.METHOD_GET;
-        serviceObj.data = {};
 
-        this.serviceManagerObject.doServiceCall(serviceObj).done(function(serviceData){
-            that.checkLogedinCredentials(serviceData);
-        }).fail(function (error) {
-            console.log(error)
-        });
-    };
     StudentModel.prototype.validateEmail = function(eventData){
 
         for(var i = 0; i < eventData.length; i++){
@@ -35,11 +24,57 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
                 this.username = obj.value;
             }
         }
+        this.fetchUserData();
+    };
+    StudentModel.prototype.fetchUserData = function(){
+        console.log("fetchLoginData");
+        var that = this;
+        var serviceObj = {};
+        serviceObj.url = CONSTANTS.API.LOGIN;
+        serviceObj.headers = CONSTANTS.HEADER;
+        serviceObj.type = CONSTANTS.METHOD_GET;
+        serviceObj.data = {};
 
+        this.serviceManagerObj.doServiceCall(serviceObj).done(function(serviceData){
+            that.checkUserExist(serviceData);
+        }).fail(function (error) {
+            console.log(error)
+        });
     };
 
-    StudentModel.prototype.addNewUserData = function(eventData){
+    StudentModel.prototype.checkUserExist = function(serverData){
+        for ( var index in serverData )
+        {
+            var empobj = serverData[index];
+            // console.log(empobj.username);
+            // console.log(empobj.password);
+            if(empobj.email == this.username ){
+                this.userfound = true;
+                break;
+            }
+        }
+        if(!this.userfound){
+            this.addNewUserData();
+        }else{
+            alert('User Exist');
+        }
+    };
+    StudentModel.prototype.addNewUserData = function(){
+        console.log("addNewUserData");
+        var that = this;
+        var serviceObj = {};
+        serviceObj.url = CONSTANTS.API.ADDUSER;
+        serviceObj.headers = CONSTANTS.HEADER;
+        serviceObj.type = CONSTANTS.METHOD_POST;
+        serviceObj.data = this.eventData;
 
+        this.serviceManagerObj.doServiceCall(serviceObj).done(function(serviceData){
+//            that.checkUserExist(serviceData);
+//            location.href = '/';
+            console.log("data added successfully");
+        }).fail(function (error) {
+            console.log(error)
+        });
     };
 
 
