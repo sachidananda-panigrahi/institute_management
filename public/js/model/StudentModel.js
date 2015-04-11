@@ -7,13 +7,15 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         this.userfound = null;
         this.eventData = null;
         this.serviceManagerObj = new ServiceManager();
+        this.$deferred = new $.Deferred();
     }
 
     StudentModel.prototype.submitLoginForm = function(eventData){
         console.log("Submit Login Form...");
         console.log(eventData);
         this.eventData = eventData;
-//        this.validateEmail(eventData);
+        this.validateEmail(eventData);
+        return this.$deferred.promise();
     };
 
     StudentModel.prototype.validateEmail = function(eventData){
@@ -49,17 +51,17 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
             // console.log(empobj.username);
             // console.log(empobj.password);
             if(empobj.email == this.username ){
-                this.userfound = true;
+                this.userfound = empobj.email;
                 break;
             }
         }
-        if(!this.userfound){
-            this.addNewUserData();
+        if(this.userfound){
+            this.$deferred.resolve(false);
         }else{
-            alert('User Exist');
+            this.$deferred.resolve(true);
         }
     };
-    StudentModel.prototype.addNewUserData = function(){
+  /*  StudentModel.prototype.addNewUserData = function(){
         console.log("addNewUserData");
         var that = this;
         var serviceObj = {};
@@ -75,7 +77,7 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         }).fail(function (error) {
             console.log(error)
         });
-    };
+    };*/
 
 
     return StudentModel;

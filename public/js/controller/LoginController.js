@@ -20,8 +20,6 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
     }
     LoginController.prototype.formSubmitHandler = function(event){
         console.log("formSubmitHandler");
-        console.log("event");
-        console.log(event);
 
         var that = event.data.context;
         that.eventData = $(event.currentTarget).serializeArray();

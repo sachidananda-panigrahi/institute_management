@@ -7,9 +7,9 @@ function UserController() {
 
 }
 
-UserController.prototype.getAllUsers = function () {
+UserController.prototype.getAllUsers = function (userId) {
     return new Promise(function (resolve, reject) {
-        userModel.find({}).lean().exec(function (err, users) {
+        userModel.find({status:'active',_id: {'$ne': userId }}).lean().exec(function (err, users) {
             if (err) {
                 console.log('Error fetching all users.');
                 reject(err);
@@ -20,14 +20,43 @@ UserController.prototype.getAllUsers = function () {
     });
 };
 
-UserController.prototype.getUserbyId = function (userId) {
+UserController.prototype.getUserById = function (userId) {
     return new Promise(function (resolve, reject) {
-        userModel.find({ _id: userId }).lean().exec(function (err, users) {
+        userModel.findOne({ _id: userId }).lean().exec(function (err, user) {
             if (err) {
                 console.log('Error fetching user by Id.');
                 reject(err);
             } else {
+                //console.log(user);
+                resolve(user);
+            }
+        })
+    });
+};
+
+UserController.prototype.getUserByName = function (userName) {
+    return new Promise(function (resolve, reject) {
+        userModel.findOne({ username: userName, status: 'active' }).lean().exec(function (err, users) {
+            if (err) {
+                console.log('Error fetching user by Name.');
+                reject(err);
+            } else {
+                //console.log(users);
                 resolve(users);
+            }
+        })
+    });
+};
+
+UserController.prototype.getUserByEmailId = function (emailId) {
+    return new Promise(function (resolve, reject) {
+        userModel.findOne({ email: emailId }).lean().exec(function (err, user) {
+            if (err) {
+                console.log('Error fetching user by email.');
+                reject(err);
+            } else {
+                //console.log(users);
+                resolve(user);
             }
         })
     });
@@ -48,9 +77,9 @@ UserController.prototype.addUser = function (user) {
     });
 };
 
-UserController.prototype.editUser = function (id, user) {
+UserController.prototype.editUserByName = function (username, user) {
     return new Promise(function (resolve, reject) {
-        userModel.update({ _id: id }, user, { upsert: false }, function (err, numOfRows, users) {
+        userModel.update({ username: username }, user, { upsert: false }, function (err, numOfRows, users) {
             if (err) {
                 console.log('Error while updating user.');
                 reject(err);
@@ -76,6 +105,18 @@ UserController.prototype.deleteUser = function (id) {
     });
 };
 
-
+UserController.prototype.editUser = function (id, User) {
+    return new Promise(function (resolve, reject) {
+        userModel.update({ _id: id }, User, { upsert: false }, function (err, numOfRows, users) {
+            if (err) {
+                console.log('Error while updating User.');
+                reject(err);
+            } else {
+                console.log('User updated successfully.');
+                resolve(users);
+            }
+        });
+    });
+};
 
 module.exports = { 'UserController': new UserController() }

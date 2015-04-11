@@ -27,6 +27,8 @@ app.get( '/', router.login);
 app.get('/student_Sign_up',router.studentSignup);
 // get users
 app.get('/api/userlist',router.user);
+// check user exist
+app.post('/api/userpresent',router.userpresent);
 //Add Users
 app.post('/api/addUser',router.addNewUser);
 
