@@ -22,12 +22,12 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                 firstname: {
                     required: true,
                     minlength: 2,
-                    maxlength: 10
+                    maxlength: 15
                 },
                 lastname: {
                     required: true,
                     minlength: 2,
-                    maxlength: 10
+                    maxlength: 15
                 },
                 email: {
                     required: true,
@@ -75,12 +75,12 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
             messages: {
                 firstname: {
                  required:'Please enter your firstname',
-                 minlength:'Firstname must consist of at least one character',
+                 minlength:'Firstname must consist of at least two character',
                  maxlength:'Firstname must not greater than 10 characters'
                 },
                 lastname: {
                     required:'Please enter your lastname',
-                    minlength:'Lastname must consist of at least one character',
+                    minlength:'Lastname must consist of at least two character',
                     maxlength:'Lastname must not greater than 10 characters'
                 },
                 email: {
