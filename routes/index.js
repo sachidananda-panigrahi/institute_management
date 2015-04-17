@@ -1,8 +1,19 @@
+var passport = require('passport');
 var userController = require('../controller/userController').UserController;
 var CONSTANT = require('../utilities/Constant').CONSTANTS;
-module.exports.login = function (req, res) {
+
+/*module.exports.login = function (req, res) {
     res.render('login');
+};*/
+module.exports.login = function (req, res) {
+    res.render('login', {message: req.flash('loginMessage'), pagetitle: 'Login', passchange: req.flash('passchange')});
 };
+
+module.exports.loginMethod = passport.authenticate('login', {
+    successRedirect: '/student_signup',
+    failureRedirect: '/',
+    failureFlash: 'Invalid username or password.'
+});
 module.exports.studentSignup = function(req, res){
     var locals = {};
     locals.months = CONSTANT.MONTHS;

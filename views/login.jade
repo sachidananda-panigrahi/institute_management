@@ -10,8 +10,9 @@ section.login_section
         .card.card-container
             img#profile-img.profile-img-card(src='../images/avatar_2x.png')
             p#profile-name.profile-name-card
-            form#loginForm.form-signin(onsubmit='return false;', novalidate='')
-                span#reauth-email.reauth-email The email or password you entered is incorrect.
+            form#loginForm.form-signin(action='/login_method', method='post', accept-charset='utf-8', role='form', novalidate='')
+                - if(message.length > 0)
+                    span#reauth-email.reauth-email The email or password you entered is incorrect.
                 input#inputEmail.form-control(type='email', name='email', placeholder='Email address', autofocus='')
                 input#inputPassword.form-control(type='password', name='password', placeholder='Password')
                 #remember.checkbox

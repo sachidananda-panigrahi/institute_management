@@ -1,5 +1,5 @@
 console.log('loginController loaded...');
-define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGINMODEL){
+define(['js/utilities/Constant','js/model/LoginModel','js/lib/jquery.validate.min'], function(CONSTANT, LOGINMODEL){
 	'use strict';
 
 
@@ -7,16 +7,49 @@ define(['js/utilities/Constant','js/model/LoginModel'], function(CONSTANT, LOGIN
 		console.log('loginController instantiated...');
         this.loginModel = new LOGINMODEL();
         this.addEventListeners();
-        this.reauthEmail = document.getElementById('reauth-email');
-        this.reauthEmail.style.display = 'none';
+        // this.reauthEmail = document.getElementById('reauth-email');
+        // this.reauthEmail.style.display = 'none';
         this.emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         this.validateLog = null;
+        this.validateForm();
 	}
+
+
+    LoginController.prototype.validateForm = function(){
+        $('#loginForm').validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                    /*remote: {
+                        url: "/api/userpresent",
+                        type: "post"
+                     }
+                    */// notEqual: user
+                },
+                password: {
+                    required: true,
+                    minlength: 5,
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Please enter your email',
+                    email:'Please enter a valid email',
+                    // remote: "Email already in use!"
+                },
+                password: {
+                    required: 'Please enter your password',
+                    minlength: 'Password must be greater than 5 characters'
+                }
+            }
+        });
+    }
 
     LoginController.prototype.addEventListeners = function(){
         console.log("addEventListeners");
         var formEvent = document.getElementById('loginForm');
-        $(formEvent).bind('submit', {context:this},this.formSubmitHandler);
+        // $(formEvent).bind('submit', {context:this},this.formSubmitHandler);
     }
     LoginController.prototype.formSubmitHandler = function(event){
         console.log("formSubmitHandler");
