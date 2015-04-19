@@ -6,14 +6,19 @@ var bCrypt = require('bcrypt-nodejs');
 //    console.log('Total Users : ' + users.length);
 //});
 module.exports = function(passport){
-
+    // console.log("passport")
+    // console.log(passport)
 	passport.use('login', new LocalStrategy({
             passReqToCallback : true
         },
         function(req, username, password, done) { 
+            console.log("username")
+            console.log(username)
             // check in mongo if a user with username exists or not
             User.findOne({ 'username' :  username }, 
                 function(err, user) {
+                    console.log("user")
+                    console.log(user)
                     // In case of any error, return using the done method                    
                     
                     if (err)

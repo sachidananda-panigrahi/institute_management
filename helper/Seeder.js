@@ -1,4 +1,4 @@
-
+var bCrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var userModel = require('../models/UsersModel');
@@ -30,7 +30,7 @@ function populateDB() {
             state: 'Odisha',
             motherTongue: 'Odiya',
             nationality: 'Indian',
-            password: 'sachin',
+            password: bcrypt.hashSync('sachin', bcrypt.genSaltSync(8), null),
             birthdate: new Date(1988, 03, 24, 12, 00, 00),
             gender: 'M',
             status: 'active'

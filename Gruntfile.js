@@ -39,7 +39,8 @@ module.exports = function(grunt) {
         cssmin: {
             add_banner: {
                 options: {
-                    banner: '/* Institute Management Min css file */'
+                    banner: '/* <%= pkg.name %> - v<%= pkg.version %> - ' +
+                            '<%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
                 files: {
                     'public/css_min/production.min.css': [

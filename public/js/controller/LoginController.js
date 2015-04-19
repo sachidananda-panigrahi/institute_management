@@ -6,7 +6,7 @@ define(['js/utilities/Constant','js/model/LoginModel','js/lib/jquery.validate.mi
 	function LoginController(){
 		console.log('loginController instantiated...');
         this.loginModel = new LOGINMODEL();
-        this.addEventListeners();
+        // this.addEventListeners();
         // this.reauthEmail = document.getElementById('reauth-email');
         // this.reauthEmail.style.display = 'none';
         this.emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;

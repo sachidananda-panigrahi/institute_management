@@ -1,6 +1,6 @@
 // Dependencies
 var mongoose = require('mongoose');
-// var CONSTANT = require('../utilities/Constant').CONSTANTS;
+var CONSTANT = require('../utilities/Constant').CONSTANTS;
 
 // Model Definition
 var userSchema = new mongoose.Schema({
@@ -19,4 +19,4 @@ var userSchema = new mongoose.Schema({
 });
 
 // Export module.
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model(CONSTANT.DOCUMENT_NAMES.USER, userSchema);

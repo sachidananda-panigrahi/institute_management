@@ -1,6 +1,7 @@
 var passport = require('passport');
 var userController = require('../controller/userController').UserController;
 var CONSTANT = require('../utilities/Constant').CONSTANTS;
+var bCrypt = require('bcrypt-nodejs');
 
 /*module.exports.login = function (req, res) {
     res.render('login');

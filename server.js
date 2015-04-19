@@ -41,19 +41,21 @@ initPassport(passport);
 
 // Store the user login credential
 var loggedIn = function (req, res, next) {
-    if (req.user) {
+    console.log(req.email)
+    if (req.email) {
         next();
     } else {
-        res.redirect('/login');
+        res.redirect('/');
     }
 };
-console.log(loggedIn);
+// console.log(loggedIn);
+
 // Login page
 app.get( '/', router.login)
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
-app.get('/student_Sign_up',router.studentSignup);
+app.get('/student_Sign_up',loggedIn, router.studentSignup);
 // get users
 app.get('/api/userlist',router.user);
 // check user exist
