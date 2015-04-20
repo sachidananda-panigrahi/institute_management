@@ -15,6 +15,10 @@ module.exports.loginMethod = passport.authenticate('login', {
     failureRedirect: '/',
     failureFlash: 'Invalid username or password.'
 });
+
+/*module.exports.loginMethod = function(req, res){
+   console.log("jackie");
+};*/
 module.exports.studentSignup = function(req, res){
     var locals = {};
     locals.months = CONSTANT.MONTHS;

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('users');
 
 module.exports = function(passport){
-    // console.log("passport")
+    console.log("passport")
     // console.log(passport)
 	// Passport needs to be able to serialize and deserialize users to support persistent login sessions
     passport.serializeUser(function(user, done) {

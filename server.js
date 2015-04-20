@@ -1,6 +1,7 @@
 var express = require("express");
+var session = require('express-session');
 var http = require('http');
-var app = express();
+
 //var server = http.createServer(app);
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -8,9 +9,8 @@ var router = require('./routes');
 var mongoose = require('mongoose');
 var seeder = require('./helper/Seeder');
 var passport = require('passport');
+var app = express();
 var flash = require('connect-flash');
-var initPassport = require('./passport/init');
-var session = require('express-session');
 
 // MongoDB
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');
@@ -36,26 +36,27 @@ app.use(session({
 // Configuring Passport
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+
+var initPassport = require('./passport/init');
 initPassport(passport);
+
+app.use(flash());
 
 // Store the user login credential
 var loggedIn = function (req, res, next) {
-    console.log(req.email)
-    if (req.email) {
+    if (req.user) {
         next();
     } else {
-        res.redirect('/');
+        res.redirect('/login');
     }
 };
-// console.log(loggedIn);
-
+console.log(loggedIn);
 // Login page
 app.get( '/', router.login)
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
-app.get('/student_Sign_up',loggedIn, router.studentSignup);
+app.get('/student_Sign_up',router.studentSignup);
 // get users
 app.get('/api/userlist',router.user);
 // check user exist
