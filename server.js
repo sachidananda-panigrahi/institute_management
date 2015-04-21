@@ -50,13 +50,15 @@ var loggedIn = function (req, res, next) {
         res.redirect('/login');
     }
 };
-console.log(loggedIn);
+// console.log(loggedIn);
 // Login page
 app.get( '/', router.login)
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
 app.get('/student_Sign_up',router.studentSignup);
+// Student page
+app.get('/dashboard',router.adminDashboard);
 // get users
 app.get('/api/userlist',router.user);
 // check user exist

@@ -45,6 +45,14 @@ module.exports = function(grunt) {
                 files: {
                     'public/css_min/production.min.css': [
                         'public/css/bootstrap.min.css',
+                        'public/css/font-awesome.css',
+                        'public/css/ionicons.min.css',
+                        'public/css/morris/morris.css',
+                        'public/css/jvectormap/jquery-jvectormap-1.2.2.css',
+                        'public/css/fullcalendar/fullcalendar.css',
+                        'public/css/daterangepicker/daterangepicker-bs3.css',
+                        'public/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+                        'public/css/AdminLTE.css',
                         'public/css/style.css'
                     ]
                 }

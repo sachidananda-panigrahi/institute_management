@@ -9,16 +9,18 @@ module.exports = function(passport){
     // console.log("passport")
     // console.log(passport)
 	passport.use('login', new LocalStrategy({
+            usernameField: 'email',
+            passwordField: 'password',
             passReqToCallback : true
         },
-        function(req, email, password, done) { 
-            console.log("email")
-            console.log(email)
+        function(req, username, password, done) { 
+            // console.log("username")
+            // console.log(username)
             // check in mongo if a user with username exists or not
-            User.findOne({ 'email' :  email }, 
+            User.findOne({ 'email' :  username }, 
                 function(err, user) {
-                    console.log("user")
-                    console.log(user)
+                    // console.log("user")
+                    // console.log(user)
                     // In case of any error, return using the done method                    
                     
                     if (err)

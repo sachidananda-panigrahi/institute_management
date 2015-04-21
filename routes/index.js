@@ -11,14 +11,14 @@ module.exports.login = function (req, res) {
 };
 
 module.exports.loginMethod = passport.authenticate('login', {
-    successRedirect: '/student_signup',
+    successRedirect: '/dashboard',
     failureRedirect: '/',
     failureFlash: 'Invalid username or password.'
 });
 
-/*module.exports.loginMethod = function(req, res){
-   console.log("jackie");
-};*/
+module.exports.adminDashboard = function(req, res){
+   res.render('dashboard');
+};
 module.exports.studentSignup = function(req, res){
     var locals = {};
     locals.months = CONSTANT.MONTHS;
