@@ -1,4 +1,10 @@
 include header
+script(type='text/javascript').
+  require(['js/helper/require-reference'], function(reference){
+  require(['js/controller/DashBoardController'], function(DashBoardController){
+  var dashBoardControllerObject = new DashBoardController();
+  });
+  });
 // header logo: style can be found in header.less
 header.header
   a.logo(href='/dashboard')
