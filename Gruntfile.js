@@ -11,24 +11,21 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
-                    'public/js/lib/jquery-ui-1.10.3.min.js',
+                    'public/js/lib/jquery.min.js',
                     'public/js/lib/bootstrap.min.js',
-                    'public/js/lib/raphael-min.js',
-                    'public/js/lib/plugins/morris/morris.min.js',
-                    'public/js/lib/plugins/sparkline/jquery.sparkline.min.js',
-                    'public/js/lib/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js',
-                    'public/js/lib/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',
-                    'public/js/lib/plugins/jqueryKnob/jquery.knob.js',
-                    'public/js/lib/plugins/daterangepicker/daterangepicker.js',
-                    'public/js/lib/bootstrap-datepicker.js',
-                    'public/js/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
-                    'public/js/lib/plugins/iCheck/icheck.min.js',
-                    'public/js/lib/jquery.slimscroll.min.js',
-                    'public/js/lib/plugins/fullcalendar/fullcalendar.min.js',
-                    'public/js/lib/respond.min.js',
-                    'public/js/lib/AdminLTE/app.js',
-                    'public/js/lib/AdminLTE/dashboard.js',
-                    'public/js/lib/jquery.validate.min'
+                    'public/plugins/fastclick/fastclick.min.js',
+                    'public/js/lib/app.min.js',
+                    'public/plugins/sparkline/jquery.sparkline.min.js',
+                    'public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js',
+                    'public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',
+                    'public/plugins/daterangepicker/daterangepicker.js',
+                    'public/plugins/datepicker/bootstrap-datepicker.js',
+                    'public/plugins/iCheck/icheck.min.js',
+                    'public/plugins/slimScroll/jquery.slimscroll.min.js',
+                    'public/plugins/chartjs/Chart.min.js',
+                    'public/js/lib/pages/dashboard2.js',
+                    'public/js/lib/demo.js',
+                    'public/js/lib/jquery.validate.min.js'
                 ],
                 dest: 'public/js/build/production.js',
                 nonull: true
@@ -60,15 +57,14 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'public/css_min/production.min.css': [
-                        'public/css/bootstrap.min.css',
+                        'public/css/bootstrap.css',
                         'public/css/font-awesome.css',
-                        'public/css/ionicons.min.css',
-                        'public/css/morris/morris.css',
-                        'public/css/jvectormap/jquery-jvectormap-1.2.2.css',
-                        'public/css/fullcalendar/fullcalendar.css',
-                        'public/css/daterangepicker/daterangepicker-bs3.css',
-                        'public/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+                        'public/css/ionicons.css',
+                        'public/plugins/morris/morris.css',
+                        'public/plugins/jvectormap/jquery-jvectormap-1.2.2.css',
+                        'public/plugins/daterangepicker/daterangepicker-bs3.css',
                         'public/css/AdminLTE.css',
+                        'public/css/skins/_all-skins.css',
                         'public/css/style.css'
                     ]
                 }
@@ -80,7 +76,7 @@ module.exports = function(grunt) {
                 tasks: ['notify:gruntChange']
             },
             scripts: {
-                files: ['public/js/lib/*.js'],
+                files: ['public/js/lib/*.js','public/js/lib/AdminLTE/*.js','public/js/lib/plugins/*.js'],
                 tasks: ['concat', 'uglify']
             },
             csstosass: {

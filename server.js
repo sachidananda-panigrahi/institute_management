@@ -47,7 +47,7 @@ var loggedIn = function (req, res, next) {
     if (req.user) {
         next();
     } else {
-        res.redirect('/login');
+        res.redirect('/');
     }
 };
 // console.log(loggedIn);
@@ -56,9 +56,9 @@ app.get( '/', router.login)
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
-app.get('/student_Sign_up',router.studentSignup);
+app.get('/student_sign_up', loggedIn, router.studentSignup);
 // Student page
-app.get('/dashboard',router.adminDashboard);
+app.get('/dashboard', loggedIn, router.adminDashboard);
 // get users
 app.get('/api/userlist',router.user);
 // check user exist

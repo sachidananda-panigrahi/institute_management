@@ -1,1048 +1,1405 @@
 include header
-script(type='text/javascript').
-  require(['js/helper/require-reference'], function(reference){
-  require(['js/controller/DashBoardController'], function(DashBoardController){
-  var dashBoardControllerObject = new DashBoardController();
-  });
-  });
-// header logo: style can be found in header.less
-header.header
-  a.logo(href='/dashboard')
-    // Add the class icon to your logo image or logo icon to add the margining
-    | AdminLTE
-  // Header Navbar: style can be found in header.less
-  nav.navbar.navbar-static-top(role='navigation')
-    // Sidebar toggle button
-    a.navbar-btn.sidebar-toggle(href='javascript:void(0)', data-toggle='offcanvas', role='button')
-      span.sr-only Toggle navigation
-      |                     
-      span.icon-bar
-      |                     
-      span.icon-bar
-      |                     
-      span.icon-bar
-    |                 
-    .navbar-right
-      ul.nav.navbar-nav
-        // Messages: style can be found in dropdown.less
-        li.dropdown.messages-menu
-          a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
-            i.fa.fa-envelope
-            |                                 
-            span.label.label-success 4
-          |                             
-          ul.dropdown-menu
-            li.header You have 4 messages
-            |                                 
-            li
-              // inner menu: contains the actual data
-              ul.menu
+//- script(type='text/javascript').
+//-   require(['js/helper/require-reference'], function(reference){
+//-   require(['js/controller/DashBoardController'], function(DashBoardController){
+//-   var dashBoardControllerObject = new DashBoardController();
+//-   });
+//-   });
+.wrapper
+    header.main-header
+      // Logo
+      a.logo(href='index2.html')
+        b Admin
+        | LTE
+      // Header Navbar: style can be found in header.less
+      nav.navbar.navbar-static-top(role='navigation')
+        // Sidebar toggle button
+        a.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+          span.sr-only Toggle navigation
+        // Navbar Right Menu
+        .navbar-custom-menu
+          ul.nav.navbar-nav
+            // Messages: style can be found in dropdown.less
+            li.dropdown.messages-menu
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.fa.fa-envelope-o
+                |                   
+                span.label.label-success 4
+              |                 
+              ul.dropdown-menu
+                li.header You have 4 messages
+                |                   
                 li
-                  // start message
-                  a(href='javascript:void(0)')
-                    .pull-left
-                      img.img-circle(src='images/avatar3.png', alt='User Image')
-                    |                                                 
-                    h4
-                      | Support Team
-                      small
-                        i.fa.fa-clock-o
-                        |  5 mins
-                    |                                                 
-                    p Why not buy a new awesome theme?
-                // end message
-                li
-                  a(href='javascript:void(0)')
-                    .pull-left
-                      img.img-circle(src='images/avatar2.png', alt='user image')
-                    |                                                 
-                    h4
-                      | AdminLTE Design Team
-                      small
-                        i.fa.fa-clock-o
-                        |  2 hours
-                    |                                                 
-                    p Why not buy a new awesome theme?
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    .pull-left
-                      img.img-circle(src='images/avatar.png', alt='user image')
-                    |                                                 
-                    h4
-                      | Developers
-                      small
-                        i.fa.fa-clock-o
-                        |  Today
-                    |                                                 
-                    p Why not buy a new awesome theme?
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    .pull-left
-                      img.img-circle(src='images/avatar2.png', alt='user image')
-                    |                                                 
-                    h4
-                      | Sales Department
-                      small
-                        i.fa.fa-clock-o
-                        |  Yesterday
-                    |                                                 
-                    p Why not buy a new awesome theme?
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    .pull-left
-                      img.img-circle(src='images/avatar.png', alt='user image')
-                    |                                                 
-                    h4
-                      | Reviewers
-                      small
-                        i.fa.fa-clock-o
-                        |  2 days
-                    |                                                 
-                    p Why not buy a new awesome theme?
-            |                                 
-            li.footer
-              a(href='javascript:void(0)') See All Messages
-        // Notifications: style can be found in dropdown.less
-        li.dropdown.notifications-menu
-          a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
-            i.fa.fa-warning
-            |                                 
-            span.label.label-warning 10
-          |                             
-          ul.dropdown-menu
-            li.header You have 10 notifications
-            |                                 
-            li
-              // inner menu: contains the actual data
-              ul.menu
-                li
-                  a(href='javascript:void(0)')
-                    i.ion.ion-ios7-people.info
-                    |  5 new members joined today
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    i.fa.fa-warning.danger
-                    |  Very long description here that may not fit into the page and may cause design problems
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    i.fa.fa-users.warning
-                    |  5 new members joined
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    i.ion.ion-ios7-cart.success
-                    |  25 sales made
-                |                                         
-                li
-                  a(href='javascript:void(0)')
-                    i.ion.ion-ios7-person.danger
-                    |  You changed your username
-            |                                 
-            li.footer
-              a(href='javascript:void(0)') View all
-        // Tasks: style can be found in dropdown.less
-        li.dropdown.tasks-menu
-          a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
-            i.fa.fa-tasks
-            |                                 
-            span.label.label-danger 9
-          |                             
-          ul.dropdown-menu
-            li.header You have 9 tasks
-            |                                 
-            li
-              // inner menu: contains the actual data
-              ul.menu
-                li
-                  // Task item
-                  a(href='javascript:void(0)')
-                    h3
-                      | Design some buttons
-                      small.pull-right 20%
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-aqua(style='width: 20%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
-                        span.sr-only 20% Complete
-                // end task item
-                li
-                  // Task item
-                  a(href='javascript:void(0)')
-                    h3
-                      | Create a nice theme
-                      small.pull-right 40%
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-green(style='width: 40%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
-                        span.sr-only 40% Complete
-                // end task item
-                li
-                  // Task item
-                  a(href='javascript:void(0)')
-                    h3
-                      | Some task I need to do
-                      small.pull-right 60%
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-red(style='width: 60%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
-                        span.sr-only 60% Complete
-                // end task item
-                li
-                  // Task item
-                  a(href='javascript:void(0)')
-                    h3
-                      | Make beautiful transitions
-                      small.pull-right 80%
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-yellow(style='width: 80%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
-                        span.sr-only 80% Complete
-                // end task item
-            |                                 
-            li.footer
-              a(href='javascript:void(0)') View all tasks
-        // User Account: style can be found in dropdown.less
-        li.dropdown.user.user-menu
-          a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
-            i.glyphicon.glyphicon-user
-            |                                 
-            span
-              | Jane Doe 
-              i.caret
-          |                             
-          ul.dropdown-menu
-            // User image
-            li.user-header.bg-light-blue
-              img.img-circle(src='images/avatar3.png', alt='User Image')
-              |                                     
-              p
-                | Jane Doe - Web Developer
-                small Member since Nov. 2012
-            // Menu Body
-              .col-xs-4.text-center
-                a(href='javascript:void(0)') Followers
-              |                                     
-              .col-xs-4.text-center
-                a(href='javascript:void(0)') Sales
-              |                                     
-              .col-xs-4.text-center
-                a(href='javascript:void(0)') Friends
-            // Menu Footer
-            li.user-footer
-              .pull-left
-                a.btn.btn-default.btn-flat(href='javascript:void(0)') Profile
-              |                                     
-              .pull-right
-                a.btn.btn-default.btn-flat(href='javascript:void(0)') Sign out
-|         
-.wrapper.row-offcanvas.row-offcanvas-left
-  // Left side column. contains the logo and sidebar
-  aside.left-side.sidebar-offcanvas
-    // sidebar: style can be found in sidebar.less
-    section.sidebar
-      // Sidebar user panel
-      .user-panel
-        .pull-left.image
-          img.img-circle(src='images/avatar3.png', alt='User Image')
-        |                         
-        .pull-left.info
-          p Hello, Jane
-          |                             
-          a(href='javascript:void(0)')
-            i.fa.fa-circle.text-success
-            |  Online
-      // search form
-      form.sidebar-form(action='#', method='get')
-        .input-group
-          input.form-control(type='text', name='q', placeholder='Search...')
-          |                             
-          span.input-group-btn
-            button#search-btn.btn.btn-flat(type='submit', name='seach')
-              i.fa.fa-search
-      // /.search form
-      // sidebar menu: : style can be found in sidebar.less
-      ul.sidebar-menu
-        li.active
-          a(href='index.html')
-            i.fa.fa-dashboard
-            |  
-            span Dashboard
-        |                         
-        li
-          a(href='pages/widgets.html')
-            i.fa.fa-th
-            |  
-            span Widgets
-            |  
-            small.badge.pull-right.bg-green new
-        |                         
-        li.treeview
-          a(href='javascript:void(0)')
-            i.fa.fa-bar-chart-o
-            |                                 
-            span Charts
-            |                                 
-            i.fa.fa-angle-left.pull-right
-          |                             
-          ul.treeview-menu
-            li
-              a(href='pages/charts/morris.html')
-                i.fa.fa-angle-double-right
-                |  Morris
-            |                                 
-            li
-              a(href='pages/charts/flot.html')
-                i.fa.fa-angle-double-right
-                |  Flot
-            |                                 
-            li
-              a(href='pages/charts/inline.html')
-                i.fa.fa-angle-double-right
-                |  Inline charts
-        |                         
-        li.treeview
-          a(href='javascript:void(0)')
-            i.fa.fa-laptop
-            |                                 
-            span UI Elements
-            |                                 
-            i.fa.fa-angle-left.pull-right
-          |                             
-          ul.treeview-menu
-            li
-              a(href='pages/UI/general.html')
-                i.fa.fa-angle-double-right
-                |  General
-            |                                 
-            li
-              a(href='pages/UI/icons.html')
-                i.fa.fa-angle-double-right
-                |  Icons
-            |                                 
-            li
-              a(href='pages/UI/buttons.html')
-                i.fa.fa-angle-double-right
-                |  Buttons
-            |                                 
-            li
-              a(href='pages/UI/sliders.html')
-                i.fa.fa-angle-double-right
-                |  Sliders
-            |                                 
-            li
-              a(href='pages/UI/timeline.html')
-                i.fa.fa-angle-double-right
-                |  Timeline
-        |                         
-        li.treeview
-          a(href='javascript:void(0)')
-            i.fa.fa-edit
-            |  
-            span Forms
-            |                                 
-            i.fa.fa-angle-left.pull-right
-          |                             
-          ul.treeview-menu
-            li
-              a(href='pages/forms/general.html')
-                i.fa.fa-angle-double-right
-                |  General Elements
-            |                                 
-            li
-              a(href='pages/forms/advanced.html')
-                i.fa.fa-angle-double-right
-                |  Advanced Elements
-            |                                 
-            li
-              a(href='pages/forms/editors.html')
-                i.fa.fa-angle-double-right
-                |  Editors
-        |                         
-        li.treeview
-          a(href='javascript:void(0)')
-            i.fa.fa-table
-            |  
-            span Tables
-            |                                 
-            i.fa.fa-angle-left.pull-right
-          |                             
-          ul.treeview-menu
-            li
-              a(href='pages/tables/simple.html')
-                i.fa.fa-angle-double-right
-                |  Simple tables
-            |                                 
-            li
-              a(href='pages/tables/data.html')
-                i.fa.fa-angle-double-right
-                |  Data tables
-        |                         
-        li
-          a(href='pages/calendar.html')
-            i.fa.fa-calendar
-            |  
-            span Calendar
-            |                                 
-            small.badge.pull-right.bg-red 3
-        |                         
-        li
-          a(href='pages/mailbox.html')
-            i.fa.fa-envelope
-            |  
-            span Mailbox
-            |                                 
-            small.badge.pull-right.bg-yellow 12
-        |                         
-        li.treeview
-          a(href='javascript:void(0)')
-            i.fa.fa-folder
-            |  
-            span Examples
-            |                                 
-            i.fa.fa-angle-left.pull-right
-          |                             
-          ul.treeview-menu
-            li
-              a(href='pages/examples/invoice.html')
-                i.fa.fa-angle-double-right
-                |  Invoice
-            |                                 
-            li
-              a(href='pages/examples/login.html')
-                i.fa.fa-angle-double-right
-                |  Login
-            |                                 
-            li
-              a(href='pages/examples/register.html')
-                i.fa.fa-angle-double-right
-                |  Register
-            |                                 
-            li
-              a(href='pages/examples/lockscreen.html')
-                i.fa.fa-angle-double-right
-                |  Lockscreen
-            |                                 
-            li
-              a(href='pages/examples/404.html')
-                i.fa.fa-angle-double-right
-                |  404 Error
-            |                                 
-            li
-              a(href='pages/examples/500.html')
-                i.fa.fa-angle-double-right
-                |  500 Error
-            |                                 
-            li
-              a(href='pages/examples/blank.html')
-                i.fa.fa-angle-double-right
-                |  Blank Page
-    // /.sidebar
-  // Right side column. Contains the navbar and content of the page
-  aside.right-side
-    // Content Header (Page header)
-    section.content-header
-      h1
-        | Dashboard
-        small Control panel
-      |                     
-      ol.breadcrumb
-        li
-          a(href='javascript:void(0)')
-            i.fa.fa-dashboard
-            |  Home
-        |                         
-        li.active Dashboard
-    // Main content
-    section.content
-      // Small boxes (Stat box)
-      .row
-        .col-lg-3.col-xs-6
-          // small box
-          .small-box.bg-aqua
-            .inner
-              h3
-                | 150
-              |                                     
-              p
-                | New Orders
-            |                                 
-            .icon
-              i.ion.ion-bag
-            |                                 
-            a.small-box-footer(href='javascript:void(0)')
-              | More info 
-              i.fa.fa-arrow-circle-right
-        // ./col
-        .col-lg-3.col-xs-6
-          // small box
-          .small-box.bg-green
-            .inner
-              h3
-                | 53
-                sup(style='font-size: 20px') %
-              |                                     
-              p
-                | Bounce Rate
-            |                                 
-            .icon
-              i.ion.ion-stats-bars
-            |                                 
-            a.small-box-footer(href='javascript:void(0)')
-              | More info 
-              i.fa.fa-arrow-circle-right
-        // ./col
-        .col-lg-3.col-xs-6
-          // small box
-          .small-box.bg-yellow
-            .inner
-              h3
-                | 44
-              |                                     
-              p
-                | User Registrations
-            |                                 
-            .icon
-              i.ion.ion-person-add
-            |                                 
-            a.small-box-footer(href='javascript:void(0)')
-              | More info 
-              i.fa.fa-arrow-circle-right
-        // ./col
-        .col-lg-3.col-xs-6
-          // small box
-          .small-box.bg-red
-            .inner
-              h3
-                | 65
-              |                                     
-              p
-                | Unique Visitors
-            |                                 
-            .icon
-              i.ion.ion-pie-graph
-            |                                 
-            a.small-box-footer(href='javascript:void(0)')
-              | More info 
-              i.fa.fa-arrow-circle-right
-        // ./col
-      // /.row
-      // top row
-      .row
-        .col-xs-12.connectedSortable
-        // /.col
-      // /.row
-      // Main row
-      .row
-        // Left col
-        section.col-lg-6.connectedSortable
-          // Box (with bar chart)
-          #loading-example.box.box-danger
-            .box-header
-              // tools box
-              .pull-right.box-tools
-                button.btn.btn-danger.btn-sm.refresh-btn(data-toggle='tooltip', title='Reload')
-                  i.fa.fa-refresh
-                |                                         
-                button.btn.btn-danger.btn-sm(data-widget='collapse', data-toggle='tooltip', title='Collapse')
-                  i.fa.fa-minus
-                |                                         
-                button.btn.btn-danger.btn-sm(data-widget='remove', data-toggle='tooltip', title='Remove')
-                  i.fa.fa-times
-              // /. tools
-              i.fa.fa-cloud
-              |                                     
-              h3.box-title Server Load
-            // /.box-header
-            .box-body.no-padding
-              .row
-                .col-sm-7
-                  // bar chart
-                  #bar-chart.chart(style='height: 250px;')
-                |                                         
-                .col-sm-5
-                  .pad
-                    // Progress bars
-                    .clearfix
-                      span.pull-left Bandwidth
-                      |                                                     
-                      small.pull-right 10/200 GB
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-green(style='width: 70%;')
-                    |                                                 
-                    .clearfix
-                      span.pull-left Transfered
-                      |                                                     
-                      small.pull-right 10 GB
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-red(style='width: 70%;')
-                    |                                                 
-                    .clearfix
-                      span.pull-left Activity
-                      |                                                     
-                      small.pull-right 73%
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-light-blue(style='width: 70%;')
-                    |                                                 
-                    .clearfix
-                      span.pull-left FTP
-                      |                                                     
-                      small.pull-right 30 GB
-                    |                                                 
-                    .progress.xs
-                      .progress-bar.progress-bar-aqua(style='width: 70%;')
-                    // Buttons
-                    p
-                      button.btn.btn-default.btn-sm
-                        i.fa.fa-cloud-download
-                        |  Generate PDF
-                  // /.pad
-                // /.col
-              // /.row - inside box
-            // /.box-body
-            .box-footer
-              .row
-                .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
-                  input.knob(type='text', data-readonly='true', value='80', data-width='60', data-height='60', data-fgcolor='#f56954')
-                  |                                             
-                  .knob-label CPU
-                // ./col
-                .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
-                  input.knob(type='text', data-readonly='true', value='50', data-width='60', data-height='60', data-fgcolor='#00a65a')
-                  |                                             
-                  .knob-label Disk
-                // ./col
-                .col-xs-4.text-center
-                  input.knob(type='text', data-readonly='true', value='30', data-width='60', data-height='60', data-fgcolor='#3c8dbc')
-                  |                                             
-                  .knob-label RAM
-                // ./col
-              // /.row
-            // /.box-footer
-          // /.box
-          // Custom tabs (Charts with tabs)
-          .nav-tabs-custom
-            // Tabs within a box
-            ul.nav.nav-tabs.pull-right
-              li.active
-                a(href='#revenue-chart', data-toggle='tab') Area
-              |                                     
-              li
-                a(href='#sales-chart', data-toggle='tab') Donut
-              |                                     
-              li.pull-left.header
-                i.fa.fa-inbox
-                |  Sales
-            |                                 
-            .tab-content.no-padding
-              // Morris chart - Sales
-              #revenue-chart.chart.tab-pane.active(style='position: relative; height: 300px;')
-              |                                     
-              #sales-chart.chart.tab-pane(style='position: relative; height: 300px;')
-          // /.nav-tabs-custom
-          // Calendar
-          .box.box-warning
-            .box-header
-              i.fa.fa-calendar
-              |                                     
-              .box-title Calendar
-              // tools box
-              .pull-right.box-tools
-                // button with a dropdown
-                .btn-group
-                  button.btn.btn-warning.btn-sm.dropdown-toggle(data-toggle='dropdown')
-                    i.fa.fa-bars
-                  |                                             
-                  ul.dropdown-menu.pull-right(role='menu')
+                  // inner menu: contains the actual data
+                  ul.menu
                     li
-                      a(href='javascript:void(0)') Add new event
-                    |                                                 
+                      // start message
+                      a(href='#')
+                        .pull-left
+                          img.img-circle(src='images/user2-160x160.jpg', alt='User Image')
+                        |                           
+                        h4
+                          | Support Team
+                          small
+                            i.fa.fa-clock-o
+                            |  5 mins
+                        |                           
+                        p Why not buy a new awesome theme?
+                    // end message
                     li
-                      a(href='javascript:void(0)') Clear events
-                    |                                                 
-                    li.divider
-                    |                                                 
+                      a(href='#')
+                        .pull-left
+                          img.img-circle(src='images/user3-128x128.jpg', alt='user image')
+                        |                           
+                        h4
+                          | AdminLTE Design Team
+                          small
+                            i.fa.fa-clock-o
+                            |  2 hours
+                        |                           
+                        p Why not buy a new awesome theme?
+                    |                       
                     li
-                      a(href='javascript:void(0)') View calendar
-              // /. tools
-            // /.box-header
-            .box-body.no-padding
-              // The calendar
-              #calendar
-            // /.box-body
-          // /.box
-          // quick email widget
-          .box.box-info
-            .box-header
-              i.fa.fa-envelope
-              |                                     
-              h3.box-title Quick Email
-              // tools box
-              .pull-right.box-tools
-                button.btn.btn-info.btn-sm(data-widget='remove', data-toggle='tooltip', title='Remove')
-                  i.fa.fa-times
-              // /. tools
-            |                                 
-            .box-body
-              form(action='#', method='post')
-                .form-group
-                  input.form-control(type='email', name='emailto', placeholder='Email to:')
-                |                                         
-                .form-group
-                  input.form-control(type='text', name='subject', placeholder='Subject')
-                |                                         
-                div
-                  textarea.textarea(placeholder='Message', style='width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;')
-            |                                 
-            .box-footer.clearfix
-              button#sendEmail.pull-right.btn.btn-default
-                | Send 
-                i.fa.fa-arrow-circle-right
-        // /.Left col
-        // right col (We are only adding the ID to make the widgets sortable)
-        section.col-lg-6.connectedSortable
-          // Map box
-          .box.box-primary
-            .box-header
-              // tools box
-              .pull-right.box-tools
-                button.btn.btn-primary.btn-sm.daterange.pull-right(data-toggle='tooltip', title='Date range')
-                  i.fa.fa-calendar
-                |                                         
-                button.btn.btn-primary.btn-sm.pull-right(data-widget='collapse', data-toggle='tooltip', title='Collapse', style='margin-right: 5px;')
-                  i.fa.fa-minus
-              // /. tools
-              i.fa.fa-map-marker
-              |                                     
-              h3.box-title
-                | Visitors
-            |                                 
-            .box-body.no-padding
-              #world-map(style='height: 300px;')
-              |                                     
-              .table-responsive
-                // .table - Uses sparkline charts
-                table.table.table-striped
-                  tr
-                    th Country
-                    |                                                 
-                    th Visitors
-                    |                                                 
-                    th Online
-                    |                                                 
-                    th Page Views
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') USA
-                    |                                                 
-                    td
-                      #sparkline-1
-                    |                                                 
-                    td 209
-                    |                                                 
-                    td 239
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') India
-                    |                                                 
-                    td
-                      #sparkline-2
-                    |                                                 
-                    td 131
-                    |                                                 
-                    td 958
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') Britain
-                    |                                                 
-                    td
-                      #sparkline-3
-                    |                                                 
-                    td 19
-                    |                                                 
-                    td 417
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') Brazil
-                    |                                                 
-                    td
-                      #sparkline-4
-                    |                                                 
-                    td 109
-                    |                                                 
-                    td 476
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') China
-                    |                                                 
-                    td
-                      #sparkline-5
-                    |                                                 
-                    td 192
-                    |                                                 
-                    td 437
-                  |                                             
-                  tr
-                    td
-                      a(href='javascript:void(0)') Australia
-                    |                                                 
-                    td
-                      #sparkline-6
-                    |                                                 
-                    td 1709
-                    |                                                 
-                    td 947
-                // /.table
-            // /.box-body
-            .box-footer
-              button.btn.btn-info
-                i.fa.fa-download
-                |  Generate PDF
-              |                                     
-              button.btn.btn-warning
-                i.fa.fa-bug
-                |  Report Bug
-          // /.box
-          // Chat box
-          .box.box-success
-            .box-header
-              h3.box-title
-                i.fa.fa-comments-o
-                |  Chat
-              |                                     
-              .box-tools.pull-right(data-toggle='tooltip', title='Status')
-                .btn-group(data-toggle='btn-toggle')
-                  button.btn.btn-default.btn-sm.active(type='button')
-                    i.fa.fa-square.text-green
-                  |                                             
-                  |                                             
-                  button.btn.btn-default.btn-sm(type='button')
-                    i.fa.fa-square.text-red
-            |                                 
-            #chat-box.box-body.chat
-              // chat item
-              .item
-                img.online(src='images/avatar.png', alt='user image')
-                |                                         
-                p.message
-                  a.name(href='javascript:void(0)')
-                    small.text-muted.pull-right
-                      i.fa.fa-clock-o
-                      |  2:15
-                    |                                                 Mike Doe
-                  |                                             I would like to meet you to discuss the latest news about
-                  |                                             the arrival of the new theme. They say it is going to be one the
-                  |                                             best themes on the market
-                |                                         
-                .attachment
-                  h4 Attachments:
-                  |                                             
-                  p.filename
-                    | Theme-thumbnail-image.jpg
-                  |                                             
+                      a(href='#')
+                        .pull-left
+                          img.img-circle(src='images/user4-128x128.jpg', alt='user image')
+                        |                           
+                        h4
+                          | Developers
+                          small
+                            i.fa.fa-clock-o
+                            |  Today
+                        |                           
+                        p Why not buy a new awesome theme?
+                    |                       
+                    li
+                      a(href='#')
+                        .pull-left
+                          img.img-circle(src='images/user3-128x128.jpg', alt='user image')
+                        |                           
+                        h4
+                          | Sales Department
+                          small
+                            i.fa.fa-clock-o
+                            |  Yesterday
+                        |                           
+                        p Why not buy a new awesome theme?
+                    |                       
+                    li
+                      a(href='#')
+                        .pull-left
+                          img.img-circle(src='images/user4-128x128.jpg', alt='user image')
+                        |                           
+                        h4
+                          | Reviewers
+                          small
+                            i.fa.fa-clock-o
+                            |  2 days
+                        |                           
+                        p Why not buy a new awesome theme?
+                |                   
+                li.footer
+                  a(href='#') See All Messages
+            // Notifications: style can be found in dropdown.less
+            li.dropdown.notifications-menu
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.fa.fa-bell-o
+                |                   
+                span.label.label-warning 10
+              |                 
+              ul.dropdown-menu
+                li.header You have 10 notifications
+                |                   
+                li
+                  // inner menu: contains the actual data
+                  ul.menu
+                    li
+                      a(href='#')
+                        i.fa.fa-users.text-aqua
+                        |  5 new members joined today
+                    |                       
+                    li
+                      a(href='#')
+                        i.fa.fa-warning.text-yellow
+                        |  Very long description here that may not fit into the page and may cause design problems
+                    |                       
+                    li
+                      a(href='#')
+                        i.fa.fa-users.text-red
+                        |  5 new members joined
+                    |                       
+                    li
+                      a(href='#')
+                        i.fa.fa-shopping-cart.text-green
+                        |  25 sales made
+                    |                       
+                    li
+                      a(href='#')
+                        i.fa.fa-user.text-red
+                        |  You changed your username
+                |                   
+                li.footer
+                  a(href='#') View all
+            // Tasks: style can be found in dropdown.less
+            li.dropdown.tasks-menu
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.fa.fa-flag-o
+                |                   
+                span.label.label-danger 9
+              |                 
+              ul.dropdown-menu
+                li.header You have 9 tasks
+                |                   
+                li
+                  // inner menu: contains the actual data
+                  ul.menu
+                    li
+                      // Task item
+                      a(href='#')
+                        h3
+                          | Design some buttons
+                          small.pull-right 20%
+                        |                           
+                        .progress.xs
+                          .progress-bar.progress-bar-aqua(style='width: 20%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                            span.sr-only 20% Complete
+                    // end task item
+                    li
+                      // Task item
+                      a(href='#')
+                        h3
+                          | Create a nice theme
+                          small.pull-right 40%
+                        |                           
+                        .progress.xs
+                          .progress-bar.progress-bar-green(style='width: 40%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                            span.sr-only 40% Complete
+                    // end task item
+                    li
+                      // Task item
+                      a(href='#')
+                        h3
+                          | Some task I need to do
+                          small.pull-right 60%
+                        |                           
+                        .progress.xs
+                          .progress-bar.progress-bar-red(style='width: 60%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                            span.sr-only 60% Complete
+                    // end task item
+                    li
+                      // Task item
+                      a(href='#')
+                        h3
+                          | Make beautiful transitions
+                          small.pull-right 80%
+                        |                           
+                        .progress.xs
+                          .progress-bar.progress-bar-yellow(style='width: 80%', role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                            span.sr-only 80% Complete
+                    // end task item
+                |                   
+                li.footer
+                  a(href='#') View all tasks
+            // User Account: style can be found in dropdown.less
+            li.dropdown.user.user-menu
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                img.user-image(src='images/user2-160x160.jpg', alt='User Image')
+                |                   
+                span.hidden-xs Alexander Pierce
+              |                 
+              ul.dropdown-menu
+                // User image
+                li.user-header
+                  img.img-circle(src='images/user2-160x160.jpg', alt='User Image')
+                  |                     
+                  p
+                    | Alexander Pierce - Web Developer
+                    small Member since Nov. 2012
+                // Menu Body
+                  .col-xs-4.text-center
+                    a(href='#') Followers
+                  |                     
+                  .col-xs-4.text-center
+                    a(href='#') Sales
+                  |                     
+                  .col-xs-4.text-center
+                    a(href='#') Friends
+                // Menu Footer
+                li.user-footer
+                  .pull-left
+                    a.btn.btn-default.btn-flat(href='#') Profile
+                  |                     
                   .pull-right
-                    button.btn.btn-primary.btn-sm.btn-flat Open
-                // /.attachment
-              // /.item
-              // chat item
-              .item
-                img.offline(src='images/avatar2.png', alt='user image')
-                |                                         
-                p.message
-                  a.name(href='javascript:void(0)')
-                    small.text-muted.pull-right
-                      i.fa.fa-clock-o
-                      |  5:15
-                    |                                                 Jane Doe
-                  |                                             I would like to meet you to discuss the latest news about
-                  |                                             the arrival of the new theme. They say it is going to be one the
-                  |                                             best themes on the market
-              // /.item
-              // chat item
-              .item
-                img.offline(src='images/avatar3.png', alt='user image')
-                |                                         
-                p.message
-                  a.name(href='javascript:void(0)')
-                    small.text-muted.pull-right
-                      i.fa.fa-clock-o
-                      |  5:30
-                    |                                                 Susan Doe
-                  |                                             I would like to meet you to discuss the latest news about
-                  |                                             the arrival of the new theme. They say it is going to be one the
-                  |                                             best themes on the market
-              // /.item
-            // /.chat
-            .box-footer
-              .input-group
-                input.form-control(placeholder='Type message...')
-                |                                         
-                .input-group-btn
-                  button.btn.btn-success
-                    i.fa.fa-plus
-          // /.box (chat box)
-          // TO DO List
-          .box.box-primary
-            .box-header
-              i.ion.ion-clipboard
-              |                                     
-              h3.box-title To Do List
-              |                                     
-              .box-tools.pull-right
-                ul.pagination.pagination-sm.inline
+                    a.btn.btn-default.btn-flat(href='#') Sign out
+    // Left side column. contains the logo and sidebar
+    aside.main-sidebar
+      // sidebar: style can be found in sidebar.less
+      section.sidebar
+        // Sidebar user panel
+        .user-panel
+          .pull-left.image
+            img.img-circle(src='images/user2-160x160.jpg', alt='User Image')
+          |             
+          .pull-left.info
+            p Alexander Pierce
+            |               
+            a(href='#')
+              i.fa.fa-circle.text-success
+              |  Online
+        // search form
+        form.sidebar-form(action='#', method='get')
+          .input-group
+            input.form-control(type='text', name='q', placeholder='Search...')
+            |               
+            span.input-group-btn
+              button#search-btn.btn.btn-flat(type='submit', name='search')
+                i.fa.fa-search
+        // /.search form
+        // sidebar menu: : style can be found in sidebar.less
+        ul.sidebar-menu
+          li.header MAIN NAVIGATION
+          |             
+          li.active.treeview
+            a(href='#')
+              i.fa.fa-dashboard
+              |  
+              span Dashboard
+              |  
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='index.html')
+                  i.fa.fa-circle-o
+                  |  Dashboard v1
+              |                 
+              li.active
+                a(href='index2.html')
+                  i.fa.fa-circle-o
+                  |  Dashboard v2
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-files-o
+              |                 
+              span Layout Options
+              |                 
+              span.label.label-primary.pull-right 4
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/layout/top-nav.html')
+                  i.fa.fa-circle-o
+                  |  Top Navigation
+              |                 
+              li
+                a(href='pages/layout/boxed.html')
+                  i.fa.fa-circle-o
+                  |  Boxed
+              |                 
+              li
+                a(href='pages/layout/fixed.html')
+                  i.fa.fa-circle-o
+                  |  Fixed
+              |                 
+              li
+                a(href='pages/layout/collapsed-sidebar.html')
+                  i.fa.fa-circle-o
+                  |  Collapsed Sidebar
+          |             
+          li
+            a(href='pages/widgets.html')
+              i.fa.fa-th
+              |  
+              span Widgets
+              |  
+              small.label.pull-right.bg-green new
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-pie-chart
+              |                 
+              span Charts
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/charts/morris.html')
+                  i.fa.fa-circle-o
+                  |  Morris
+              |                 
+              li
+                a(href='pages/charts/flot.html')
+                  i.fa.fa-circle-o
+                  |  Flot
+              |                 
+              li
+                a(href='pages/charts/inline.html')
+                  i.fa.fa-circle-o
+                  |  Inline charts
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-laptop
+              |                 
+              span UI Elements
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/UI/general.html')
+                  i.fa.fa-circle-o
+                  |  General
+              |                 
+              li
+                a(href='pages/UI/icons.html')
+                  i.fa.fa-circle-o
+                  |  Icons
+              |                 
+              li
+                a(href='pages/UI/buttons.html')
+                  i.fa.fa-circle-o
+                  |  Buttons
+              |                 
+              li
+                a(href='pages/UI/sliders.html')
+                  i.fa.fa-circle-o
+                  |  Sliders
+              |                 
+              li
+                a(href='pages/UI/timeline.html')
+                  i.fa.fa-circle-o
+                  |  Timeline
+              |                 
+              li
+                a(href='pages/UI/modals.html')
+                  i.fa.fa-circle-o
+                  |  Modals
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-edit
+              |  
+              span Forms
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/forms/general.html')
+                  i.fa.fa-circle-o
+                  |  General Elements
+              |                 
+              li
+                a(href='pages/forms/advanced.html')
+                  i.fa.fa-circle-o
+                  |  Advanced Elements
+              |                 
+              li
+                a(href='pages/forms/editors.html')
+                  i.fa.fa-circle-o
+                  |  Editors
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-table
+              |  
+              span Tables
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/tables/simple.html')
+                  i.fa.fa-circle-o
+                  |  Simple tables
+              |                 
+              li
+                a(href='pages/tables/data.html')
+                  i.fa.fa-circle-o
+                  |  Data tables
+          |             
+          li
+            a(href='pages/calendar.html')
+              i.fa.fa-calendar
+              |  
+              span Calendar
+              |                 
+              small.label.pull-right.bg-red 3
+          |             
+          li
+            a(href='pages/mailbox/mailbox.html')
+              i.fa.fa-envelope
+              |  
+              span Mailbox
+              |                 
+              small.label.pull-right.bg-yellow 12
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-folder
+              |  
+              span Examples
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='pages/examples/invoice.html')
+                  i.fa.fa-circle-o
+                  |  Invoice
+              |                 
+              li
+                a(href='pages/examples/login.html')
+                  i.fa.fa-circle-o
+                  |  Login
+              |                 
+              li
+                a(href='pages/examples/register.html')
+                  i.fa.fa-circle-o
+                  |  Register
+              |                 
+              li
+                a(href='pages/examples/lockscreen.html')
+                  i.fa.fa-circle-o
+                  |  Lockscreen
+              |                 
+              li
+                a(href='pages/examples/404.html')
+                  i.fa.fa-circle-o
+                  |  404 Error
+              |                 
+              li
+                a(href='pages/examples/500.html')
+                  i.fa.fa-circle-o
+                  |  500 Error
+              |                 
+              li
+                a(href='pages/examples/blank.html')
+                  i.fa.fa-circle-o
+                  |  Blank Page
+          |             
+          li.treeview
+            a(href='#')
+              i.fa.fa-share
+              |  
+              span Multilevel
+              |                 
+              i.fa.fa-angle-left.pull-right
+            |               
+            ul.treeview-menu
+              li
+                a(href='#')
+                  i.fa.fa-circle-o
+                  |  Level One
+              |                 
+              li
+                a(href='#')
+                  i.fa.fa-circle-o
+                  |  Level One 
+                  i.fa.fa-angle-left.pull-right
+                |                   
+                ul.treeview-menu
                   li
-                    a(href='javascript:void(0)') &laquo;
-                  |                                             
+                    a(href='#')
+                      i.fa.fa-circle-o
+                      |  Level Two
+                  |                     
                   li
-                    a(href='javascript:void(0)') 1
-                  |                                             
+                    a(href='#')
+                      i.fa.fa-circle-o
+                      |  Level Two 
+                      i.fa.fa-angle-left.pull-right
+                    |                       
+                    ul.treeview-menu
+                      li
+                        a(href='#')
+                          i.fa.fa-circle-o
+                          |  Level Three
+                      |                         
+                      li
+                        a(href='#')
+                          i.fa.fa-circle-o
+                          |  Level Three
+              |                 
+              li
+                a(href='#')
+                  i.fa.fa-circle-o
+                  |  Level One
+          |             
+          li
+            a(href='documentation/index.html')
+              i.fa.fa-book
+              |  Documentation
+          |             
+          li.header LABELS
+          |             
+          li
+            a(href='#')
+              i.fa.fa-circle-o.text-danger
+              |  Important
+          |             
+          li
+            a(href='#')
+              i.fa.fa-circle-o.text-warning
+              |  Warning
+          |             
+          li
+            a(href='#')
+              i.fa.fa-circle-o.text-info
+              |  Information
+      // /.sidebar
+    // Content Wrapper. Contains page content
+    .content-wrapper
+      // Content Header (Page header)
+      section.content-header
+        h1
+          | Dashboard
+          small Version 2.0
+        |           
+        ol.breadcrumb
+          li
+            a(href='#')
+              i.fa.fa-dashboard
+              |  Home
+          |             
+          li.active Dashboard
+      // Main content
+      section.content
+        // Info boxes
+        .row
+          .col-md-3.col-sm-6.col-xs-12
+            .info-box
+              span.info-box-icon.bg-aqua
+                i.ion.ion-ios-gear-outline
+              |                 
+              .info-box-content
+                span.info-box-text CPU Traffic
+                |                   
+                span.info-box-number
+                  | 90
+                  small %
+              // /.info-box-content
+            // /.info-box
+          // /.col
+          .col-md-3.col-sm-6.col-xs-12
+            .info-box
+              span.info-box-icon.bg-red
+                i.fa.fa-google-plus
+              |                 
+              .info-box-content
+                span.info-box-text Likes
+                |                   
+                span.info-box-number 41,410
+              // /.info-box-content
+            // /.info-box
+          // /.col
+          // fix for small devices only
+          .clearfix.visible-sm-block
+          |             
+          .col-md-3.col-sm-6.col-xs-12
+            .info-box
+              span.info-box-icon.bg-green
+                i.ion.ion-ios-cart-outline
+              |                 
+              .info-box-content
+                span.info-box-text Sales
+                |                   
+                span.info-box-number 760
+              // /.info-box-content
+            // /.info-box
+          // /.col
+          .col-md-3.col-sm-6.col-xs-12
+            .info-box
+              span.info-box-icon.bg-yellow
+                i.ion.ion-ios-people-outline
+              |                 
+              .info-box-content
+                span.info-box-text New Members
+                |                   
+                span.info-box-number 2,000
+              // /.info-box-content
+            // /.info-box
+          // /.col
+        // /.row
+        .row
+          .col-md-12
+            .box
+              .box-header.with-border
+                h3.box-title Monthly Recap Report
+                |                   
+                .box-tools.pull-right
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  .btn-group
+                    button.btn.btn-box-tool.dropdown-toggle(data-toggle='dropdown')
+                      i.fa.fa-wrench
+                    |                       
+                    ul.dropdown-menu(role='menu')
+                      li
+                        a(href='#') Action
+                      |                         
+                      li
+                        a(href='#') Another action
+                      |                         
+                      li
+                        a(href='#') Something else here
+                      |                         
+                      li.divider
+                      |                         
+                      li
+                        a(href='#') Separated link
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body
+                .row
+                  .col-md-8
+                    p.text-center
+                      strong Sales: 1 Jan, 2014 - 30 Jul, 2014
+                    |                       
+                    .chart-responsive
+                      // Sales Chart Canvas
+                      canvas#salesChart(height='180')
+                    // /.chart-responsive
+                  // /.col
+                  .col-md-4
+                    p.text-center
+                      strong Goal Completion
+                    |                       
+                    .progress-group
+                      span.progress-text Add Products to Cart
+                      |                         
+                      span.progress-number
+                        b 160
+                        | /200
+                      |                         
+                      .progress.sm
+                        .progress-bar.progress-bar-aqua(style='width: 80%')
+                    // /.progress-group
+                    .progress-group
+                      span.progress-text Complete Purchase
+                      |                         
+                      span.progress-number
+                        b 310
+                        | /400
+                      |                         
+                      .progress.sm
+                        .progress-bar.progress-bar-red(style='width: 80%')
+                    // /.progress-group
+                    .progress-group
+                      span.progress-text Visit Premium Page
+                      |                         
+                      span.progress-number
+                        b 480
+                        | /800
+                      |                         
+                      .progress.sm
+                        .progress-bar.progress-bar-green(style='width: 80%')
+                    // /.progress-group
+                    .progress-group
+                      span.progress-text Send Inquiries
+                      |                         
+                      span.progress-number
+                        b 250
+                        | /500
+                      |                         
+                      .progress.sm
+                        .progress-bar.progress-bar-yellow(style='width: 80%')
+                    // /.progress-group
+                  // /.col
+                // /.row
+              // ./box-body
+              .box-footer
+                .row
+                  .col-sm-3.col-xs-6
+                    .description-block.border-right
+                      span.description-percentage.text-green
+                        i.fa.fa-caret-up
+                        |  17%
+                      |                         
+                      h5.description-header $35,210.43
+                      |                         
+                      span.description-text TOTAL REVENUE
+                    // /.description-block
+                  // /.col
+                  .col-sm-3.col-xs-6
+                    .description-block.border-right
+                      span.description-percentage.text-yellow
+                        i.fa.fa-caret-left
+                        |  0%
+                      |                         
+                      h5.description-header $10,390.90
+                      |                         
+                      span.description-text TOTAL COST
+                    // /.description-block
+                  // /.col
+                  .col-sm-3.col-xs-6
+                    .description-block.border-right
+                      span.description-percentage.text-green
+                        i.fa.fa-caret-up
+                        |  20%
+                      |                         
+                      h5.description-header $24,813.53
+                      |                         
+                      span.description-text TOTAL PROFIT
+                    // /.description-block
+                  // /.col
+                  .col-sm-3.col-xs-6
+                    .description-block
+                      span.description-percentage.text-red
+                        i.fa.fa-caret-down
+                        |  18%
+                      |                         
+                      h5.description-header 1200
+                      |                         
+                      span.description-text GOAL COMPLETIONS
+                    // /.description-block
+                // /.row
+              // /.box-footer
+            // /.box
+          // /.col
+        // /.row
+        // Main row
+        .row
+          // Left col
+          .col-md-8
+            // MAP & BOX PANE
+            .box.box-success
+              .box-header.with-border
+                h3.box-title Visitors Report
+                |                   
+                .box-tools.pull-right
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body.no-padding
+                .row
+                  .col-md-9.col-sm-8
+                    .pad
+                      // Map will be created here
+                      #world-map-markers(style='height: 325px;')
+                  // /.col
+                  .col-md-3.col-sm-4
+                    .pad.box-pane-right.bg-green(style='min-height: 280px')
+                      .description-block.margin-bottom
+                        .sparkbar.pad(data-color='#fff') 90,70,90,70,75,80,70
+                        |                           
+                        h5.description-header 8390
+                        |                           
+                        span.description-text Visits
+                      // /.description-block
+                      .description-block.margin-bottom
+                        .sparkbar.pad(data-color='#fff') 90,50,90,70,61,83,63
+                        |                           
+                        h5.description-header 30%
+                        |                           
+                        span.description-text Referrals
+                      // /.description-block
+                      .description-block
+                        .sparkbar.pad(data-color='#fff') 90,50,90,70,61,83,63
+                        |                           
+                        h5.description-header 70%
+                        |                           
+                        span.description-text Organic
+                      // /.description-block
+                  // /.col
+                // /.row
+              // /.box-body
+            // /.box
+          // /.col
+          .col-md-4
+            // Info Boxes Style 2
+            .info-box.bg-yellow
+              span.info-box-icon
+                i.ion.ion-ios-pricetag-outline
+              |                 
+              .info-box-content
+                span.info-box-text Inventory
+                |                   
+                span.info-box-number 5,200
+                |                   
+                .progress
+                  .progress-bar(style='width: 50%')
+                |                   
+                span.progress-description
+                  | 50% Increase in 30 Days
+              // /.info-box-content
+            // /.info-box
+            .info-box.bg-green
+              span.info-box-icon
+                i.ion.ion-ios-heart-outline
+              |                 
+              .info-box-content
+                span.info-box-text Mentions
+                |                   
+                span.info-box-number 92,050
+                |                   
+                .progress
+                  .progress-bar(style='width: 20%')
+                |                   
+                span.progress-description
+                  | 20% Increase in 30 Days
+              // /.info-box-content
+            // /.info-box
+            .info-box.bg-red
+              span.info-box-icon
+                i.ion.ion-ios-cloud-download-outline
+              |                 
+              .info-box-content
+                span.info-box-text Downloads
+                |                   
+                span.info-box-number 114,381
+                |                   
+                .progress
+                  .progress-bar(style='width: 70%')
+                |                   
+                span.progress-description
+                  | 70% Increase in 30 Days
+              // /.info-box-content
+            // /.info-box
+            .info-box.bg-aqua
+              span.info-box-icon
+                i.ion-ios-chatbubble-outline
+              |                 
+              .info-box-content
+                span.info-box-text Direct Messages
+                |                   
+                span.info-box-number 163,921
+                |                   
+                .progress
+                  .progress-bar(style='width: 40%')
+                |                   
+                span.progress-description
+                  | 40% Increase in 30 Days
+              // /.info-box-content
+            // /.info-box
+          // /.col
+        // /.row
+        .row
+          .col-md-4
+            // DIRECT CHAT
+            .box.box-warning.direct-chat.direct-chat-warning
+              .box-header.with-border
+                h3.box-title Direct Chat
+                |                   
+                .box-tools.pull-right
+                  span.badge.bg-yellow(data-toggle='tooltip', title='3 New Messages') 3
+                  |                     
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-toggle='tooltip', title='Contacts', data-widget='chat-pane-toggle')
+                    i.fa.fa-comments
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body
+                // Conversations are loaded here
+                .direct-chat-messages
+                  // Message. Default to the left
+                  .direct-chat-msg
+                    .direct-chat-info.clearfix
+                      span.direct-chat-name.pull-left Alexander Pierce
+                      |                         
+                      span.direct-chat-timestamp.pull-right 23 Jan 2:00 pm
+                    // /.direct-chat-info
+                    img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | Is this template really for free? That&apos;s unbelievable!
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message to the right
+                  .direct-chat-msg.right
+                    .direct-chat-info.clearfix
+                      span.direct-chat-name.pull-right Sarah Bullock
+                      |                         
+                      span.direct-chat-timestamp.pull-left 23 Jan 2:05 pm
+                    // /.direct-chat-info
+                    img.direct-chat-img(src='images/user3-128x128.jpg', alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | You better believe it!
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message. Default to the left
+                  .direct-chat-msg
+                    .direct-chat-info.clearfix
+                      span.direct-chat-name.pull-left Alexander Pierce
+                      |                         
+                      span.direct-chat-timestamp.pull-right 23 Jan 5:37 pm
+                    // /.direct-chat-info
+                    img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | Working with AdminLTE on a great new app! Wanna join?
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                  // Message to the right
+                  .direct-chat-msg.right
+                    .direct-chat-info.clearfix
+                      span.direct-chat-name.pull-right Sarah Bullock
+                      |                         
+                      span.direct-chat-timestamp.pull-left 23 Jan 6:10 pm
+                    // /.direct-chat-info
+                    img.direct-chat-img(src='images/user3-128x128.jpg', alt='message user image')
+                    // /.direct-chat-img
+                    .direct-chat-text
+                      | I would love to.
+                    // /.direct-chat-text
+                  // /.direct-chat-msg
+                // /.direct-chat-messages
+                // Contacts are loaded here
+                .direct-chat-contacts
+                  ul.contacts-list
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user1-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Count Dracula
+                            small.contacts-list-date.pull-right 2/28/2015
+                          |                             
+                          span.contacts-list-msg How have you been? I was...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user7-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Sarah Doe
+                            small.contacts-list-date.pull-right 2/23/2015
+                          |                             
+                          span.contacts-list-msg I will be waiting for...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user3-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Nadia Jolie
+                            small.contacts-list-date.pull-right 2/20/2015
+                          |                             
+                          span.contacts-list-msg I&apos;ll call you back at...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user5-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Nora S. Vans
+                            small.contacts-list-date.pull-right 2/10/2015
+                          |                             
+                          span.contacts-list-msg Where is your new...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user6-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | John K.
+                            small.contacts-list-date.pull-right 1/27/2015
+                          |                             
+                          span.contacts-list-msg Can I take a look at...
+                        // /.contacts-list-info
+                    // End Contact Item
+                    li
+                      a(href='#')
+                        img.contacts-list-img(src='images/user8-128x128.jpg')
+                        |                           
+                        .contacts-list-info
+                          span.contacts-list-name
+                            | Kenneth M.
+                            small.contacts-list-date.pull-right 1/4/2015
+                          |                             
+                          span.contacts-list-msg Never mind I found...
+                        // /.contacts-list-info
+                    // End Contact Item
+                  // /.contatcts-list
+                // /.direct-chat-pane
+              // /.box-body
+              .box-footer
+                form(action='#', method='post')
+                  .input-group
+                    input.form-control(type='text', name='message', placeholder='Type Message ...')
+                    |                       
+                    span.input-group-btn
+                      button.btn.btn-warning.btn-flat(type='button') Send
+              // /.box-footer
+            // /.direct-chat
+          // /.col
+          .col-md-4
+            // USERS LIST
+            .box.box-danger
+              .box-header.with-border
+                h3.box-title Latest Members
+                |                   
+                .box-tools.pull-right
+                  span.label.label-danger 8 New Members
+                  |                     
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body.no-padding
+                ul.users-list.clearfix
                   li
-                    a(href='javascript:void(0)') 2
-                  |                                             
+                    img(src='images/user1-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Alexander Pierce
+                    |                       
+                    span.users-list-date Today
+                  |                     
                   li
-                    a(href='javascript:void(0)') 3
-                  |                                             
+                    img(src='images/user8-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Norman
+                    |                       
+                    span.users-list-date Yesterday
+                  |                     
                   li
-                    a(href='javascript:void(0)') &raquo;
-            // /.box-header
-            .box-body
-              ul.todo-list
-                li
-                  // drag handle
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  // checkbox
-                  input(type='checkbox', value='', name='')
-                  // todo text
-                  span.text Design a nice theme
-                  // Emphasis label
-                  small.label.label-danger
-                    i.fa.fa-clock-o
-                    |  2 mins
-                  // General tools such as edit or delete
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-                |                                         
-                li
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  |                                             
-                  |                                             
-                  input(type='checkbox', value='', name='')
-                  |                                             
-                  span.text Make the theme responsive
-                  |                                             
-                  small.label.label-info
-                    i.fa.fa-clock-o
-                    |  4 hours
-                  |                                             
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-                |                                         
-                li
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  |                                             
-                  input(type='checkbox', value='', name='')
-                  |                                             
-                  span.text Let theme shine like a star
-                  |                                             
-                  small.label.label-warning
-                    i.fa.fa-clock-o
-                    |  1 day
-                  |                                             
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-                |                                         
-                li
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  |                                             
-                  input(type='checkbox', value='', name='')
-                  |                                             
-                  span.text Let theme shine like a star
-                  |                                             
-                  small.label.label-success
-                    i.fa.fa-clock-o
-                    |  3 days
-                  |                                             
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-                |                                         
-                li
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  |                                             
-                  input(type='checkbox', value='', name='')
-                  |                                             
-                  span.text Check your messages and notifications
-                  |                                             
-                  small.label.label-primary
-                    i.fa.fa-clock-o
-                    |  1 week
-                  |                                             
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-                |                                         
-                li
-                  span.handle
-                    i.fa.fa-ellipsis-v
-                    |                                                 
-                    i.fa.fa-ellipsis-v
-                  |                                             
-                  input(type='checkbox', value='', name='')
-                  |                                             
-                  span.text Let theme shine like a star
-                  |                                             
-                  small.label.label-default
-                    i.fa.fa-clock-o
-                    |  1 month
-                  |                                             
-                  .tools
-                    i.fa.fa-edit
-                    |                                                 
-                    i.fa.fa-trash-o
-            // /.box-body
-            .box-footer.clearfix.no-border
-              button.btn.btn-default.pull-right
-                i.fa.fa-plus
-                |  Add item
-          // /.box
-        // right col
-      // /.row (main row)
-    // /.content
-  // /.right-side
-// ./wrapper
-// add new calendar event modal
+                    img(src='images/user7-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Jane
+                    |                       
+                    span.users-list-date 12 Jan
+                  |                     
+                  li
+                    img(src='images/user6-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') John
+                    |                       
+                    span.users-list-date 12 Jan
+                  |                     
+                  li
+                    img(src='images/user2-160x160.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Alexander
+                    |                       
+                    span.users-list-date 13 Jan
+                  |                     
+                  li
+                    img(src='images/user5-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Sarah
+                    |                       
+                    span.users-list-date 14 Jan
+                  |                     
+                  li
+                    img(src='images/user4-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Nora
+                    |                       
+                    span.users-list-date 15 Jan
+                  |                     
+                  li
+                    img(src='images/user3-128x128.jpg', alt='User Image')
+                    |                       
+                    a.users-list-name(href='#') Nadia
+                    |                       
+                    span.users-list-date 15 Jan
+                // /.users-list
+              // /.box-body
+              .box-footer.text-center
+                a.uppercase(href='javascript::') View All Users
+              // /.box-footer
+            // /.box
+          // /.col
+          .col-md-4
+            .box.box-default
+              .box-header.with-border
+                h3.box-title Browser Usage
+                |                   
+                .box-tools.pull-right
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body
+                .row
+                  .col-md-8
+                    .chart-responsive
+                      canvas#pieChart(height='150')
+                    // ./chart-responsive
+                  // /.col
+                  .col-md-4
+                    ul.chart-legend.clearfix
+                      li
+                        i.fa.fa-circle-o.text-red
+                        |  Chrome
+                      |                         
+                      li
+                        i.fa.fa-circle-o.text-green
+                        |  IE
+                      |                         
+                      li
+                        i.fa.fa-circle-o.text-yellow
+                        |  FireFox
+                      |                         
+                      li
+                        i.fa.fa-circle-o.text-aqua
+                        |  Safari
+                      |                         
+                      li
+                        i.fa.fa-circle-o.text-light-blue
+                        |  Opera
+                      |                         
+                      li
+                        i.fa.fa-circle-o.text-gray
+                        |  Navigator
+                  // /.col
+                // /.row
+              // /.box-body
+              .box-footer.no-padding
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='#')
+                      | United States of America 
+                      span.pull-right.text-red
+                        i.fa.fa-angle-down
+                        |  12%
+                  |                     
+                  li
+                    a(href='#')
+                      | India 
+                      span.pull-right.text-green
+                        i.fa.fa-angle-up
+                        |  4%
+                  |                     
+                  li
+                    a(href='#')
+                      | China 
+                      span.pull-right.text-yellow
+                        i.fa.fa-angle-left
+                        |  0%
+              // /.footer
+            // /.box
+          // /.col
+        // /.row
+        .row
+          .col-md-8
+            // TABLE: LATEST ORDERS
+            .box.box-info
+              .box-header.with-border
+                h3.box-title Latest Orders
+                |                   
+                .box-tools.pull-right
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body
+                .table-responsive
+                  table.table.no-margin
+                    thead
+                      tr
+                        th Order ID
+                        |                           
+                        th Item
+                        |                           
+                        th Status
+                        |                           
+                        th Popularity
+                    |                       
+                    tbody
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR9842
+                        |                           
+                        td Call of Duty IV
+                        |                           
+                        td
+                          span.label.label-success Shipped
+                        |                           
+                        td
+                          .sparkbar(data-color='#00a65a', data-height='20') 90,80,90,-70,61,-83,63
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR1848
+                        |                           
+                        td Samsung Smart TV
+                        |                           
+                        td
+                          span.label.label-warning Pending
+                        |                           
+                        td
+                          .sparkbar(data-color='#f39c12', data-height='20') 90,80,-90,70,61,-83,68
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR7429
+                        |                           
+                        td iPhone 6 Plus
+                        |                           
+                        td
+                          span.label.label-danger Delivered
+                        |                           
+                        td
+                          .sparkbar(data-color='#f56954', data-height='20') 90,-80,90,70,-61,83,63
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR7429
+                        |                           
+                        td Samsung Smart TV
+                        |                           
+                        td
+                          span.label.label-info Processing
+                        |                           
+                        td
+                          .sparkbar(data-color='#00c0ef', data-height='20') 90,80,-90,70,-61,83,63
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR1848
+                        |                           
+                        td Samsung Smart TV
+                        |                           
+                        td
+                          span.label.label-warning Pending
+                        |                           
+                        td
+                          .sparkbar(data-color='#f39c12', data-height='20') 90,80,-90,70,61,-83,68
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR7429
+                        |                           
+                        td iPhone 6 Plus
+                        |                           
+                        td
+                          span.label.label-danger Delivered
+                        |                           
+                        td
+                          .sparkbar(data-color='#f56954', data-height='20') 90,-80,90,70,-61,83,63
+                      |                         
+                      tr
+                        td
+                          a(href='pages/examples/invoice.html') OR9842
+                        |                           
+                        td Call of Duty IV
+                        |                           
+                        td
+                          span.label.label-success Shipped
+                        |                           
+                        td
+                          .sparkbar(data-color='#00a65a', data-height='20') 90,80,90,-70,61,-83,63
+                // /.table-responsive
+              // /.box-body
+              .box-footer.clearfix
+                a.btn.btn-sm.btn-info.btn-flat.pull-left(href='javascript::;') Place New Order
+                |                   
+                a.btn.btn-sm.btn-default.btn-flat.pull-right(href='javascript::;') View All Orders
+              // /.box-footer
+            // /.box
+          // /.col
+          .col-md-4
+            // PRODUCT LIST
+            .box.box-primary
+              .box-header.with-border
+                h3.box-title Recently Added Products
+                |                   
+                .box-tools.pull-right
+                  button.btn.btn-box-tool(data-widget='collapse')
+                    i.fa.fa-minus
+                  |                     
+                  button.btn.btn-box-tool(data-widget='remove')
+                    i.fa.fa-times
+              // /.box-header
+              .box-body
+                ul.products-list.product-list-in-box
+                  li.item
+                    .product-img
+                      img(src='http://placehold.it/50x50/d2d6de/ffffff', alt='Product Image')
+                    |                       
+                    .product-info
+                      a.product-title(href='javascript::;')
+                        | Samsung TV 
+                        span.label.label-warning.pull-right $1800
+                      |                         
+                      span.product-description
+                        | Samsung 32&quot; 1080p 60Hz LED Smart HDTV.
+                  // /.item
+                  li.item
+                    .product-img
+                      img(src='images/default-50x50.gif', alt='Product Image')
+                    |                       
+                    .product-info
+                      a.product-title(href='javascript::;')
+                        | Bicycle 
+                        span.label.label-info.pull-right $700
+                      |                         
+                      span.product-description
+                        | 26&quot; Mongoose Dolomite Men&apos;s 7-speed, Navy Blue.
+                  // /.item
+                  li.item
+                    .product-img
+                      img(src='images/default-50x50.gif', alt='Product Image')
+                    |                       
+                    .product-info
+                      a.product-title(href='javascript::;')
+                        | Xbox One 
+                        span.label.label-danger.pull-right $350
+                      |                         
+                      span.product-description
+                        | Xbox One Console Bundle with Halo Master Chief Collection.
+                  // /.item
+                  li.item
+                    .product-img
+                      img(src='images/default-50x50.gif', alt='Product Image')
+                    |                       
+                    .product-info
+                      a.product-title(href='javascript::;')
+                        | PlayStation 4 
+                        span.label.label-success.pull-right $399
+                      |                         
+                      span.product-description
+                        | PlayStation 4 500GB Console (PS4)
+                  // /.item
+              // /.box-body
+              .box-footer.text-center
+                a.uppercase(href='javascript::;') View All Products
+              // /.box-footer
+            // /.box
+          // /.col
+        // /.row
+      // /.content
+    // /.content-wrapper
+    footer.main-footer
+      .pull-right.hidden-xs
+        b Version
+        |  2.0
+      |         
+      strong
+        | Copyright &copy; 2014-2015 
+        a(href='http://almsaeedstudio.com') Almsaeed Studio
+        | .
+      |  All rights reserved.
+  // ./wrapper
+
 include footer  

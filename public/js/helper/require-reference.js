@@ -6,5 +6,5 @@
 
 require.config({
     baseUrl: "",
-    waitSeconds: 1000
+    waitSeconds: 2000
 });
