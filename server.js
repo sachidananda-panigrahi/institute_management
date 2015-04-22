@@ -52,11 +52,12 @@ var loggedIn = function (req, res, next) {
 };
 // console.log(loggedIn);
 // Login page
-app.get( '/', router.login)
+app.get( '/', router.login);
+app.get('/logout', router.logout);
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
-app.get('/student_sign_up', loggedIn, router.studentSignup);
+app.get('/student_sign_up', router.studentSignup);
 // Student page
 app.get('/dashboard', loggedIn, router.adminDashboard);
 // get users

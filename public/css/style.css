@@ -1,11 +1,11 @@
 /* line 1, ../sass/style.sass */
 .login {
-  color: black;
+  color: #000;
   margin-left: 5px;
 }
 /* line 4, ../sass/style.sass */
 .login:hover {
-  color: black;
+  color: #000;
 }
 
 /* line 6, ../sass/style.sass */
@@ -27,7 +27,7 @@
 
 /* line 19, ../sass/style.sass */
 .card {
-  background-color: #f7f7f7;
+  background-color: #F7F7F7;
   /* just in case there no content */
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
@@ -162,29 +162,30 @@ label.error {
 /*Signup form */
 /* line 124, ../sass/style.sass */
 #wrap {
-  background-image: -ms-linear-gradient(top, white 0%, #d3d8e8 100%);
+  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* Mozilla Firefox */
-  background-image: -moz-linear-gradient(top, white 0%, #d3d8e8 100%);
+  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* Opera */
-  background-image: -o-linear-gradient(top, white 0%, #d3d8e8 100%);
+  background-image: -o-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* Webkit (Safari/Chrome 10) */
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #d3d8e8));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D3D8E8));
   /* Webkit (Chrome 11+) */
-  background-image: -webkit-linear-gradient(top, white 0%, #d3d8e8 100%);
+  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
   /* W3C Markup, IE10 Release Preview */
-  background-image: linear-gradient(to bottom, #ffffff 0%, #d3d8e8 100%);
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #D3D8E8 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: calc(100% - 1px);
 }
 
-/* line 139, ../sass/style.sass */
+/* line 140, ../sass/style.sass */
 legend {
   color: #141823;
   font-size: 25px;
   font-weight: bold;
 }
 
-/* line 144, ../sass/style.sass */
+/* line 145, ../sass/style.sass */
 .signup-btn {
   background: #79bc64;
   background-image: -webkit-linear-gradient(top, #79bc64, #578843);
@@ -200,14 +201,14 @@ legend {
   -moz-box-shadow: 0px 0px 0px #a4e388;
   box-shadow: 0px 0px 0px #a4e388;
   font-family: Arial;
-  color: white;
+  color: #ffffff;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   border: solid #3b6e22 1px;
   text-decoration: none;
   height: 100%;
 }
-/* line 165, ../sass/style.sass */
+/* line 166, ../sass/style.sass */
 .signup-btn:hover {
   background: #79bc64;
   background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
@@ -218,28 +219,28 @@ legend {
   text-decoration: none;
 }
 
-/* line 174, ../sass/style.sass */
+/* line 175, ../sass/style.sass */
 .navbar-default .navbar-brand {
-  color: white;
+  color: #fff;
   font-size: 30px;
   font-weight: bold;
 }
 
-/* line 180, ../sass/style.sass */
+/* line 181, ../sass/style.sass */
 .form .form-control {
   margin-bottom: 10px;
 }
-/* line 182, ../sass/style.sass */
+/* line 183, ../sass/style.sass */
 .form .container {
   padding: 20px;
 }
 
 @media (min-width: 768px) {
-  /* line 186, ../sass/style.sass */
+  /* line 187, ../sass/style.sass */
   #home {
     margin-top: 50px;
   }
-  /* line 188, ../sass/style.sass */
+  /* line 189, ../sass/style.sass */
   #home .slogan {
     color: #0e385f;
     line-height: 29px;

@@ -3,11 +3,13 @@ var userController = require('../controller/userController').UserController;
 var CONSTANT = require('../utilities/Constant').CONSTANTS;
 var bCrypt = require('bcrypt-nodejs');
 
-/*module.exports.login = function (req, res) {
-    res.render('login');
-};*/
 module.exports.login = function (req, res) {
     res.render('login', {message: req.flash('loginMessage'), pagetitle: 'Login', passchange: req.flash('passchange')});
+};
+
+module.exports.logout = function (req, res) {
+    req.logout();
+    res.redirect('/');
 };
 
 module.exports.loginMethod = passport.authenticate('login', {

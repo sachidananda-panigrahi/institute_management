@@ -5,7 +5,10 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
 	function StudentController(){
 		console.log('StudentController instantiated...');
         this.studentModel = new STUDENTNMODEL();
+        this.mainWrap = document.getElementById('wrap');
+        this.pageHeight = window.outerHeight;
         this.validateForm();
+        this.styles();
         // this.addEventListeners();
         
 	}
@@ -14,6 +17,10 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
         //console.log("addEventListeners");
         var formEvent = document.getElementById('studentForm');
         $(formEvent).bind('submit', {context:this},this.formSubmitHandler);
+    }
+
+    StudentController.prototype.styles = function(){
+        $(this.mainWrap).css({'min-height': this.pageHeight-63})
     }
 
     StudentController.prototype.validateForm = function(){
