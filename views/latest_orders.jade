@@ -1,0 +1,190 @@
+// /.row
+.row
+  .col-md-8
+    // TABLE: LATEST ORDERS
+    .box.box-info
+      .box-header.with-border
+        h3.box-title Latest Orders
+        |                   
+        .box-tools.pull-right
+          button.btn.btn-box-tool(data-widget='collapse')
+            i.fa.fa-minus
+          |                     
+          button.btn.btn-box-tool(data-widget='remove')
+            i.fa.fa-times
+      // /.box-header
+      .box-body
+        .table-responsive
+          table.table.no-margin
+            thead
+              tr
+                th Order ID
+                |                           
+                th Item
+                |                           
+                th Status
+                |                           
+                th Popularity
+            |                       
+            tbody
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR9842
+                |                           
+                td Call of Duty IV
+                |                           
+                td
+                  span.label.label-success Shipped
+                |                           
+                td
+                  .sparkbar(data-color='#00a65a', data-height='20') 90,80,90,-70,61,-83,63
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR1848
+                |                           
+                td Samsung Smart TV
+                |                           
+                td
+                  span.label.label-warning Pending
+                |                           
+                td
+                  .sparkbar(data-color='#f39c12', data-height='20') 90,80,-90,70,61,-83,68
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR7429
+                |                           
+                td iPhone 6 Plus
+                |                           
+                td
+                  span.label.label-danger Delivered
+                |                           
+                td
+                  .sparkbar(data-color='#f56954', data-height='20') 90,-80,90,70,-61,83,63
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR7429
+                |                           
+                td Samsung Smart TV
+                |                           
+                td
+                  span.label.label-info Processing
+                |                           
+                td
+                  .sparkbar(data-color='#00c0ef', data-height='20') 90,80,-90,70,-61,83,63
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR1848
+                |                           
+                td Samsung Smart TV
+                |                           
+                td
+                  span.label.label-warning Pending
+                |                           
+                td
+                  .sparkbar(data-color='#f39c12', data-height='20') 90,80,-90,70,61,-83,68
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR7429
+                |                           
+                td iPhone 6 Plus
+                |                           
+                td
+                  span.label.label-danger Delivered
+                |                           
+                td
+                  .sparkbar(data-color='#f56954', data-height='20') 90,-80,90,70,-61,83,63
+              |                         
+              tr
+                td
+                  a(href='pages/examples/invoice.html') OR9842
+                |                           
+                td Call of Duty IV
+                |                           
+                td
+                  span.label.label-success Shipped
+                |                           
+                td
+                  .sparkbar(data-color='#00a65a', data-height='20') 90,80,90,-70,61,-83,63
+        // /.table-responsive
+      // /.box-body
+      .box-footer.clearfix
+        a.btn.btn-sm.btn-info.btn-flat.pull-left(href='javascript::;') Place New Order
+        |                   
+        a.btn.btn-sm.btn-default.btn-flat.pull-right(href='javascript::;') View All Orders
+      // /.box-footer
+    // /.box
+  // /.col
+  .col-md-4
+    // PRODUCT LIST
+    .box.box-primary
+      .box-header.with-border
+        h3.box-title Recently Added Products
+        |                   
+        .box-tools.pull-right
+          button.btn.btn-box-tool(data-widget='collapse')
+            i.fa.fa-minus
+          |                     
+          button.btn.btn-box-tool(data-widget='remove')
+            i.fa.fa-times
+      // /.box-header
+      .box-body
+        ul.products-list.product-list-in-box
+          li.item
+            .product-img
+              img(src='http://placehold.it/50x50/d2d6de/ffffff', alt='Product Image')
+            |                       
+            .product-info
+              a.product-title(href='javascript::;')
+                | Samsung TV 
+                span.label.label-warning.pull-right $1800
+              |                         
+              span.product-description
+                | Samsung 32&quot; 1080p 60Hz LED Smart HDTV.
+          // /.item
+          li.item
+            .product-img
+              img(src='images/default-50x50.gif', alt='Product Image')
+            |                       
+            .product-info
+              a.product-title(href='javascript::;')
+                | Bicycle 
+                span.label.label-info.pull-right $700
+              |                         
+              span.product-description
+                | 26&quot; Mongoose Dolomite Men&apos;s 7-speed, Navy Blue.
+          // /.item
+          li.item
+            .product-img
+              img(src='images/default-50x50.gif', alt='Product Image')
+            |                       
+            .product-info
+              a.product-title(href='javascript::;')
+                | Xbox One 
+                span.label.label-danger.pull-right $350
+              |                         
+              span.product-description
+                | Xbox One Console Bundle with Halo Master Chief Collection.
+          // /.item
+          li.item
+            .product-img
+              img(src='images/default-50x50.gif', alt='Product Image')
+            |                       
+            .product-info
+              a.product-title(href='javascript::;')
+                | PlayStation 4 
+                span.label.label-success.pull-right $399
+              |                         
+              span.product-description
+                | PlayStation 4 500GB Console (PS4)
+          // /.item
+      // /.box-body
+      .box-footer.text-center
+        a.uppercase(href='javascript::;') View All Products
+      // /.box-footer
+    // /.box
+  // /.col

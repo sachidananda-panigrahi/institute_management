@@ -1,0 +1,118 @@
+// Main row
+.row
+  // Left col
+  .col-md-8
+    // MAP & BOX PANE
+    .box.box-success
+      .box-header.with-border
+        h3.box-title Visitors Report
+        |                   
+        .box-tools.pull-right
+          button.btn.btn-box-tool(data-widget='collapse')
+            i.fa.fa-minus
+          |                     
+          button.btn.btn-box-tool(data-widget='remove')
+            i.fa.fa-times
+      // /.box-header
+      .box-body.no-padding
+        .row
+          .col-md-9.col-sm-8
+            .pad
+              // Map will be created here
+              #world-map-markers(style='height: 325px;')
+          // /.col
+          .col-md-3.col-sm-4
+            .pad.box-pane-right.bg-green(style='min-height: 280px')
+              .description-block.margin-bottom
+                .sparkbar.pad(data-color='#fff') 90,70,90,70,75,80,70
+                |                           
+                h5.description-header 8390
+                |                           
+                span.description-text Visits
+              // /.description-block
+              .description-block.margin-bottom
+                .sparkbar.pad(data-color='#fff') 90,50,90,70,61,83,63
+                |                           
+                h5.description-header 30%
+                |                           
+                span.description-text Referrals
+              // /.description-block
+              .description-block
+                .sparkbar.pad(data-color='#fff') 90,50,90,70,61,83,63
+                |                           
+                h5.description-header 70%
+                |                           
+                span.description-text Organic
+              // /.description-block
+          // /.col
+        // /.row
+      // /.box-body
+    // /.box
+  // /.col
+  .col-md-4
+    // Info Boxes Style 2
+    .info-box.bg-yellow
+      span.info-box-icon
+        i.ion.ion-ios-pricetag-outline
+      |                 
+      .info-box-content
+        span.info-box-text Inventory
+        |                   
+        span.info-box-number 5,200
+        |                   
+        .progress
+          .progress-bar(style='width: 50%')
+        |                   
+        span.progress-description
+          | 50% Increase in 30 Days
+      // /.info-box-content
+    // /.info-box
+    .info-box.bg-green
+      span.info-box-icon
+        i.ion.ion-ios-heart-outline
+      |                 
+      .info-box-content
+        span.info-box-text Mentions
+        |                   
+        span.info-box-number 92,050
+        |                   
+        .progress
+          .progress-bar(style='width: 20%')
+        |                   
+        span.progress-description
+          | 20% Increase in 30 Days
+      // /.info-box-content
+    // /.info-box
+    .info-box.bg-red
+      span.info-box-icon
+        i.ion.ion-ios-cloud-download-outline
+      |                 
+      .info-box-content
+        span.info-box-text Downloads
+        |                   
+        span.info-box-number 114,381
+        |                   
+        .progress
+          .progress-bar(style='width: 70%')
+        |                   
+        span.progress-description
+          | 70% Increase in 30 Days
+      // /.info-box-content
+    // /.info-box
+    .info-box.bg-aqua
+      span.info-box-icon
+        i.ion-ios-chatbubble-outline
+      |                 
+      .info-box-content
+        span.info-box-text Direct Messages
+        |                   
+        span.info-box-number 163,921
+        |                   
+        .progress
+          .progress-bar(style='width: 40%')
+        |                   
+        span.progress-description
+          | 40% Increase in 30 Days
+      // /.info-box-content
+    // /.info-box
+  // /.col

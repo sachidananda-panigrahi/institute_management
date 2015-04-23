@@ -17,10 +17,27 @@ module.exports.loginMethod = passport.authenticate('login', {
     failureRedirect: '/',
     failureFlash: 'Invalid username or password.'
 });
-
+/*=======================Dash Board Starts==================================*/
 module.exports.adminDashboard = function(req, res){
-   res.render('dashboard');
+    var locals = {}
+    locals.new_members = 0;
+    locals.userDetail = req.user;
+    // console.log(req.user);
+    userController.getAllUsers().done(function (users) {
+        if(users){
+            // console.log(users);
+            for (var index in users) {
+                if(new Date(users[index].created_at).getMonth() == new Date().getMonth()){
+                    locals.new_members ++ 
+                    console.log(locals.new_members)
+                }
+            };
+        }
+        res.render('dashboard', locals);
+    });
+    
 };
+/*=======================Dash Board Ends==================================*/
 module.exports.studentSignup = function(req, res){
     var locals = {};
     locals.months = CONSTANT.MONTHS;
@@ -62,11 +79,12 @@ module.exports.addNewUser = function(req, res){
         mobile: req.body.mobile,
         city: req.body.city,
         state: req.body.state,
-        motherTongue: req.body.motherTongue,
+        mother_tongue: req.body.motherTongue,
         nationality: req.body.nationality,
-        password: req.body.password,
+        password: bCrypt.hashSync(req.body.password, bCrypt.genSaltSync(8), null),
         birthdate: new Date(parseInt(req.body.year), parseInt(req.body.month)-1, parseInt(req.body.day), 12, 00, 00),
         gender: req.body.gender,
+        created_at: new Date(),
         status: 'active'
     };
 

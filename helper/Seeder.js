@@ -28,11 +28,12 @@ function populateDB() {
             mobile: 8857928163,
             city: 'Bhadrak',
             state: 'Odisha',
-            motherTongue: 'Odiya',
+            mother_tongue: 'Odiya',
             nationality: 'Indian',
             password: bcrypt.hashSync('sachin', bcrypt.genSaltSync(8), null),
             birthdate: new Date(1988, 03, 24, 12, 00, 00),
             gender: 'M',
+            created_at: new Date(),
             status: 'active'
 
         }

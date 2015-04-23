@@ -1,7 +1,7 @@
 console.log('dashBoardController loaded...');
 define([
     'js/utilities/Constant',
-    'js/lib/bootstrap.min.js',
+    /*'js/lib/bootstrap.min.js',
     'plugins/fastclick/fastclick.min.js',
     'js/lib/app.js',
     'plugins/sparkline/jquery.sparkline.min.js',
@@ -13,10 +13,10 @@ define([
     'plugins/slimScroll/jquery.slimscroll.min.js',
     'plugins/chartjs/Chart.min.js',
     'js/lib/pages/dashboard2.js',
-    'js/lib/demo.js',
-    // 'js/build/production.min.js'
-    'js/lib/jquery.validate.min.js'], 
-    function(CONSTANT){
+    'js/lib/demo.js',*/
+    'LIB'
+    /*'js/lib/jquery.validate.min.js'*/], 
+    function(CONSTANT,LIB){
 	'use strict';
     	function DashBoardController(){
     		console.log('dashBoardController instantiated...');

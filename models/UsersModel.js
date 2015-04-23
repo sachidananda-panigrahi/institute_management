@@ -10,11 +10,12 @@ var userSchema = new mongoose.Schema({
     mobile: Number,
     city: String,
     state: String,
-    motherTongue: String,
+    mother_tongue: String,
     nationality: String,
     password: String,
     birthdate: Date,
     gender: String,
+    created_at: Date,
     status: String
 });
 
