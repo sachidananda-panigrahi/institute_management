@@ -29,7 +29,7 @@ module.exports.adminDashboard = function(req, res){
             for (var index in users) {
                 if(new Date(users[index].created_at).getMonth() == new Date().getMonth()){
                     locals.new_members ++ 
-                    console.log(locals.new_members)
+                    // console.log(locals.new_members)
                 }
             };
         }

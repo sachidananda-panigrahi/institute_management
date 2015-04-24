@@ -12,6 +12,7 @@ module.exports = function(grunt) {
             dist: {
                 src: [
                     'public/js/lib/jquery.min.js',
+                    'public/js/lib/highcharts-custom.js',
                     'public/js/lib/bootstrap.min.js',
                     'public/plugins/fastclick/fastclick.min.js',
                     'public/js/lib/app.min.js',
