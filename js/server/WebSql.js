@@ -32,7 +32,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
         this.WebSqldb.transaction(function (tx) {
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS users (username, password)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS userdetails (firstname, lastname, email, password )');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS userdetails (firstname, lastname, email, password, dob, gender )');
             console.log('DB created..');
 
         });
@@ -55,17 +55,22 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
         console.log(eventData);
         var $deferred = new $.Deferred();
         var dbObj = {};
+
         for(var index in eventData){
                //dbObj = eventData[index];
                 dbObj[eventData[index].name] = eventData[index].value;
+
         }
+        var dateOfBirth = new Date(dbObj.year, dbObj.month-1, dbObj.day);
+        console.log(dateOfBirth);
+
         console.log(dbObj);
 
         this.WebSqldb = openDatabase(CONSTANTS.DB.DB_NAME, CONSTANTS.DB.DB_VERSION, CONSTANTS.DB.DB_DISPLAY_NAME, CONSTANTS.DB.DB_SIZE);
         this.WebSqldb.transaction(function (tx) {
             //tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password) VALUES ("Pramod", "Bhoi", "p@g.com", "p123" )');
 
-            tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password) VALUES (?,?,?,?)',[dbObj.firstname, dbObj.lastname, dbObj.email, dbObj.password], function(tx) {
+            tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password, dob, gender) VALUES (?,?,?,?,?,?)',[dbObj.firstname, dbObj.lastname, dbObj.email, dbObj.password,dateOfBirth, dbObj.gender], function(tx) {
                 $deferred.resolve();
             });
         });
