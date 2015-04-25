@@ -6,6 +6,13 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
         this.data = null;
         this.type = null;
         this.header = null;
+
+        this.webSqlObj = new WEBSQL();
+        this.webSqlObj.open();
+        this.webSqlObj.createTables();
+        //this.webSqlObj.insertData();
+//        this.webSqlObj.insertDataIntoTables();
+        //this.webSqlObj.deleteTables();
     };
 
 
@@ -77,10 +84,11 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
     ServiceManager.prototype.doServerDataCall = function(serverObj){
         var $deferred = new $.Deferred();
 
-        this.webSqlObj = new WEBSQL();
-        this.webSqlObj.open();
-        this.webSqlObj.createTables();
-        //this.webSqlObj.insertTables();
+//        this.webSqlObj = new WEBSQL();
+//        this.webSqlObj.open();
+//        this.webSqlObj.createTables();
+//        this.webSqlObj.insertDataIntoTables();
+//        this.webSqlObj.deleteTables();
 
         this.webSqlObj.retrieveLoginData().done(function(serverData){
             console.log('serverData in service mgr')

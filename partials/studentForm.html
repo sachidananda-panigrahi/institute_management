@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    require(['js/helper/require-reference'], function(reference){
-        require(['js/controller/StudentController'], function(StudentController){
+    require(['js/helper/require-reference'], function (reference) {
+        require(['js/controller/StudentController'], function (StudentController) {
             var studentControllerObject = new StudentController();
 
         });
@@ -13,17 +13,27 @@
     <div class="container" id="wrap">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form action="r" method="post" accept-charset="utf-8" class="form" role="form">   <legend>Sign Up</legend>
+                <form action="r" method="post" accept-charset="utf-8" class="form" role="form">
+                    <legend>Sign Up</legend>
                     <h4>It's free and always will be.</h4>
+
                     <div class="row">
                         <div class="col-xs-6 col-md-6">
-                            <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  />                        </div>
+                            <input type="text" name="firstname" value="" class="form-control input-lg"
+                                   placeholder="First Name"/></div>
                         <div class="col-xs-6 col-md-6">
-                            <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  />                        </div>
+                            <input type="text" name="lastname" value="" class="form-control input-lg"
+                                   placeholder="Last Name"/></div>
                     </div>
-                    <input type="text" name="email" value="" class="form-control input-lg" placeholder="Your Email"  /><input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  /><input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password"  />                    <label>Birth Date</label>                    <div class="row">
+                    <input type="text" name="email" value="" class="form-control input-lg"
+                           placeholder="Your Email"/><input type="password" name="password" value=""
+                                                            class="form-control input-lg" placeholder="Password"/><input
+                        type="password" name="confirm_password" value="" class="form-control input-lg"
+                        placeholder="Confirm Password"/> <label>Birth Date</label>
+
+                   <!-- <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            <select name="month" class = "form-control input-lg">
+                            <select name="month" class="form-control input-lg">
                                 <option value="01">Jan</option>
                                 <option value="02">Feb</option>
                                 <option value="03">Mar</option>
@@ -36,9 +46,9 @@
                                 <option value="10">Oct</option>
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
-                            </select>                        </div>
+                            </select></div>
                         <div class="col-xs-4 col-md-4">
-                            <select name="day" class = "form-control input-lg">
+                            <select name="day" class="form-control input-lg">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -70,9 +80,9 @@
                                 <option value="29">29</option>
                                 <option value="30">30</option>
                                 <option value="31">31</option>
-                            </select>                        </div>
+                            </select></div>
                         <div class="col-xs-4 col-md-4">
-                            <select name="year" class = "form-control input-lg">
+                            <select name="year" class="form-control input-lg">
                                 <option value="1935">1935</option>
                                 <option value="1936">1936</option>
                                 <option value="1937">1937</option>
@@ -152,18 +162,19 @@
                                 <option value="2011">2011</option>
                                 <option value="2012">2012</option>
                                 <option value="2013">2013</option>
-                            </select>                        </div>
+                            </select></div>
                     </div>
-                    <label>Gender : </label>                    <label class="radio-inline">
-                        <input type="radio" name="gender" value="M" id=male />                        Male
+                    <label>Gender : </label> <label class="radio-inline">
+                        <input type="radio" name="gender" value="M" id=male/> Male
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="gender" value="F" id=female />                        Female
-                    </label>
-                    <br />
+                        <input type="radio" name="gender" value="F" id=female/> Female
+                    </label>-->
+                    <br/>
                     <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
                     <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
-                        Create my account</button>
+                        Create my account
+                    </button>
                 </form>
             </div>
         </div>

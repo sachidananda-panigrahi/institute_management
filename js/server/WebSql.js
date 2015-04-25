@@ -1,9 +1,11 @@
 ﻿console.log('DB Loaded...');
 define(["js/utilities/Constant"], function (CONSTANTS) {
     function WebSql() {
-        var WebSqldb = {};
+        this.WebSqldb = {};
 
     }
+
+
 
     // Creates new database or opens an existing one.
     // <String> dbSize - Size of the DB.
@@ -26,33 +28,63 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
     // Creates new tables in the DB.
     WebSql.prototype.createTables = function () {
-        console.log(this.WebSqldb);
+
         this.WebSqldb.transaction(function (tx) {
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS users (username, password)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS userdetails (firstname, lastname, email, password )');
             console.log('DB created..');
 
         });
 
-    }
+    };
 
     // Insert data into tables in the DB.
-    WebSql.prototype.insertDataIntoTables = function () {
+    WebSql.prototype.insertData = function () {
         this.WebSqldb.transaction(function (tx) {
             tx.executeSql('INSERT INTO users (username, password) VALUES ("pramod", "pramod123")');
             tx.executeSql('INSERT INTO users (username, password) VALUES ("admin", "admin123")');
 
+           // tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password) VALUES ("Pramod", "Bhoi", "p@g.com", "p123" )');
+            console.log('DB inserted..');
         });
 
-    }
+    };
+
+    WebSql.prototype.insertDataIntoTables = function (eventData) {
+        console.log(eventData);
+        var $deferred = new $.Deferred();
+        var dbObj = {};
+        for(var index in eventData){
+               //dbObj = eventData[index];
+                dbObj[eventData[index].name] = eventData[index].value;
+        }
+        console.log(dbObj);
+
+        this.WebSqldb = openDatabase(CONSTANTS.DB.DB_NAME, CONSTANTS.DB.DB_VERSION, CONSTANTS.DB.DB_DISPLAY_NAME, CONSTANTS.DB.DB_SIZE);
+        this.WebSqldb.transaction(function (tx) {
+            //tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password) VALUES ("Pramod", "Bhoi", "p@g.com", "p123" )');
+
+            tx.executeSql('INSERT INTO userdetails (firstname, lastname, email, password) VALUES (?,?,?,?)',[dbObj.firstname, dbObj.lastname, dbObj.email, dbObj.password], function(tx) {
+                $deferred.resolve();
+            });
+        });
+
+        return $deferred.promise();
+
+    };
+
+
 
     // delete tables in the DB.
-    WebSql.prototype.deleteTables = function (tableName) {
+    WebSql.prototype.deleteTables = function (userdetails) {
+
         this.WebSqldb.transaction(function (tx) {
-            tx.executeSql('DROP TABLE tableName');
+            tx.executeSql('DROP TABLE userdetails');
+            console.log('delete table');
         });
 
-    }
+    };
 
     // retrieve data from the DB.
     WebSql.prototype.retrieveLoginData = function () {
@@ -77,7 +109,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
         });
         //console.log('tempData');
-       // console.log(tempData);
+        // console.log(tempData);
         return $deferred.promise();
     }
 
