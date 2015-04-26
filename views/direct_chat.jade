@@ -20,22 +20,14 @@
       // /.box-header
       .box-body
         // Conversations are loaded here
-        .direct-chat-messages
+        .direct-chat-messages#chat
           // Message. Default to the left
-          .direct-chat-msg
-            .direct-chat-info.clearfix
-              span.direct-chat-name.pull-left #{locals.userDetail.firstname}
-              |                         
-              span.direct-chat-timestamp.pull-right 23 Jan 2:00 pm
-            // /.direct-chat-info
-            img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
-            // /.direct-chat-img
-            .direct-chat-text
-              | Is this template really for free? That&apos;s unbelievable!
+          include direct_message
+              
             // /.direct-chat-text
           // /.direct-chat-msg
           // Message to the right
-          .direct-chat-msg.right
+          //- .direct-chat-msg.right
             .direct-chat-info.clearfix
               span.direct-chat-name.pull-right Sarah Bullock
               |                         
@@ -48,7 +40,7 @@
             // /.direct-chat-text
           // /.direct-chat-msg
           // Message. Default to the left
-          .direct-chat-msg
+          //- .direct-chat-msg
             .direct-chat-info.clearfix
               span.direct-chat-name.pull-left #{locals.userDetail.firstname}
               |                         
@@ -61,7 +53,7 @@
             // /.direct-chat-text
           // /.direct-chat-msg
           // Message to the right
-          .direct-chat-msg.right
+          //- .direct-chat-msg.right
             .direct-chat-info.clearfix
               span.direct-chat-name.pull-right Sarah Bullock
               |                         
@@ -153,12 +145,12 @@
         // /.direct-chat-pane
       // /.box-body
       .box-footer
-        form(action='#', method='post')
+        form#send-message(action='', method='post')
           .input-group
-            input.form-control(type='text', name='message', placeholder='Type Message ...')
+            input.form-control#message(type='text', name='message', placeholder='Type Message ...')
             |                       
             span.input-group-btn
-              button.btn.btn-warning.btn-flat(type='button') Send
+              button.btn.btn-warning.btn-flat(type='submit') Send
       // /.box-footer
     // /.direct-chat
   // /.col

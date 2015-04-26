@@ -14,14 +14,17 @@ define([
     'plugins/chartjs/Chart.min.js',
     'js/lib/pages/dashboard2.js',
     'js/lib/demo.js',*/
-    'LIB'
+    // 'js/lib/socket.io-1.2.0.js',
+    'socketIo',
+    'LIB',
     /*'js/lib/jquery.validate.min.js'*/], 
-    function(CONSTANT,LIB){
+    function(CONSTANT,io,LIB){
 	'use strict';
     	function DashBoardController(){
     		console.log('dashBoardController instantiated...');
             this.user();
             this.sparklineChat();
+            this.directChat();
             
     	}
 
@@ -182,6 +185,38 @@ define([
             });
         }
 
-       
+        DashBoardController.prototype.directChat = function(){
+            console.log('chat function Called...');
+            var socket = io.connect();
+            var $messageForm = $('#send-message');
+            var $messageBox = $('#message');
+            var $chat = $('#chat');
+            var directChatMsg = $('.direct-chat-msg');
+            var index = 0;
+            // console.log(directChatMsg);
+
+            $messageForm.submit(function(e){
+                e.preventDefault();
+                socket.emit('send message', $messageBox.val());
+                $messageBox.val('');
+            });
+            
+            socket.on('new message', function(data){
+                // console.log(data)
+                if(data !== '' && data !== undefined && data !== null){
+                    var timeStamp = new Date();
+                    $(directChatMsg[0]).find('.direct-chat-text').html(data);
+                    $(directChatMsg[0]).find('.direct-chat-timestamp').html(timeStamp.getHours()+":"+timeStamp.getMinutes()+":"+timeStamp.getSeconds());
+                    $chat.append(directChatMsg[0].outerHTML);
+                    directChatMsg = $('.direct-chat-msg');
+                    // console.log(directChatMsg)
+                    index ++;
+                    $(directChatMsg[index]).removeClass('hide');
+                    $chat.animate({scrollTop: $chat.get(0).scrollHeight}, 1500);
+                }
+                
+            });
+        }
+
 	return DashBoardController;
 });

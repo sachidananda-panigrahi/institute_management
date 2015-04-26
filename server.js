@@ -1,8 +1,6 @@
 var express = require("express");
 var session = require('express-session');
 var http = require('http');
-
-//var server = http.createServer(app);
 var bodyParser = require('body-parser');
 var path = require('path');
 var router = require('./routes');
@@ -11,6 +9,8 @@ var seeder = require('./helper/Seeder');
 var passport = require('passport');
 var app = express();
 var flash = require('connect-flash');
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 
 // MongoDB
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');
@@ -36,11 +36,16 @@ app.use(session({
 // Configuring Passport
 app.use(passport.initialize());
 app.use(passport.session());
-
 var initPassport = require('./passport/init');
 initPassport(passport);
-
 app.use(flash());
+
+// Socket.io connecion for chat
+io.sockets.on('connection', function(socket){
+    socket.on('send message', function(data){
+        io.sockets.emit('new message', data);
+    });
+});
 
 // Store the user login credential
 var loggedIn = function (req, res, next) {
@@ -69,6 +74,6 @@ app.post('/api/addUser',router.addNewUser);
 
 // Configuring PORT
 var port = process.env.PORT || 3000;
-app.listen(port, function() {
+server.listen(port, function() {
     console.log("Listening on " + port);
 });
