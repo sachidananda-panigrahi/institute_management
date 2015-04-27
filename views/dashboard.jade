@@ -5,6 +5,9 @@ script(type='text/javascript').
     var dashBoardControllerObject = new DashBoardController();
   });
   });
+//- -if(locals !== undefined && locals !== null && locals !== ''){ 
+  localStorage.setItem('localsObj', locals); }
+//- #{locals.userDetail}
 .wrapper
     include navigation
     include sidebar

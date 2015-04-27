@@ -1,3 +1,9 @@
+
+script(type='text/javascript').
+  //- if(locals !== undefined && locals !== null && locals !== '')
+  //- {
+  //-    localStorage.setItem('locals', JSON.parse(locals));
+  //- }
 // /.row
 .row
   .col-md-4
@@ -145,7 +151,7 @@
         // /.direct-chat-pane
       // /.box-body
       .box-footer
-        form#send-message(action='', method='post')
+        form#send-message()
           .input-group
             input.form-control#message(type='text', name='message', placeholder='Type Message ...')
             |                       

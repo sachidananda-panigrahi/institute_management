@@ -187,25 +187,40 @@ define([
 
         DashBoardController.prototype.directChat = function(){
             console.log('chat function Called...');
+            // var locals = localStorage.getItem('locals');
             var socket = io.connect();
             var $messageForm = $('#send-message');
             var $messageBox = $('#message');
             var $chat = $('#chat');
             var directChatMsg = $('.direct-chat-msg');
             var index = 0;
+            var name = $('.direct-chat-name').text();
+            // console.log(JSON.parse(locals))
+            socket.emit("joinserver", name);
             // console.log(directChatMsg);
 
             $messageForm.submit(function(e){
                 e.preventDefault();
-                socket.emit('send message', $messageBox.val());
+                console.log("submit");
+                socket.emit("send", new Date().getTime(), $messageBox.val());
+                // socket.emit('send message', $messageBox.val());
                 $messageBox.val('');
             });
-            
-            socket.on('new message', function(data){
-                // console.log(data)
+
+            var roomName = 'test';
+            socket.emit("check", roomName, function(data) {
+                if (roomName.length > 0) { //also check for roomname
+                    socket.emit("createRoom", roomName);
+                }
+            });
+
+            socket.on("chat", function(msTime, person, msg) {
+                console.log(msTime);
+                console.log(person);
+                console.log(msg);
                 if(data !== '' && data !== undefined && data !== null){
                     var timeStamp = new Date();
-                    $(directChatMsg[0]).find('.direct-chat-text').html(data);
+                    $(directChatMsg[0]).find('.direct-chat-text').html(msg);
                     $(directChatMsg[0]).find('.direct-chat-timestamp').html(timeStamp.getHours()+":"+timeStamp.getMinutes()+":"+timeStamp.getSeconds());
                     $chat.append(directChatMsg[0].outerHTML);
                     directChatMsg = $('.direct-chat-msg');
@@ -213,8 +228,7 @@ define([
                     index ++;
                     $(directChatMsg[index]).removeClass('hide');
                     $chat.animate({scrollTop: $chat.get(0).scrollHeight}, 1500);
-                }
-                
+                }        
             });
         }
 
