@@ -56,7 +56,7 @@ ChatController.prototype.addChat = function (chat) {
                 console.log('Error while adding chat.');
                 reject(err);
             } else {
-                console.log('Chat added successfully.');
+                // console.log('Chat added successfully.');
                 resolve(chat);
             }
         })
@@ -78,4 +78,4 @@ ChatController.prototype.deleteChat = function (id) {
 };
 
 
-module.exports = { 'UserController': new UserController() }
+module.exports = { 'ChatController': new ChatController() }

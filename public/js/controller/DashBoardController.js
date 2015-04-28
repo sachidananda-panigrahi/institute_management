@@ -193,7 +193,7 @@ define([
             var $messageBox = $('#message');
             var $chat = $('#chat');
             var directChatMsg = $('.direct-chat-msg');
-            var index = 0;
+            var index = directChatMsg.length - 1;
             var messageDet = {}
             messageDet.userName = $(directChatMsg[0]).find('.direct-chat-name').text();
             

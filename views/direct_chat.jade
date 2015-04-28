@@ -151,7 +151,7 @@ script(type='text/javascript').
         // /.direct-chat-pane
       // /.box-body
       .box-footer
-        form#send-message()
+        form#send-message(onsubmit="return false;")
           .input-group
             input.form-control#message(type='text', name='message', placeholder='Type Message ...')
             span.input-group-btn

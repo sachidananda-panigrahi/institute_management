@@ -4,7 +4,7 @@ var CONSTANT = require('../utilities/Constant').CONSTANTS;
 
 // Model Definition
 var chatSchema = new mongoose.Schema({
-    user_id: { type: mongoose.Schema.Types.ObjectId, ref: CONSTANT.DOCUMENT_NAMES.USER },
+    user_name: String,
     msg_content: String, 
     msg_time: Date
 });

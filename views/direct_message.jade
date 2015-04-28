@@ -1,6 +1,13 @@
 .direct-chat-msg.hide
-    .direct-chat-info.clearfix
-      span.direct-chat-name.pull-left #{locals.userDetail.firstname}
-      span.direct-chat-timestamp.pull-right #{new Date()}
-    img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
-    .direct-chat-text
+	.direct-chat-info.clearfix
+		span.direct-chat-name.pull-left #{locals.userDetail.firstname}
+		span.direct-chat-timestamp.pull-right #{new Date()}
+	img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
+	.direct-chat-text
+each value, index in locals.chats
+	.direct-chat-msg
+		.direct-chat-info.clearfix
+			span.direct-chat-name.pull-left #{value.user_name}
+			span.direct-chat-timestamp.pull-right #{new Date(value.msg_time).getHours()+":"+new Date(value.msg_time).getMinutes()+":"+new Date(value.msg_time).getSeconds()}
+		img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
+		.direct-chat-text #{value.msg_content}

@@ -44,7 +44,7 @@ io.sockets.on('connection', function(socket){
     // console.log(socket.id);
     socket.on('send message', function(data){
         io.sockets.emit('new message', data);
-
+        router.chat(data);
     });
     
 });

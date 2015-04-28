@@ -23,19 +23,38 @@ module.exports.adminDashboard = function(req, res){
     locals.new_members = 0;
     locals.userDetail = req.user;
     // console.log(req.user);
-    userController.getAllUsers().done(function (users) {
-        if(users){
-            // console.log(users);
-            for (var index in users) {
-                if(new Date(users[index].created_at).getMonth() == new Date().getMonth()){
-                    locals.new_members ++ 
-                    // console.log(locals.new_members)
-                }
-            };
-        }
-        res.render('dashboard', locals);
-    });
-    
+
+    function renderDashboardData(){
+        this.getAllUsers();
+    }
+
+    renderDashboardData.prototype.getAllUsers = function(){
+        var that = this;
+        userController.getAllUsers().done(function (users) {
+            if(users){
+                // console.log(users);
+                for (var index in users) {
+                    if(new Date(users[index].created_at).getMonth() == new Date().getMonth()){
+                        locals.new_members ++ 
+                        // console.log(locals.new_members)
+                    }
+                };
+            }
+            that.getAllChat();
+            // res.render('dashboard', locals);
+        });
+    }
+
+    renderDashboardData.prototype.getAllChat = function(){
+        var chatController = require('../controller/ChatController').ChatController;
+        chatController.getAllChat().done(function(chats){
+            // console.log(chats);
+            locals.chats = chats;
+            res.render('dashboard', locals);
+        });
+    }
+
+    var renderDashboardData= new renderDashboardData();
 };
 /*=======================Dash Board Ends==================================*/
 module.exports.studentSignup = function(req, res){
@@ -43,6 +62,20 @@ module.exports.studentSignup = function(req, res){
     locals.months = CONSTANT.MONTHS;
     res.render('student_signup', locals);
 };
+/*=======================Store Chat Starts==================================*/
+module.exports.chat = function(data){
+    var chatController = require('../controller/ChatController').ChatController;
+    var chatDet = {};
+    chatDet.user_name = data.userName;
+    chatDet.msg_content = data.message;
+    chatDet.msg_time = data.time;
+
+    chatController.addChat(chatDet).done(function(chat){
+        // console.log('inside chatController');
+        // console.log(chat);
+    });
+};
+/*=======================Store Chat Ends==================================*/
 module.exports.user = function (req, res) {
     userController.getAllUsers().done(function (users) {
         // console.log(users[0]);
