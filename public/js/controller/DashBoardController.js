@@ -187,49 +187,47 @@ define([
 
         DashBoardController.prototype.directChat = function(){
             console.log('chat function Called...');
-            // var locals = localStorage.getItem('locals');
+
             var socket = io.connect();
             var $messageForm = $('#send-message');
             var $messageBox = $('#message');
             var $chat = $('#chat');
             var directChatMsg = $('.direct-chat-msg');
             var index = 0;
-            var name = $('.direct-chat-name').text();
-            // console.log(JSON.parse(locals))
-            socket.emit("joinserver", name);
+            var messageDet = {}
+            messageDet.userName = $(directChatMsg[0]).find('.direct-chat-name').text();
+            
             // console.log(directChatMsg);
 
             $messageForm.submit(function(e){
                 e.preventDefault();
-                console.log("submit");
-                socket.emit("send", new Date().getTime(), $messageBox.val());
-                // socket.emit('send message', $messageBox.val());
+                messageDet.message = $messageBox.val();
+                messageDet.time = new Date();
+                socket.emit('send message', messageDet);
                 $messageBox.val('');
             });
-
-            var roomName = 'test';
-            socket.emit("check", roomName, function(data) {
-                if (roomName.length > 0) { //also check for roomname
-                    socket.emit("createRoom", roomName);
-                }
-            });
-
-            socket.on("chat", function(msTime, person, msg) {
-                console.log(msTime);
-                console.log(person);
-                console.log(msg);
+            
+            socket.on('new message', function(data){
+                console.log(data)
                 if(data !== '' && data !== undefined && data !== null){
-                    var timeStamp = new Date();
-                    $(directChatMsg[0]).find('.direct-chat-text').html(msg);
+                    var timeStamp = new Date(data.time);
+                    $(directChatMsg[0]).find('.direct-chat-text').html(data.message);
+                    $(directChatMsg[0]).find('.direct-chat-name').html(data.userName);
                     $(directChatMsg[0]).find('.direct-chat-timestamp').html(timeStamp.getHours()+":"+timeStamp.getMinutes()+":"+timeStamp.getSeconds());
+                    //Append to view
                     $chat.append(directChatMsg[0].outerHTML);
                     directChatMsg = $('.direct-chat-msg');
                     // console.log(directChatMsg)
                     index ++;
+                    if(messageDet.userName !== data.userName){
+                        $(directChatMsg[index]).addClass('right');
+                    }
                     $(directChatMsg[index]).removeClass('hide');
                     $chat.animate({scrollTop: $chat.get(0).scrollHeight}, 1500);
-                }        
+                }
+                
             });
+            
         }
 
 	return DashBoardController;

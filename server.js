@@ -11,8 +11,6 @@ var app = express();
 var flash = require('connect-flash');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-var clients = [];
-var chatConfigController = require('./controller/ChatConfigController').ChatConfigController;
 // MongoDB
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');
 mongoose.connection.on('open', function () {
@@ -42,23 +40,14 @@ initPassport(passport);
 app.use(flash());
 
 // Socket.io connecion for chat
-/*io.sockets.on('connection', function(socket){
-
-    clients.push(socket);
-    console.log(socket.id);
-    
-    console.log("clients.length------"+clients.length);
-    for(var index in clients){
-        console.log("client.id");
-        console.log(clients[index].id);    
-    }
+io.sockets.on('connection', function(socket){
+    // console.log(socket.id);
     socket.on('send message', function(data){
         io.sockets.emit('new message', data);
 
     });
     
-});*/
-chatConfigController.setOption();
+});
 
 // Store the user login credential
 var loggedIn = function (req, res, next) {
