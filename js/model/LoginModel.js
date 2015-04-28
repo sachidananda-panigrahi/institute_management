@@ -62,13 +62,17 @@ define(['js/utilities/Constant', 'js/utilities/ServiceManager'], function(CONSTA
         for ( var index in serverData )
         {
             var empobj = serverData[index];
-            if(empobj.username == this.username && empobj.password== this.password){
+            if(empobj.email == this.username && empobj.password== this.password){
                 userfound = true;
+
+                sessionStorage.setItem("userfound", "true");
+
+
                 break;
             }
         }
         if(userfound){
-            location.href = 'student_form.html';
+            location.href = 'dashboard.html';
 
         }else{
             alert('incorect credentials');

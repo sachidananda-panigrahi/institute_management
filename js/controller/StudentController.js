@@ -16,6 +16,7 @@ define(['js/utilities/Constant','js/model/StudentModel'], function(CONSTANT, STU
     }
     StudentController.prototype.formSubmitHandler = function(event){
         var that = event.data.context;
+        console.log(that);
         that.eventData = $(event.currentTarget).serializeArray();
         //console.log(that.eventData);
         that.studentModel.submitLoginForm(that.eventData);

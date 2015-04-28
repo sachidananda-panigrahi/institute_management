@@ -31,7 +31,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
         this.WebSqldb.transaction(function (tx) {
 
-            tx.executeSql('CREATE TABLE IF NOT EXISTS users (username, password)');
+//            tx.executeSql('CREATE TABLE IF NOT EXISTS users (username, password)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS userdetails (firstname, lastname, email, password, dob, gender )');
             console.log('DB created..');
 
@@ -82,10 +82,10 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
 
     // delete tables in the DB.
-    WebSql.prototype.deleteTables = function (userdetails) {
+    WebSql.prototype.deleteTables = function (users) {
 
         this.WebSqldb.transaction(function (tx) {
-            tx.executeSql('DROP TABLE userdetails');
+            tx.executeSql('DROP TABLE users');
             console.log('delete table');
         });
 
@@ -99,7 +99,7 @@ define(["js/utilities/Constant"], function (CONSTANTS) {
 
         this.WebSqldb.transaction(function (tx) {
             var retrieveData = 0;
-            var retrieveData = tx.executeSql('SELECT * FROM users', [],
+            var retrieveData = tx.executeSql('SELECT email, password FROM userdetails', [],
                 function (tx, result) {
                     if (result != null && result.rows != null) {
                         for (var i = 0; i < result.rows.length; i++) {

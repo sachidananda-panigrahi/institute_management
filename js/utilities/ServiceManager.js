@@ -11,7 +11,7 @@ define(['js/utilities/Constant', 'js/server/WebSql'], function(CONSTANTS, WEBSQL
         this.webSqlObj.open();
         this.webSqlObj.createTables();
 //        this.webSqlObj.insertData();
-        this.webSqlObj.insertDataIntoTables();
+//        this.webSqlObj.insertDataIntoTables();
 //        this.webSqlObj.deleteTables();
     };
 
