@@ -64,7 +64,7 @@ app.get('/logout', router.logout);
 //validate login
 app.post('/login_method', router.loginMethod);
 // Student page
-app.get('/student_sign_up', router.studentSignup);
+app.get('/signup', router.studentSignup);
 // Student page
 app.get('/dashboard', loggedIn, router.adminDashboard);
 // get users

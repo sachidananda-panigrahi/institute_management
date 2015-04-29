@@ -196,7 +196,7 @@ define([
             var index = directChatMsg.length - 1;
             var messageDet = {}
             messageDet.userName = $(directChatMsg[0]).find('.direct-chat-name').text();
-            
+            $chat.animate({scrollTop: $chat.get(0).scrollHeight}, 1500);
             // console.log(directChatMsg);
 
             $messageForm.submit(function(e){

@@ -5,7 +5,7 @@
 	img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
 	.direct-chat-text
 each value, index in locals.chats
-	.direct-chat-msg
+	div(class="#{locals.userDetail.firstname === value.user_name ? 'direct-chat-msg' : 'direct-chat-msg right'}")
 		.direct-chat-info.clearfix
 			span.direct-chat-name.pull-left #{value.user_name}
 			span.direct-chat-timestamp.pull-right #{new Date(value.msg_time).getHours()+":"+new Date(value.msg_time).getMinutes()+":"+new Date(value.msg_time).getSeconds()}

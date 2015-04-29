@@ -60,7 +60,7 @@ module.exports.adminDashboard = function(req, res){
 module.exports.studentSignup = function(req, res){
     var locals = {};
     locals.months = CONSTANT.MONTHS;
-    res.render('student_signup', locals);
+    res.render('signup', locals);
 };
 /*=======================Store Chat Starts==================================*/
 module.exports.chat = function(data){
