@@ -27,16 +27,20 @@ define(['js/utilities/Constant','js/model/UsersModel'], function(CONSTANT, USERS
         var formsubmit = document.getElementById('studentForm');
 
         //Name
-        if($(formsubmit).find('#fname').val() == ""){
+        var fname = $(formsubmit).find('#fname');
+        if(fname.val() == ""){
             alert("Enter your Name..!");
+            $(fname).focus();
             return false;
         }
         //email check
         var emailPat = /^(\".*\"|[A-Za-z]\w*)@(\[\d{1,3}(\.\d{1,3}){3}]|[A-Za-z]\w*(\.[A-Za-z]\w*)+)$/;
         var Emailmatch = formsubmit.children.email.value.match(emailPat);
-        if ( formsubmit.children.email.value == "")
+        var email = formsubmit.children.email;
+        if ( email.value == "")
         {
             alert("Enter your email..!");
+            $(email).focus();
             return false;
         }
         if (Emailmatch == null) {
@@ -44,18 +48,23 @@ define(['js/utilities/Constant','js/model/UsersModel'], function(CONSTANT, USERS
             return false;
         }
         // password
-        if(formsubmit.children.password.value == ""){
+        var password = formsubmit.children.password;
+        if(password.value == ""){
             alert("Enter your password..!");
+            $(password).focus();
             return false;
         }
         //confirm password
-        if(formsubmit.children.confirm_password.value == ""){
+        var confirm_password = formsubmit.children.confirm_password;
+        if(confirm_password.value == ""){
             alert("Enter your confirm password..!");
+            $(confirm_password).focus();
             return false;
         }
         //confirm password check
-        if(formsubmit.children.confirm_password.value !== formsubmit.children.password.value){
+        if(confirm_password.value !== formsubmit.children.password.value){
             alert("Enter your correct password..!");
+            $(confirm_password).focus();
             return false;
         }
         if(isNaN($(formsubmit).find('#month').val()) || isNaN($(formsubmit).find('#day').val()) || isNaN($(formsubmit).find('#year').val()) ){
