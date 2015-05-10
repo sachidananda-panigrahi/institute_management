@@ -1,24 +1,27 @@
-console.log('StudentModel Loaded...');
+console.log('UsersModel Loaded...');
 define(['js/utilities/Constant', 'js/utilities/ServiceManager',  'js/server/WebSql'], function(CONSTANTS, ServiceManager, WEBSQL){
 
-    function StudentModel(){
-        console.log('StudentModel initiated...');
+    function UsersModel(){
+        console.log('UsersModel' +
+            ' initiated...');
         this.serviceManagerObject = new ServiceManager();
         this.webSqqlObject = new WEBSQL();
 
     }
 
-    StudentModel.prototype.submitLoginForm = function(eventData){
+    UsersModel.prototype.submitLoginForm = function(eventData){
         console.log("Submit Login Form...");
         console.log(eventData);
 
         this.webSqqlObject.insertDataIntoTables(eventData).done(function(){
            console.log("Data inserted .......")
+            alert("Data inserted .......");
+
         });
     }
 
 
 
 
-    return StudentModel;
+    return UsersModel;
 });
