@@ -75,6 +75,9 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                     required: true,
                     equalTo: '#password',
                 },
+                profile_pic: {
+                    required: true
+                },
                 gender: {
                     required: true,
                 }
@@ -124,6 +127,9 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                 confirm_password: {
                     required: 'Please confirm your password',
                     equalTo: 'confirm password must equal with password'
+                },
+                profile_pic: {
+                    required: 'Please choose your profile picture'
                 },
                 gender: {
                     required: 'Please enter your gender'

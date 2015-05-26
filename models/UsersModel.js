@@ -16,6 +16,7 @@ var userSchema = new mongoose.Schema({
     birthdate: Date,
     gender: String,
     created_at: Date,
+    profile_pic: Date,
     status: String
 });
 

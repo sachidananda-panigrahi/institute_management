@@ -76,6 +76,20 @@ module.exports.chat = function(data){
     });
 };
 /*=======================Store Chat Ends==================================*/
+/*=======================Upload File Starts==================================*/
+module.exports.uploadFile = function(data){
+    var chatController = require('../controller/ChatController').ChatController;
+    var chatDet = {};
+    chatDet.user_name = data.userName;
+    chatDet.msg_content = data.message;
+    chatDet.msg_time = data.time;
+
+    chatController.addChat(chatDet).done(function(chat){
+        // console.log('inside chatController');
+        // console.log(chat);
+    });
+};
+/*=======================Upload File Ends==================================*/
 module.exports.user = function (req, res) {
     userController.getAllUsers().done(function (users) {
         // console.log(users[0]);
@@ -95,7 +109,7 @@ module.exports.userpresent = function (req, res) {
 };
 module.exports.addNewUser = function(req, res){
     
-    // console.log(req.body.firstname);
+    console.log(req.body);
     // res.redirect('/');
 
 //    console.log(req.body[0].value);
@@ -105,7 +119,7 @@ module.exports.addNewUser = function(req, res){
         userDetail[req.body[index].name] = req.body[index].value;
     }*/
 //    console.log(userDetail);
-    var createUser = {
+   /* var createUser = {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
@@ -118,6 +132,7 @@ module.exports.addNewUser = function(req, res){
         birthdate: new Date(parseInt(req.body.year), parseInt(req.body.month)-1, parseInt(req.body.day), 12, 00, 00),
         gender: req.body.gender,
         created_at: new Date(),
+        profile_pic: new Date(),
         status: 'active'
     };
 
@@ -127,7 +142,7 @@ module.exports.addNewUser = function(req, res){
             res.redirect('/');
         }
 
-    });
+    });*/
     
 
 };

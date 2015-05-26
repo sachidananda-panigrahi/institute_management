@@ -53,6 +53,10 @@ script(type='text/javascript').
                                 select.form-control.input-lg(name='year')
                                     - for( var year = 2015; year >= 1935; year--)
                                         option(value= year)= year
+                        label(for='profile_pic') Profile Picture
+                        .row
+                            .col-xs-6.col-md-6
+                                input.form-control.input-lg#profile_pic(type='file', name='profile_pic', value='')    
                         label Gender :
                         label.radio-inline
                             input#male(type='radio', name='gender', value='M')
