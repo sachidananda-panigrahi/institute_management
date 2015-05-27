@@ -1,7 +1,9 @@
-var passport = require('passport');
-var userController = require('../controller/userController').UserController;
-var CONSTANT = require('../utilities/Constant').CONSTANTS;
-var bCrypt = require('bcrypt-nodejs');
+// Dependencies
+var passport = require('passport'),
+    userController = require('../controller/userController').UserController,
+    CONSTANT = require('../utilities/Constant').CONSTANTS,
+    bCrypt = require('bcrypt-nodejs');
+    
 
 module.exports.login = function (req, res) {
     res.render('login', {message: req.flash('loginMessage'), pagetitle: 'Login', passchange: req.flash('passchange')});
@@ -76,20 +78,7 @@ module.exports.chat = function(data){
     });
 };
 /*=======================Store Chat Ends==================================*/
-/*=======================Upload File Starts==================================*/
-module.exports.uploadFile = function(data){
-    var chatController = require('../controller/ChatController').ChatController;
-    var chatDet = {};
-    chatDet.user_name = data.userName;
-    chatDet.msg_content = data.message;
-    chatDet.msg_time = data.time;
 
-    chatController.addChat(chatDet).done(function(chat){
-        // console.log('inside chatController');
-        // console.log(chat);
-    });
-};
-/*=======================Upload File Ends==================================*/
 module.exports.user = function (req, res) {
     userController.getAllUsers().done(function (users) {
         // console.log(users[0]);
@@ -108,41 +97,72 @@ module.exports.userpresent = function (req, res) {
     });
 };
 module.exports.addNewUser = function(req, res){
+    var formidable = require('formidable'),
+        util = require('util'),
+        fs   = require('fs-extra'),
+        qt   = require('quickthumb');
+    var form = new formidable.IncomingForm();
+    var fieldsObj = {};
+    form.parse(req, function(err, fields, files) {
+          fieldsObj = fields;
+    });
     
-    console.log(req.body);
-    // res.redirect('/');
+    form.on('end', function(fields, files) {
+        
+        // Temporary location of our uploaded file 
+        var temp_path = this.openedFiles[0].path;
+        // The file name of the uploaded file 
+        var file_name = this.openedFiles[0].name;
+        // Location where we want to copy the uploaded file 
+        var new_location = 'public/uploads/';
+        
+        var image_origial = new_location+file_name;
+        fs.copy(temp_path, new_location + file_name, function(err) {  
+          if (err) {
+            console.error(err);
+          } else {
+            fs.readFile(image_origial, function(err, data) {
+                var base64data = new Buffer(data).toString('base64');
+                // var base64Image = new Buffer(image_origial, 'binary').toString('base64');
+                var createUser = {
+                        firstname: fieldsObj.firstname,
+                        lastname: fieldsObj.lastname,
+                        email: fieldsObj.email,
+                        mobile: fieldsObj.mobile,
+                        city: fieldsObj.city,
+                        state: fieldsObj.state,
+                        mother_tongue: fieldsObj.motherTongue,
+                        nationality: fieldsObj.nationality,
+                        password: bCrypt.hashSync(fieldsObj.password, bCrypt.genSaltSync(8), null),
+                        birthdate: new Date(parseInt(fieldsObj.year), parseInt(fieldsObj.month)-1, parseInt(fieldsObj.day), 12, 00, 00),
+                        gender: fieldsObj.gender,
+                        created_at: new Date(),
+                        profile_pic: "data:image/png;base64, " + base64data,
+                        status: 'active'
+                    };
 
-//    console.log(req.body[0].value);
+                    userController.addUser(createUser).done(function (user) {
+                        if(user){
+                            // console.log(user);
+                            res.redirect('/');
+                        }
+
+                    });
+            });
+            
+             
+          }
+        });
+      });
+    
+
     /*var userDetail = {};
 
     for(var index in req.body){
         userDetail[req.body[index].name] = req.body[index].value;
     }*/
 //    console.log(userDetail);
-   /* var createUser = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        mobile: req.body.mobile,
-        city: req.body.city,
-        state: req.body.state,
-        mother_tongue: req.body.motherTongue,
-        nationality: req.body.nationality,
-        password: bCrypt.hashSync(req.body.password, bCrypt.genSaltSync(8), null),
-        birthdate: new Date(parseInt(req.body.year), parseInt(req.body.month)-1, parseInt(req.body.day), 12, 00, 00),
-        gender: req.body.gender,
-        created_at: new Date(),
-        profile_pic: new Date(),
-        status: 'active'
-    };
-
-    userController.addUser(createUser).done(function (user) {
-        if(user){
-            // console.log(user);
-            res.redirect('/');
-        }
-
-    });*/
+   
     
 
 };

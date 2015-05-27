@@ -13,6 +13,7 @@ var flash = require('connect-flash');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var Grid = require('gridfs-stream');
+
 // MongoDB
 var connection = mongoose.connect('mongodb://localhost/institute_mgt_db');
 mongoose.connection.on('open', function () {
@@ -75,8 +76,6 @@ app.get('/api/userlist',router.user);
 app.post('/api/userpresent',router.userpresent);
 //Add Users
 app.post('/api/addUser',router.addNewUser);
-//Upload File
-app.post('/api/upload',router.uploadFile);
 
 // Configuring PORT
 var port = process.env.PORT || 3000;

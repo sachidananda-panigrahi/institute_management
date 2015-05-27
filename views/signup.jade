@@ -6,7 +6,7 @@ script(type='text/javascript').
   });
   });
 #wrap
-    form#studentForm.form(name='studentRegistration', method='POST', action='/api/addUser')
+    form#studentForm.form(name='studentRegistration', method='POST', action='/api/addUser', enctype="multipart/form-data")
         .container
             .row
                 .col-md-6.col-md-offset-3
