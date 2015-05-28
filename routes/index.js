@@ -24,6 +24,7 @@ module.exports.adminDashboard = function(req, res){
     var locals = {}
     locals.new_members = 0;
     locals.userDetail = req.user;
+    var fs   = require('fs-extra');
     // console.log(req.user);
 
     function renderDashboardData(){
@@ -43,18 +44,29 @@ module.exports.adminDashboard = function(req, res){
                 };
             }
             that.getAllChat();
-            // res.render('dashboard', locals);
         });
     }
 
     renderDashboardData.prototype.getAllChat = function(){
+        var that = this;
         var chatController = require('../controller/ChatController').ChatController;
         chatController.getAllChat().done(function(chats){
             // console.log(chats);
             locals.chats = chats;
-            res.render('dashboard', locals);
+            that.base64ToImageFile();
+            
         });
     }
+
+     renderDashboardData.prototype.base64ToImageFile = function(){
+        var buff = new Buffer(req.user.profile_pic
+            .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
+        fs.writeFile('public/images/user/user_profile.jpg', buff, function (err) {
+            console.log('File Created');
+            res.render('dashboard', locals);
+        });
+     }
+
 
     var renderDashboardData= new renderDashboardData();
 };
@@ -97,14 +109,17 @@ module.exports.userpresent = function (req, res) {
     });
 };
 module.exports.addNewUser = function(req, res){
+    // Dependencies
     var formidable = require('formidable'),
         util = require('util'),
         fs   = require('fs-extra'),
         qt   = require('quickthumb');
+
     var form = new formidable.IncomingForm();
     var fieldsObj = {};
     form.parse(req, function(err, fields, files) {
           fieldsObj = fields;
+          // console.log(files)
     });
     
     form.on('end', function(fields, files) {
@@ -123,8 +138,7 @@ module.exports.addNewUser = function(req, res){
           } else {
             fs.readFile(image_origial, function(err, data) {
                 var base64data = new Buffer(data).toString('base64');
-                // var base64Image = new Buffer(image_origial, 'binary').toString('base64');
-                var createUser = {
+                /*var createUser = {
                         firstname: fieldsObj.firstname,
                         lastname: fieldsObj.lastname,
                         email: fieldsObj.email,
@@ -146,8 +160,7 @@ module.exports.addNewUser = function(req, res){
                             // console.log(user);
                             res.redirect('/');
                         }
-
-                    });
+                    });*/
             });
             
              

@@ -1,5 +1,5 @@
 console.log('StudentController loaded...');
-define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.min'], function(CONSTANT, STUDENTNMODEL, validate){
+define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.min', 'js/lib/additional-methods.min'], function(CONSTANT, STUDENTNMODEL, validate, additional){
 	'use strict';
 
 	function StudentController(){
@@ -24,7 +24,55 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
     }
 
     StudentController.prototype.validateForm = function(){
+        
+        $.validator.addMethod('imagedim', function(value, element) {
+
+            function imgRes(){
+                var $deferred = new $.Deferred();
+                var _URL = window.URL;
+                var  img;
+                if ((element = element.files[0])) {
+                    img = new Image();
+                    img.onload = function () {
+                        console.log("Width:" + this.width + "   Height: " + this.height);//this will give you image width and height and you can easily validate here....
+                        if(this.width == 128 && this.height == 128){
+                            $deferred.resolve(true);
+                        }else{
+                            $deferred.resolve(false);
+                        }
+                        // return this.width >= param
+                    };
+                    img.src = _URL.createObjectURL(element);
+                    return $deferred.promise();
+                }
+            }
+            
+            imgRes().done(function(flag){
+                console.log(flag)
+                return flag;
+            })
+                
+                // console.log($deferred.promise())
+                
+            
+        });
+
+        $.validator.addMethod("uploadFile", function (val, element) {
+            // var ext = $(element).val().split('.').pop().toLowerCase();
+            // console.log(ext);
+            // var allow = new Array('jpg');
+            var size = element.files[0].size;
+            if ( size > 51200) {
+                return false;
+            } else {
+                return true;
+            }
+
+        });
+
         $('#studentForm').validate({
+            errorClass: "error",
+            validClass: "success",
             rules: {
                 firstname: {
                     required: true,
@@ -76,7 +124,11 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                     equalTo: '#password',
                 },
                 profile_pic: {
-                    required: true
+                    required: true,
+                    accept: "image/*",
+                    extension: "jpeg|png|jpg",
+                    uploadFile: true,
+                    imagedim: true
                 },
                 gender: {
                     required: true,
@@ -129,7 +181,11 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                     equalTo: 'confirm password must equal with password'
                 },
                 profile_pic: {
-                    required: 'Please choose your profile picture'
+                    required: 'Please choose your profile picture',
+                    accept: 'Please choose a image file',
+                    extension: 'Please choose a image file in format of JPEG/PNG',
+                    uploadFile: 'Maximum size allowed 50kb',
+                    imagedim: 'Image resolution 128*128'
                 },
                 gender: {
                     required: 'Please enter your gender'
