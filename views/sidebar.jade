@@ -5,7 +5,7 @@ aside.main-sidebar
     // Sidebar user panel
     .user-panel
       .pull-left.image
-        img.img-circle(src=src='images/user/user_profile.jpg', alt='User Image')
+        img.img-circle(src=locals.userDetail.profile_pic_url, alt='User Image')
       |             
       .pull-left.info
         p #{locals.userDetail.firstname}
@@ -27,7 +27,7 @@ aside.main-sidebar
       li.header MAIN NAVIGATION
       |             
       li.active.treeview
-        a(href='#')
+        a(href='javascript:void(0)')
           i.fa.fa-dashboard
           |  
           span Dashboard
@@ -36,14 +36,14 @@ aside.main-sidebar
         |               
         ul.treeview-menu
           li
-            a(href='index.html')
+            a(href='/dashboard')
               i.fa.fa-circle-o
-              |  Dashboard v1
+              |  Dashboard
           |                 
           li.active
-            a(href='index2.html')
+            a(href='/profile')
               i.fa.fa-circle-o
-              |  Dashboard v2
+              |  Profile
       |             
       li.treeview
         a(href='#')

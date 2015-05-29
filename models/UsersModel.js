@@ -17,6 +17,7 @@ var userSchema = new mongoose.Schema({
     gender: {type: String},
     created_at: {type: Date},
     profile_pic: { type: String },
+    profile_pic_url: { type: String },
     status: {type: String}
 });
 

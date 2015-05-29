@@ -24,37 +24,28 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
     }
 
     StudentController.prototype.validateForm = function(){
-        
-        $.validator.addMethod('imagedim', function(value, element) {
-
-            function imgRes(){
-                var $deferred = new $.Deferred();
+        var flag;
+        $('#profile_pic').change(function(){
                 var _URL = window.URL;
-                var  img;
-                if ((element = element.files[0])) {
+                var  img, file;
+                if ((file = this.files[0])) {
                     img = new Image();
                     img.onload = function () {
                         console.log("Width:" + this.width + "   Height: " + this.height);//this will give you image width and height and you can easily validate here....
                         if(this.width == 128 && this.height == 128){
-                            $deferred.resolve(true);
+                            flag = true;
                         }else{
-                            $deferred.resolve(false);
+                            flag = false;
                         }
-                        // return this.width >= param
                     };
-                    img.src = _URL.createObjectURL(element);
-                    return $deferred.promise();
+                    img.src = _URL.createObjectURL(file);
                 }
-            }
             
-            imgRes().done(function(flag){
-                console.log(flag)
-                return flag;
-            })
-                
-                // console.log($deferred.promise())
-                
-            
+        })
+        
+        $.validator.addMethod('imagedim', function(value, element) {
+            // console.log(flag)
+            return flag;    
         });
 
         $.validator.addMethod("uploadFile", function (val, element) {
@@ -185,7 +176,7 @@ define(['js/utilities/Constant','js/model/StudentModel','js/lib/jquery.validate.
                     accept: 'Please choose a image file',
                     extension: 'Please choose a image file in format of JPEG/PNG',
                     uploadFile: 'Maximum size allowed 50kb',
-                    imagedim: 'Image resolution 128*128'
+                    imagedim: 'Image resolution must be 128*128'
                 },
                 gender: {
                     required: 'Please enter your gender'

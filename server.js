@@ -70,12 +70,15 @@ app.post('/login_method', router.loginMethod);
 app.get('/signup', router.studentSignup);
 // Student page
 app.get('/dashboard', loggedIn, router.adminDashboard);
+//User Profile
+app.get('/profile', loggedIn, router.userprofile);
 // get users
 app.get('/api/userlist',router.user);
 // check user exist
 app.post('/api/userpresent',router.userpresent);
 //Add Users
 app.post('/api/addUser',router.addNewUser);
+
 
 // Configuring PORT
 var port = process.env.PORT || 3000;

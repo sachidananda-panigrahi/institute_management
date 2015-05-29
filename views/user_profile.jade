@@ -1,0 +1,48 @@
+include header
+script(type='text/javascript').
+  require(['js/helper/require-reference'], function(reference){
+  require(['js/controller/ProfileController'], function(ProfileController){
+    var ProfileControllerObject = new ProfileController();
+  });
+  });
+.wrapper
+    include navigation
+    include sidebar
+    // Content Wrapper. Contains page content
+    .content-wrapper
+      // Content Header (Page header)
+      include content_header
+      section.content
+        .table.customTable
+            .tr
+                .td Profile Picture
+                .td 
+                    img.img-circle(src=locals.userDetail.profile_pic_url, alt='User Image') 
+            .tr
+                .td Name    
+                .td #{locals.userDetail.firstname} #{locals.userDetail.lastname}
+            .tr
+                .td Mobile Number    
+                .td #{locals.userDetail.mobile}
+            .tr
+                .td City    
+                .td #{locals.userDetail.city}    
+            .tr
+                .td State    
+                .td #{locals.userDetail.state}    
+            .tr
+                .td Mother tongue    
+                .td #{locals.userDetail.mother_tongue}    
+            .tr
+                .td Nationality    
+                .td #{locals.userDetail.nationality}    
+            .tr
+                .td Birthdate    
+                .td #{locals.userDetail.birthdate}    
+            .tr
+                .td Gender    
+                - if(locals.userDetail.gender == 'M') 
+                    .td Male
+                - else
+                    .td Female
+            
