@@ -196,6 +196,7 @@ define([
             var index = directChatMsg.length - 1;
             var messageDet = {}
             messageDet.userName = $(directChatMsg[0]).find('.direct-chat-name').text();
+            messageDet.profile_pic_url = $(directChatMsg[0]).find('.direct-chat-img').attr('src');
             $chat.animate({scrollTop: $chat.get(0).scrollHeight}, 1500);
             // console.log(directChatMsg);
 
@@ -208,11 +209,12 @@ define([
             });
             
             socket.on('new message', function(data){
-                console.log(data)
+                // console.log(data)
                 if(data !== '' && data !== undefined && data !== null){
                     var timeStamp = new Date(data.time);
                     $(directChatMsg[0]).find('.direct-chat-text').html(data.message);
                     $(directChatMsg[0]).find('.direct-chat-name').html(data.userName);
+                    $(directChatMsg[0]).find('.direct-chat-img').attr('src',data.profile_pic_url);
                     $(directChatMsg[0]).find('.direct-chat-timestamp').html(timeStamp.getHours()+":"+timeStamp.getMinutes()+":"+timeStamp.getSeconds());
                     //Append to view
                     $chat.append(directChatMsg[0].outerHTML);

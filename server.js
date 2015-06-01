@@ -73,7 +73,7 @@ app.get('/dashboard', loggedIn, router.adminDashboard);
 //User Profile
 app.get('/profile', loggedIn, router.userprofile);
 // get users
-app.get('/api/userlist',router.user);
+app.get('/api/userlist', router.user);
 // check user exist
 app.post('/api/userpresent',router.userpresent);
 //Add Users
