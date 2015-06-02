@@ -136,7 +136,7 @@ script(type='text/javascript').
             li
               img(src=value.profile_pic_url, alt='User Image')
               a.users-list-name(href='#') #{value.firstname}
-              span.users-list-date #{new Date(value.created_at).getDate()} / #{new Date(value.created_at).getMonth()+1} / #{new Date(value.created_at).getFullYear()}
+              span.users-list-date #{new Date(value.created_at).toDateString().split(' ')[1]} #{new Date(value.created_at).toDateString().split(' ')[2]}
         // /.users-list
       // /.box-body
       .box-footer.text-center
