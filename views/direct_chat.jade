@@ -29,50 +29,6 @@ script(type='text/javascript').
         .direct-chat-messages#chat
           // Message. Default to the left
           include direct_message
-              
-            // /.direct-chat-text
-          // /.direct-chat-msg
-          // Message to the right
-          //- .direct-chat-msg.right
-            .direct-chat-info.clearfix
-              span.direct-chat-name.pull-right Sarah Bullock
-              |                         
-              span.direct-chat-timestamp.pull-left 23 Jan 2:05 pm
-            // /.direct-chat-info
-            img.direct-chat-img(src='images/user3-128x128.jpg', alt='message user image')
-            // /.direct-chat-img
-            .direct-chat-text
-              | You better believe it!
-            // /.direct-chat-text
-          // /.direct-chat-msg
-          // Message. Default to the left
-          //- .direct-chat-msg
-            .direct-chat-info.clearfix
-              span.direct-chat-name.pull-left #{locals.userDetail.firstname}
-              |                         
-              span.direct-chat-timestamp.pull-right 23 Jan 5:37 pm
-            // /.direct-chat-info
-            img.direct-chat-img(src='images/user1-128x128.jpg', alt='message user image')
-            // /.direct-chat-img
-            .direct-chat-text
-              | Working with AdminLTE on a great new app! Wanna join?
-            // /.direct-chat-text
-          // /.direct-chat-msg
-          // Message to the right
-          //- .direct-chat-msg.right
-            .direct-chat-info.clearfix
-              span.direct-chat-name.pull-right Sarah Bullock
-              |                         
-              span.direct-chat-timestamp.pull-left 23 Jan 6:10 pm
-            // /.direct-chat-info
-            img.direct-chat-img(src='images/user3-128x128.jpg', alt='message user image')
-            // /.direct-chat-img
-            .direct-chat-text
-              | I would love to.
-            // /.direct-chat-text
-          // /.direct-chat-msg
-        // /.direct-chat-messages
-        // Contacts are loaded here
         .direct-chat-contacts
           ul.contacts-list
             li
@@ -176,61 +132,11 @@ script(type='text/javascript').
       // /.box-header
       .box-body.no-padding
         ul.users-list.clearfix
-          li
-            img(src=locals.userDetail.profile_pic_url, alt='User Image')
-            |                       
-            a.users-list-name(href='#') #{locals.userDetail.firstname}
-            |                       
-            span.users-list-date Today
-          |                     
-          li
-            img(src='images/user8-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Norman
-            |                       
-            span.users-list-date Yesterday
-          |                     
-          li
-            img(src='images/user7-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Jane
-            |                       
-            span.users-list-date 12 Jan
-          |                     
-          li
-            img(src='images/user6-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') John
-            |                       
-            span.users-list-date 12 Jan
-          |                     
-          li
-            img(src='images/user2-160x160.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Alexander
-            |                       
-            span.users-list-date 13 Jan
-          |                     
-          li
-            img(src='images/user5-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Sarah
-            |                       
-            span.users-list-date 14 Jan
-          |                     
-          li
-            img(src='images/user4-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Nora
-            |                       
-            span.users-list-date 15 Jan
-          |                     
-          li
-            img(src='images/user3-128x128.jpg', alt='User Image')
-            |                       
-            a.users-list-name(href='#') Nadia
-            |                       
-            span.users-list-date 15 Jan
+          each value in locals.allUsers
+            li
+              img(src=value.profile_pic_url, alt='User Image')
+              a.users-list-name(href='#') #{value.firstname}
+              span.users-list-date #{new Date(value.created_at).toDateString().split(' ')[1]} #{new Date(value.created_at).toDateString().split(' ')[2]}
         // /.users-list
       // /.box-body
       .box-footer.text-center

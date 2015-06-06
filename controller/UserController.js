@@ -89,7 +89,7 @@ UserController.prototype.editUserByName = function (username, user) {
             }
         });
     });
-}; 
+};
 
 UserController.prototype.deleteUser = function (id) {
     return new Promise(function (resolve, reject) {
@@ -119,4 +119,17 @@ UserController.prototype.editUser = function (id, User) {
     });
 };
 
-module.exports = { 'UserController': new UserController() }
+UserController.prototype.getUserByLimit = function (limit) {
+    return new Promise(function (resolve, reject) {
+        userModel.find().sort({_id:1}).limit(limit).lean().exec(function (err, users) {
+            if (err) {
+                console.log('Error fetching all users.');
+                reject(err);
+            } else {
+                resolve(users);
+            }
+        })
+    });
+};
+
+module.exports = { 'UserController': new UserController() };

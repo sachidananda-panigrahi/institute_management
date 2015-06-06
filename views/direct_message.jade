@@ -9,5 +9,5 @@ each value, index in locals.chats
 		.direct-chat-info.clearfix
 			span.direct-chat-name.pull-left #{value.user_name}
 			span.direct-chat-timestamp.pull-right #{new Date(value.msg_time).getHours()+":"+new Date(value.msg_time).getMinutes()+":"+new Date(value.msg_time).getSeconds()}
-		img.direct-chat-img(src=locals.userDetail.profile_pic_url, alt='message user image')
+		img.direct-chat-img(src=value.profile_pic_url, alt='message user image')
 		.direct-chat-text #{value.msg_content}
