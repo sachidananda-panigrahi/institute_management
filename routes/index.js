@@ -86,6 +86,11 @@ module.exports.studentSignup = function(req, res){
     locals.months = CONSTANT.MONTHS;
     res.render('signup', locals);
 };
+/*=======================Angular Starts==================================*/
+module.exports.angularPage = function(req, res){
+    res.render('index', locals);
+};
+/*=======================Angular Ends==================================*/
 /*=======================Store Chat Starts==================================*/
 module.exports.chat = function(data){
     var chatController = require('../controller/ChatController').ChatController;

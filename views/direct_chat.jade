@@ -5,8 +5,8 @@ script(type='text/javascript').
   //-    localStorage.setItem('locals', JSON.parse(locals));
   //- }
 // /.row
-.row
-  .col-md-4
+.row(ng-app='myApp')
+  .col-md-4( ng-controller= 'myCtrl as controller' )
     // DIRECT CHAT
     .box.box-warning.direct-chat.direct-chat-warning
       .box-header.with-border
@@ -29,6 +29,7 @@ script(type='text/javascript').
         .direct-chat-messages#chat
           // Message. Default to the left
           include direct_message
+          span {{controller.greet}}
         .direct-chat-contacts
           ul.contacts-list
             li
@@ -109,7 +110,7 @@ script(type='text/javascript').
       .box-footer
         form#send-message(onsubmit="return false;")
           .input-group
-            input.form-control#message(type='text', name='message', placeholder='Type Message ...')
+            input.form-control#message(type='text', name='message', placeholder='Type Message ...', ng-model='controller.greet')
             span.input-group-btn
               button.btn.btn-warning.btn-flat(type='submit') Send
       // /.box-footer

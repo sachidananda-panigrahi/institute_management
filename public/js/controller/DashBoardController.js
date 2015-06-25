@@ -15,22 +15,32 @@ define([
     'js/lib/pages/dashboard2.js',
     'js/lib/demo.js',*/
     // 'js/lib/socket.io-1.2.0.js',
-    'socketIo',
     'LIB',
-    /*'js/lib/jquery.validate.min.js'*/], 
-    function(CONSTANT,io,LIB){
+     'socketIo'
+//     'js/lib/angular.min'
+    /*'js/lib/jquery.validate.min.js'*/],
+    function(CONSTANT,LIB, io){
 	'use strict';
     	function DashBoardController(){
     		console.log('dashBoardController instantiated...');
             this.user();
             this.sparklineChat();
             this.directChat();
+//            this.angularModule();
             
     	}
 
         DashBoardController.prototype.user = function(){
             console.log('dashBoardController user Called...');
-        }
+
+        };
+        DashBoardController.prototype.angularModule = function(){
+            angular.module('myApp',[])
+                .controller('myCtrl', function myCtrl() {
+                    var first = this;
+                    first.greet = 'Hi'
+                })
+        };
 
         DashBoardController.prototype.sparklineChat = function(){
             console.log('dashBoardController sparklineChat Called...');

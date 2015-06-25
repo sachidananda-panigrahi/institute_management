@@ -30,6 +30,7 @@ require.config({
     waitSeconds: 1000,
     paths: {
         'socketIo' : 'js/lib/socket.io-1.2.0',
-        "LIB" : "js/build/production.min"
+        "LIB" : "js/build/production.min",
+        "Angular" : "js/lib/angular.min"
     }
 });

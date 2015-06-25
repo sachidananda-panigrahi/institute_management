@@ -1,3 +1,5 @@
+//
+   Created by sachidananda.panigra on 6/25/2015.
 doctype html
 html(ng-app='myApp')
     head#www-institute_mgt-com(data-template-set='html5-reset')
@@ -23,11 +25,13 @@ html(ng-app='myApp')
         //if lt IE 9
           script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
         // Require + jQuery Library
-        script(type='text/javascript', src='js/lib/require-jquery.js')
-        //- script(type='text/javascript', src='js/build/production.min.js')
+        //script(type='text/javascript', src='js/lib/require-jquery.js')
+        //script(type='text/javascript', src='js/build/production.min.js')
         // jQuery 2.0.2
         //- script(src='js/lib/jquery.min.js', type='text/javascript')
         // Require Library
         //- script(src='js/lib/require.js', type='text/javascript')
+        script(src='js/lib/angular.min.js', type='text/javascript')
+        script(src='js/controller/IndexController.js', type='text/javascript')
     // Body Start
     body.skin-blue
