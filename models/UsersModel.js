@@ -4,20 +4,20 @@ var CONSTANT = require('../utilities/Constant').CONSTANTS;
 
 // Model Definition
 var userSchema = new mongoose.Schema({
-    firstname: {type: String},
-    lastname: {type: String},
+    firstName: {type: String},
+    lastName: {type: String},
     email: {type: String},
     mobile: {type: Number},
     city: {type: String},
     state: {type: String},
-    mother_tongue: {type: String},
+    motherTongue: {type: String},
     nationality: {type: String},
     password: {type: String},
-    birthdate: {type: Date},
+    birthDate: {type: Date},
     gender: {type: String},
-    created_at: {type: Date},
-    profile_pic: { type: String },
-    profile_pic_url: { type: String },
+    createdAt: {type: Date},
+    profilePic: { type: String },
+    profilePicUrl: { type: String },
     status: {type: String}
 });
 

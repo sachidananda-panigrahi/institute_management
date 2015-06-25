@@ -34,7 +34,7 @@ script(type='text/javascript').
           ul.contacts-list
             li
               a(href='#')
-                img.contacts-list-img(src=locals.userDetail.profile_pic_url)
+                img.contacts-list-img(src=locals.userDetail.profilePicUrl)
                 |                           
                 .contacts-list-info
                   span.contacts-list-name
@@ -135,8 +135,8 @@ script(type='text/javascript').
         ul.users-list.clearfix
           each value in locals.allUsers
             li
-              img(src=value.profile_pic_url, alt='User Image')
-              a.users-list-name(href='#') #{value.firstname}
+              img(src=value.profilePicUrl, alt='User Image')
+              a.users-list-name(href='#') #{value.firstName}
               span.users-list-date #{new Date(value.created_at).toDateString().split(' ')[1]} #{new Date(value.created_at).toDateString().split(' ')[2]}
         // /.users-list
       // /.box-body

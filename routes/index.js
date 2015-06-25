@@ -38,7 +38,7 @@ module.exports.adminDashboard = function(req, res){
             if(users){
                 // console.log(users);
                 for (var index in users) {
-                    if(new Date(users[index].created_at).getMonth() == new Date().getMonth()){
+                    if(new Date(users[index].createdAt).getMonth() == new Date().getMonth()){
                         locals.new_members ++;
                         // console.log(locals.new_members)
                     }
@@ -60,12 +60,16 @@ module.exports.adminDashboard = function(req, res){
     };
 
     renderDashboardData.prototype.base64ToImageFile = function(that){
-        var buff = new Buffer(req.user.profile_pic
-            .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
-        fs.writeFile('public/images/user/user_profile.jpg', buff, function (err) {
-            // console.log(locals.userDetail.profile_pic_url);
+        if(req.user.profilePic){
+            var buff = new Buffer(req.user.profilePic
+                .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
+            fs.writeFile('public/images/user/user_profile.jpg', buff, function (err) {
+                // console.log(locals.userDetail.profile_pic_url);
+                that.getLimitedUser(8);
+            });
+        }else{
             that.getLimitedUser(8);
-        });
+        }
     };
 
     renderDashboardData.prototype.getLimitedUser = function(limit){
@@ -163,20 +167,20 @@ module.exports.addNewUser = function(req, res){
                             console.log(err);
                         }else{
                             var createUser = {
-                                firstname: fieldsObj.firstname,
-                                lastname: fieldsObj.lastname,
+                                firstName: fieldsObj.firstname,
+                                lastName: fieldsObj.lastname,
                                 email: fieldsObj.email,
                                 mobile: fieldsObj.mobile,
                                 city: fieldsObj.city,
                                 state: fieldsObj.state,
-                                mother_tongue: fieldsObj.mother_tongue,
+                                motherTongue: fieldsObj.mother_tongue,
                                 nationality: fieldsObj.nationality,
                                 password: bCrypt.hashSync(fieldsObj.password, bCrypt.genSaltSync(8), null),
-                                birthdate: new Date(parseInt(fieldsObj.year), parseInt(fieldsObj.month)-1, parseInt(fieldsObj.day), 12, 00, 00),
+                                birthDate: new Date(parseInt(fieldsObj.year), parseInt(fieldsObj.month)-1, parseInt(fieldsObj.day), 12, 00, 00),
                                 gender: fieldsObj.gender,
-                                created_at: new Date(),
-                                profile_pic: "data:image/png;base64, " + base64data,
-                                profile_pic_url: path,
+                                createdAt: new Date(),
+                                profilePic: "data:image/png;base64, " + base64data,
+                                profilePicUrl: path,
                                 status: 'active'
                             };
 

@@ -29,7 +29,7 @@ header.main-header
                   // start message
                   a(href='#')
                     .pull-left
-                      img.img-circle(src=locals.userDetail.profile_pic_url, alt='User Image')
+                      img.img-circle(src=locals.userDetail.profilePicUrl, alt='User Image')
                     |                           
                     h4
                       | Support Team
@@ -42,7 +42,7 @@ header.main-header
                 li
                   a(href='#')
                     .pull-left
-                      img.img-circle(src=locals.userDetail.profile_pic_url, alt='user image')
+                      img.img-circle(src=locals.userDetail.profilePicUrl, alt='user image')
                     |                           
                     h4
                       | AdminLTE Design Team
@@ -55,7 +55,7 @@ header.main-header
                 li
                   a(href='#')
                     .pull-left
-                      img.img-circle(src=locals.userDetail.profile_pic_url, alt='user image')
+                      img.img-circle(src=locals.userDetail.profilePicUrl, alt='user image')
                     |                           
                     h4
                       | Developers
@@ -68,7 +68,7 @@ header.main-header
                 li
                   a(href='#')
                     .pull-left
-                      img.img-circle(src=locals.userDetail.profile_pic_url, alt='user image')
+                      img.img-circle(src=locals.userDetail.profilePicUrl, alt='user image')
                     |                           
                     h4
                       | Sales Department
@@ -81,7 +81,7 @@ header.main-header
                 li
                   a(href='#')
                     .pull-left
-                      img.img-circle(src=locals.userDetail.profile_pic_url, alt='user image')
+                      img.img-circle(src=locals.userDetail.profilePicUrl, alt='user image')
                     |                           
                     h4
                       | Reviewers
@@ -196,17 +196,17 @@ header.main-header
         // User Account: style can be found in dropdown.less
         li.dropdown.user.user-menu
           a.dropdown-toggle(href='#', data-toggle='dropdown')
-            img.user-image(src=locals.userDetail.profile_pic_url, alt='User Image')
+            img.user-image(src=locals.userDetail.profilePicUrl, alt='User Image')
             |                   
-            span.hidden-xs #{locals.userDetail.firstname}
+            span.hidden-xs #{locals.userDetail.firstName}
           |                 
           ul.dropdown-menu
             // User image
             li.user-header
-              img.img-circle(src=locals.userDetail.profile_pic_url, alt='User Image')
+              img.img-circle(src=locals.userDetail.profilePicUrl, alt='User Image')
               |                     
               p
-                | #{locals.userDetail.firstname} - Web Developer
+                | #{locals.userDetail.firstName} - Web Developer
                 small Member since #{ new Date(locals.userDetail.birthdate).getFullYear()}
             // Menu Body
               .col-xs-4.text-center

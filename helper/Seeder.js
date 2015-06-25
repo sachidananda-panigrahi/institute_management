@@ -22,18 +22,18 @@ function populateDB() {
     
     var allUsers = [
         {
-            firstname: 'Sachidananda',
-            lastname: 'Panigrahi',
+            firstName: 'Sachidananda',
+            lastName: 'Panigrahi',
             email: 'snpanigrahi88@gmail.com',
             mobile: 8857928163,
             city: 'Bhadrak',
             state: 'Odisha',
-            mother_tongue: 'Odiya',
+            motherTongue: 'Odiya',
             nationality: 'Indian',
             password: bcrypt.hashSync('sachin', bcrypt.genSaltSync(8), null),
-            birthdate: new Date(1988, 03, 24, 12, 00, 00),
+            birthDate: new Date(1988, 03, 24, 12, 00, 00),
             gender: 'M',
-            created_at: new Date(),
+            createdAt: new Date(),
             status: 'active'
 
         }
@@ -60,7 +60,7 @@ function populateDB() {
                     }else{                        
                         console.log(users.length + ' users exist.');                        
                         var resultObj = objectFindByKeyAndValue(users, 'role', 'superadmin');                                                                            
-                        locals.user_id=resultObj    ._id;
+                        locals.user_id=resultObj._id;
                         callback(); 
                     }
                 }

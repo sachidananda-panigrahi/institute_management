@@ -17,10 +17,10 @@ script(type='text/javascript').
             .tr
                 .td Profile Picture
                 .td 
-                    img(src=locals.userDetail.profile_pic_url, alt='User Image') 
+                    img(src=locals.userDetail.profilePicUrl, alt='User Image')
             .tr
                 .td Name    
-                .td #{locals.userDetail.firstname} #{locals.userDetail.lastname}
+                .td #{locals.userDetail.firstName} #{locals.userDetail.lastName}
             .tr
                 .td Mobile Number    
                 .td #{locals.userDetail.mobile}
@@ -32,13 +32,13 @@ script(type='text/javascript').
                 .td #{locals.userDetail.state}    
             .tr
                 .td Mother tongue    
-                .td #{locals.userDetail.mother_tongue}    
+                .td #{locals.userDetail.motherTongue}
             .tr
                 .td Nationality    
                 .td #{locals.userDetail.nationality}    
             .tr
                 .td Birthdate    
-                .td #{new Date(locals.userDetail.birthdate).toDateString()}    
+                .td #{new Date(locals.userDetail.birthDate).toDateString()}
             .tr
                 .td Gender    
                 - if(locals.userDetail.gender == 'M') 

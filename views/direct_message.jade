@@ -1,13 +1,13 @@
 .direct-chat-msg.hide
 	.direct-chat-info.clearfix
-		span.direct-chat-name.pull-left #{locals.userDetail.firstname}
+		span.direct-chat-name.pull-left #{locals.userDetail.firstName}
 		span.direct-chat-timestamp.pull-right #{new Date()}
-	img.direct-chat-img(src=locals.userDetail.profile_pic_url, alt='message user image')
+	img.direct-chat-img(src=locals.userDetail.profilePicUrl, alt='message user image')
 	.direct-chat-text
 each value, index in locals.chats
-	div(class="#{locals.userDetail.firstname === value.user_name ? 'direct-chat-msg' : 'direct-chat-msg right'}")
+	div(class="#{locals.userDetail.firstName === value.user_name ? 'direct-chat-msg' : 'direct-chat-msg right'}")
 		.direct-chat-info.clearfix
 			span.direct-chat-name.pull-left #{value.user_name}
 			span.direct-chat-timestamp.pull-right #{new Date(value.msg_time).getHours()+":"+new Date(value.msg_time).getMinutes()+":"+new Date(value.msg_time).getSeconds()}
-		img.direct-chat-img(src=value.profile_pic_url, alt='message user image')
+		img.direct-chat-img(src=value.profilePicUrl, alt='message user image')
 		.direct-chat-text #{value.msg_content}
