@@ -14,3 +14,10 @@ MyProject.komodoproject
 node_modules/*
 data/
 data/*
+log/
+log/*
+nbproject/
+.idea/
+.sass-cache/
+node_modules/*
+bower_components/*

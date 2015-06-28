@@ -9,10 +9,12 @@ include navigation
                 input(type='search' class='form-control' placeholder='Search' ng-model='query' )
                 table#mytable.table.table-bordred.table-striped
                     thead
-                        th( ng-repeat= '(usersKey, usersValue)  in user[0] | keyFilter: "__v" | keyFilter: "_id" | keyFilter: "password" | keyFilter: "password"  | keyFilter: "profilePic" | keyFilter: "profilePicUrl" | keyFilter: "status"  ' ) {{usersKey | labelCase }}
+                        th( ng-click='sort(usersKey)' ng-repeat= '(usersKey, usersValue)  in user[0] | keyFilter: "__v" | keyFilter: "_id" | keyFilter: "createdAt" | keyFilter: "motherTongue" | keyFilter: "password"| keyFilter: "nationality" | keyFilter: "password"  | keyFilter: "profilePic" | keyFilter: "profilePicUrl" | keyFilter: "status" | orderBy: "firstName" ' ) {{usersKey | labelCase }}
+                            span( ng-show='sort.field === usersKey  && !sort.order' class='glyphicon glyphicon-chevron-down' )
+                            span( ng-show='sort.field === usersKey  && sort.order' class='glyphicon glyphicon-chevron-up' )
                     tbody
-                        tr( ng-repeat= '(usersKey, usersValue) in user | filter: query ' )
-                            td( ng-repeat= 'userDet in usersValue | keyFilter: "__v" | keyFilter: "_id" | keyFilter: "password" | keyFilter: "password"  | keyFilter: "profilePic" | keyFilter: "profilePicUrl" | keyFilter: "status" ' ) {{userDet | dateFilter | genderFilter }}
+                        tr( dir-paginate= '(usersKey, usersValue) in user | filter: query | itemsPerPage: pageSize | orderBy: sort.field : sort.order ' current-page="currentPage" )
+                            td( ng-repeat= 'userDet in usersValue | keyFilter: "__v" | keyFilter: "_id" | keyFilter: "password" | keyFilter: "createdAt" | keyFilter: "motherTongue"| keyFilter: "nationality" | keyFilter: "password"  | keyFilter: "profilePic" | keyFilter: "profilePicUrl" | keyFilter: "status" ' ) {{userDet | dateFilter | genderFilter }}
                             td
                                 p(data-placement='top', data-toggle='tooltip', title='Edit')
                                     button.btn.btn-primary.btn-xs(data-title='Edit', data-toggle='modal', data-target='#edit')
@@ -23,23 +25,8 @@ include navigation
                                         span.glyphicon.glyphicon-trash
 
                 .clearfix
-                ul.pagination.pull-right
-                    li.disabled
-                        a(href='#')
-                            span.glyphicon.glyphicon-chevron-left
-                    li.active
-                        a(href='#') 1
-                    li
-                        a(href='#') 2
-                    li
-                        a(href='#') 3
-                    li
-                        a(href='#') 4
-                    li
-                        a(href='#') 5
-                    li
-                        a(href='#')
-                            span.glyphicon.glyphicon-chevron-right
+                ul.pagination.pull-right(dir-pagination-controls)
+
     #edit.modal.fade(tabindex='-1', role='dialog', aria-labelledby='edit', aria-hidden='true')
         .modal-dialog
             .modal-content

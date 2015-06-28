@@ -43,7 +43,7 @@ function populateDB() {
         function(callback){
             userModel.find({}, function (err, users) {
                 if (users) {
-                    console.log('Users : ' + users.length);
+                    // console.log('Users : ' + users.length);
                     if (users.length === 0) {
                         var allUsersLength = allUsers.length;                            
                         async.forEach(allUsers, function(eachUser, callback) {                    
@@ -58,7 +58,7 @@ function populateDB() {
                         }, callback); 
                         
                     }else{                        
-                        console.log(users.length + ' users exist.');                        
+                        // console.log(users.length + ' users exist.');                        
                         var resultObj = objectFindByKeyAndValue(users, 'role', 'superadmin');                                                                            
                         locals.user_id=resultObj._id;
                         callback(); 

@@ -9,7 +9,7 @@ function UserController() {
 
 UserController.prototype.getAllUsers = function (userId) {
     return new Promise(function (resolve, reject) {
-        userModel.find({status:'active',_id: {'$ne': userId }}).lean().exec(function (err, users) {
+        userModel.find({_id: {'$ne': userId }}).lean().exec(function (err, users) {
             if (err) {
                 console.log('Error fetching all users.');
                 reject(err);

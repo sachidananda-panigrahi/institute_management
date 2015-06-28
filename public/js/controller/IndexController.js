@@ -2,7 +2,7 @@
  * Created by sachidananda.panigra on 6/25/2015.
  */
 console.log('IndexController loaded...');
-var app = angular.module('myApp',[]);
+var app = angular.module('myApp',['angularUtils.directives.dirPagination']);
 
 /*======= Factories =======*/
 app.factory('getService', function($http) {
@@ -75,7 +75,8 @@ app.filter('keyFilter', function () {
 
 /*======= Controllers =======*/
 app.controller('userCtrl', function userCtrl($scope, $http, getService) {
-    $scope.greet = 'Hi';
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;
     var userListURL = "/api/userlist";
 
     var myDataPromise = getService.getData(userListURL);
@@ -83,5 +84,13 @@ app.controller('userCtrl', function userCtrl($scope, $http, getService) {
         $scope.user = result;
 //        console.log(result);
     });
+
+    $scope.sort = function (field) {
+        $scope.sort.field = field;
+        $scope.sort.order = !$scope.sort.order;
+    };
+
+//    $scope.sort.field = 'birthDate';
+//    $scope.sort.order = false;
 
 });
