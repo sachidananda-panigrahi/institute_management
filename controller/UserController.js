@@ -121,7 +121,7 @@ UserController.prototype.editUser = function (id, User) {
 
 UserController.prototype.getUserByLimit = function (limit) {
     return new Promise(function (resolve, reject) {
-        userModel.find().sort({_id:1}).limit(limit).lean().exec(function (err, users) {
+        userModel.find().limit(limit).sort({_id:1}).lean().exec(function (err, users) {
             if (err) {
                 console.log('Error fetching all users.');
                 reject(err);
