@@ -129,9 +129,9 @@ $(function () {
 
 function change_layout(cls) {
   $("body").toggleClass(cls);
-  $.AdminLTE.layout.fixSidebar();  
+  $.AdminLTE.layout.fixSidebar();
 }
-function change_skin(cls) {  
+function change_skin(cls) {
   $.each(my_skins, function (i) {
     $("body").removeClass(my_skins[i]);
   });
