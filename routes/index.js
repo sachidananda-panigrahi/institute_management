@@ -7,7 +7,12 @@ locals = {};
 
 
 module.exports.login = function (req, res) {
-    res.render('login', {message: req.flash('loginMessage'), pagetitle: 'Login', passchange: req.flash('passchange')});
+    if(!req.user){
+        res.render('login', {message: req.flash('loginMessage'), pagetitle: 'Login', passchange: req.flash('passchange')});
+    }else{
+        res.redirect('/dashboard');
+    }
+
 };
 
 module.exports.logout = function (req, res) {

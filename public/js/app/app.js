@@ -1,18 +1,16 @@
-angular.module('AdminDashBoard', ['ngRoute', 'ngResource', 'ngMessages'])
+angular.module('AdminDashBoard', ['ngRoute', 'ngResource', 'ngMessages', 'ui.bootstrap'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/dashboard', {
                 controller: 'ListController',
-                templateUrl: 'views/angular_views/main_content.html'
+                templateUrl: 'views/main_content.html'
+            })
+            .when('/userList', {
+                controller: 'UserController',
+                templateUrl: 'views/user.html'
             })
             .otherwise({
                 redirectTo: '/dashboard'
             });
         $locationProvider.html5Mode(true);
-    })
-    .value('options', {})
-    .run(function (options, Fields) {
-        Fields.get().success(function (data) {
-            options.displayed_fields = data;
-        });
     });
