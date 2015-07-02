@@ -16,7 +16,7 @@ angular.module('AdminDashBoard')
             $location.url('/contact/' + id);
         };
     })
-    .controller('NewController', function ($scope, $rootScope, Contact, $location) {
+    /*.controller('NewController', function ($scope, $rootScope, Contact, $location) {
         $rootScope.PAGE = "new";
         $scope.contact = new Contact({
             firstName: ['', 'text'],
@@ -67,4 +67,4 @@ angular.module('AdminDashBoard')
 
             Fields.set(options.displayed_fields);
         };
-    });
+    })*/;
