@@ -1,5 +1,5 @@
 angular.module('AdminDashBoard', ['ngRoute', 'ngResource', 'ngMessages', 'ui.bootstrap'])
-    .config(function ($routeProvider, $locationProvider) {
+    .config(function ($routeProvider, $locationProvider, $route) {
         $routeProvider
             .when('/dashboard', {
                 controller: 'ListController',
@@ -12,5 +12,6 @@ angular.module('AdminDashBoard', ['ngRoute', 'ngResource', 'ngMessages', 'ui.boo
             .otherwise({
                 redirectTo: '/dashboard'
             });
+        $route.reload();
         $locationProvider.html5Mode(true);
     });

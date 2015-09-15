@@ -82,7 +82,7 @@ module.exports.adminDashboard = function(req, res){
             if(users){
 //                console.log(users);
                 locals.allUsers = users;
-                res.sendfile('views/angular_views/index.html', locals);
+                res.sendfile('views/angular_views/index.html', {"root": "."});
             }
         });
     };

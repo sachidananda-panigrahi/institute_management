@@ -3,5 +3,5 @@ angular.module('AdminDashBoard')
         $rootScope.PAGE = "all";
 
     }).controller('UserController', function ($scope, $rootScope, $location) {
-
+        $rootScope.PAGE = "single";
     });
